@@ -22,8 +22,6 @@ namespace HotelCore.dominio.entidades.Objetos
     
         public int id_Publicidad { get; set; }
         public string link_Publicidad { get; set; }
-        public System.Guid fileIDimagen_Publicidad { get; set; }
-        public byte[] imagen_Publicidad { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HotelPublicidad> HotelPublicidad { get; set; }

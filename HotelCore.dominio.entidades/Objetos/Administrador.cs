@@ -23,8 +23,10 @@ namespace HotelCore.dominio.entidades.Objetos
         public int id_Administrador { get; set; }
         public string usuario_Administrador { get; set; }
         public string contrasenna_Administrador { get; set; }
+        public int rol_Administrador { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HotelAdministrador> HotelAdministrador { get; set; }
+        public virtual Rol Rol { get; set; }
     }
 }

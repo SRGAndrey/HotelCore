@@ -38,15 +38,5 @@ public class RepositorioHotel : IRepositorioHotel
         List<Hotel> hoteles = db.Hotel.ToList();
         return hoteles;
     }
-
-    Hotel IRepositorioHotel.obtenerHotel(string nombre)
-    {
-        throw new NotImplementedException();
-    }
-
-    List<Hotel> IRepositorioHotel.obtenerHoteles()
-    {
-        throw new NotImplementedException();
-    }
 }
 

@@ -37,5 +37,8 @@ namespace HotelCore.infraestructura.datos.Modelo
         public virtual DbSet<HotelPublicidad> HotelPublicidad { get; set; }
         public virtual DbSet<Publicidad> Publicidad { get; set; }
         public virtual DbSet<Reservacion> Reservacion { get; set; }
+        public virtual DbSet<Rol> Rol { get; set; }
+        public virtual DbSet<Tipo_Habitacion> Tipo_Habitacion { get; set; }
+        public virtual DbSet<Imagen> Imagen { get; set; }
     }
 }

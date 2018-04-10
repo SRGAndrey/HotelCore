@@ -12,21 +12,22 @@
           <Property Name="id_Administrador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="usuario_Administrador" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="contrasenna_Administrador" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="rol_Administrador" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Caracteristica">
           <Key>
             <PropertyRef Name="id_Caracteristica" />
           </Key>
           <Property Name="id_Caracteristica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="descripcion_Caracteristica" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="descripcion_Caracteristica" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Caracteristica_Habitacion">
           <Key>
             <PropertyRef Name="id_Caracteristica_Habitacion" />
           </Key>
           <Property Name="id_Caracteristica_Habitacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idHabitacion_Caracteristica_Habitacion" Type="int" Nullable="false" />
           <Property Name="idCaracteristica_Caracteristica_Habitacion" Type="int" Nullable="false" />
+          <Property Name="tipo_Habitacion_Caracteristica_Habitacion" Type="varchar" MaxLength="15" Nullable="false" />
         </EntityType>
         <EntityType Name="Cliente">
           <Key>
@@ -43,9 +44,7 @@
             <PropertyRef Name="id_Facilidad" />
           </Key>
           <Property Name="id_Facilidad" Type="varchar" MaxLength="25" Nullable="false" />
-          <Property Name="descripcion_Facilidad" Type="varchar" MaxLength="350" Nullable="false" />
-          <Property Name="fileIDimagen_Facilidad" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="imagen_Facilidad" Type="varbinary(max)" />
+          <Property Name="descripcion_Facilidad" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="hotel_Facilidad" Type="varchar" MaxLength="25" />
         </EntityType>
         <EntityType Name="Habitacion">
@@ -53,29 +52,22 @@
             <PropertyRef Name="numero_Habitacion" />
           </Key>
           <Property Name="numero_Habitacion" Type="int" Nullable="false" />
-          <Property Name="tipo_Habitacion" Type="varchar" MaxLength="9" Nullable="false" />
-          <Property Name="descripcion_Habitacion" Type="varchar" MaxLength="350" Nullable="false" />
           <Property Name="estado_Habitacion" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="tarifa" Type="float" Nullable="false" />
-          <Property Name="fileIDimagen_Habitacion" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="imagen_Habitacion" Type="varbinary(max)" />
-          <Property Name="hotel_Habitacion" Type="varchar" MaxLength="25" />
+          <Property Name="tipo_Habitacion_Habitacion" Type="varchar" MaxLength="15" Nullable="false" />
         </EntityType>
         <EntityType Name="Hotel">
           <Key>
             <PropertyRef Name="nombre_Hotel" />
           </Key>
           <Property Name="nombre_Hotel" Type="varchar" MaxLength="25" Nullable="false" />
-          <Property Name="descripcion_Hotel" Type="varchar" MaxLength="350" Nullable="false" />
-          <Property Name="fileIDimagen_Hotel" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="imagen_Hotel" Type="varbinary(max)" />
-          <Property Name="latitud_Hotel" Type="float" Nullable="false" />
-          <Property Name="longitud_Hotel" Type="float" Nullable="false" />
-          <Property Name="comoLlegar_Hotel" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="descripcion_Hotel" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="sobreNosotros_Hotel" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="latitud_Hotel" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="longitud_Hotel" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="comoLlegar_Hotel" Type="varchar" MaxLength="350" Nullable="false" />
           <Property Name="telefono_Hotel" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="aptoPostal_Hotel" Type="int" />
           <Property Name="email_Hotel" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="sobreNosotros" Type="varchar" MaxLength="75" />
         </EntityType>
         <EntityType Name="HotelAdministrador">
           <Key>
@@ -93,14 +85,26 @@
           <Property Name="idPublicidad_HotelPublicidad" Type="int" Nullable="false" />
           <Property Name="Hotel_HotelPublicidad" Type="varchar" MaxLength="25" Nullable="false" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'HotelDB.dbo.Imagen' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Imagen">
+          <Key>
+            <PropertyRef Name="id_Imagen" />
+            <PropertyRef Name="idEntidad_Imagen" />
+            <PropertyRef Name="fileID_Imagen" />
+          </Key>
+          <Property Name="id_Imagen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idEntidad_Imagen" Type="int" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="varchar" MaxLength="25" />
+          <Property Name="fileID_Imagen" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="Publicidad">
           <Key>
             <PropertyRef Name="id_Publicidad" />
           </Key>
           <Property Name="id_Publicidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="link_Publicidad" Type="varchar" MaxLength="25" Nullable="false" />
-          <Property Name="fileIDimagen_Publicidad" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="imagen_Publicidad" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Reservacion">
           <Key>
@@ -111,6 +115,23 @@
           <Property Name="fechaSalida_Reservacion" Type="smalldatetime" Nullable="false" />
           <Property Name="idHabitacion_Reservacion" Type="int" Nullable="false" />
           <Property Name="idCliente_Reservacion" Type="varchar" MaxLength="12" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="id_Rol" />
+          </Key>
+          <Property Name="id_Rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo_Rol" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="descripcion_Rol" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tipo_Habitacion">
+          <Key>
+            <PropertyRef Name="nombre_Tipo_Habitacion" />
+          </Key>
+          <Property Name="nombre_Tipo_Habitacion" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="tarifa_Tipo_Habitacion" Type="float" Nullable="false" />
+          <Property Name="descripcion_Tipo_Habitacion" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="hotel_Tipo_Habitacion" Type="varchar" MaxLength="25" />
         </EntityType>
         <Association Name="FK_Administrador">
           <End Role="Administrador" Type="Self.Administrador" Multiplicity="1" />
@@ -136,6 +157,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Caracteristica_Habitacion">
+          <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="1" />
+          <End Role="Caracteristica_Habitacion" Type="Self.Caracteristica_Habitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Habitacion">
+              <PropertyRef Name="nombre_Tipo_Habitacion" />
+            </Principal>
+            <Dependent Role="Caracteristica_Habitacion">
+              <PropertyRef Name="tipo_Habitacion_Caracteristica_Habitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Cliente">
           <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
           <End Role="Reservacion" Type="Self.Reservacion" Multiplicity="*" />
@@ -145,18 +178,6 @@
             </Principal>
             <Dependent Role="Reservacion">
               <PropertyRef Name="idCliente_Reservacion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Habitacion">
-          <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="1" />
-          <End Role="Caracteristica_Habitacion" Type="Self.Caracteristica_Habitacion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Habitacion">
-              <PropertyRef Name="numero_Habitacion" />
-            </Principal>
-            <Dependent Role="Caracteristica_Habitacion">
-              <PropertyRef Name="idHabitacion_Caracteristica_Habitacion" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -196,18 +217,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_HotelHabitacion">
-          <End Role="Hotel" Type="Self.Hotel" Multiplicity="0..1" />
-          <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Hotel">
-              <PropertyRef Name="nombre_Hotel" />
-            </Principal>
-            <Dependent Role="Habitacion">
-              <PropertyRef Name="hotel_Habitacion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_HotelPublicidad">
           <End Role="Hotel" Type="Self.Hotel" Multiplicity="1" />
           <End Role="HotelPublicidad" Type="Self.HotelPublicidad" Multiplicity="*" />
@@ -217,6 +226,18 @@
             </Principal>
             <Dependent Role="HotelPublicidad">
               <PropertyRef Name="Hotel_HotelPublicidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelTipoHabitacion">
+          <End Role="Hotel" Type="Self.Hotel" Multiplicity="0..1" />
+          <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="nombre_Hotel" />
+            </Principal>
+            <Dependent Role="Tipo_Habitacion">
+              <PropertyRef Name="hotel_Tipo_Habitacion" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -232,6 +253,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_RolAdministrador">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+          <End Role="Administrador" Type="Self.Administrador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="id_Rol" />
+            </Principal>
+            <Dependent Role="Administrador">
+              <PropertyRef Name="rol_Administrador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoHabitacion">
+          <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="1" />
+          <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Habitacion">
+              <PropertyRef Name="nombre_Tipo_Habitacion" />
+            </Principal>
+            <Dependent Role="Habitacion">
+              <PropertyRef Name="tipo_Habitacion_Habitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="HotelDBStoreContainer">
           <EntitySet Name="Administrador" EntityType="Self.Administrador" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Caracteristica" EntityType="Self.Caracteristica" Schema="dbo" store:Type="Tables" />
@@ -244,6 +289,17 @@
           <EntitySet Name="HotelPublicidad" EntityType="Self.HotelPublicidad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Publicidad" EntityType="Self.Publicidad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reservacion" EntityType="Self.Reservacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_Habitacion" EntityType="Self.Tipo_Habitacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Imagen" EntityType="Self.Imagen" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Imagen].[id_Imagen] AS [id_Imagen], 
+    [Imagen].[idEntidad_Imagen] AS [idEntidad_Imagen], 
+    [Imagen].[descripcion_Imagen] AS [descripcion_Imagen], 
+    [Imagen].[fileID_Imagen] AS [fileID_Imagen], 
+    [Imagen].[imagen_Imagen] AS [imagen_Imagen]
+    FROM [dbo].[Imagen] AS [Imagen]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Administrador" Association="Self.FK_Administrador">
             <End Role="Administrador" EntitySet="Administrador" />
             <End Role="HotelAdministrador" EntitySet="HotelAdministrador" />
@@ -252,13 +308,13 @@
             <End Role="Caracteristica" EntitySet="Caracteristica" />
             <End Role="Caracteristica_Habitacion" EntitySet="Caracteristica_Habitacion" />
           </AssociationSet>
+          <AssociationSet Name="FK_Caracteristica_Habitacion" Association="Self.FK_Caracteristica_Habitacion">
+            <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
+            <End Role="Caracteristica_Habitacion" EntitySet="Caracteristica_Habitacion" />
+          </AssociationSet>
           <AssociationSet Name="FK_Cliente" Association="Self.FK_Cliente">
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Reservacion" EntitySet="Reservacion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Habitacion" Association="Self.FK_Habitacion">
-            <End Role="Habitacion" EntitySet="Habitacion" />
-            <End Role="Caracteristica_Habitacion" EntitySet="Caracteristica_Habitacion" />
           </AssociationSet>
           <AssociationSet Name="FK_HabitacionReservacion" Association="Self.FK_HabitacionReservacion">
             <End Role="Habitacion" EntitySet="Habitacion" />
@@ -272,17 +328,25 @@
             <End Role="Hotel" EntitySet="Hotel" />
             <End Role="Facilidad" EntitySet="Facilidad" />
           </AssociationSet>
-          <AssociationSet Name="FK_HotelHabitacion" Association="Self.FK_HotelHabitacion">
-            <End Role="Hotel" EntitySet="Hotel" />
-            <End Role="Habitacion" EntitySet="Habitacion" />
-          </AssociationSet>
           <AssociationSet Name="FK_HotelPublicidad" Association="Self.FK_HotelPublicidad">
             <End Role="Hotel" EntitySet="Hotel" />
             <End Role="HotelPublicidad" EntitySet="HotelPublicidad" />
           </AssociationSet>
+          <AssociationSet Name="FK_HotelTipoHabitacion" Association="Self.FK_HotelTipoHabitacion">
+            <End Role="Hotel" EntitySet="Hotel" />
+            <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
+          </AssociationSet>
           <AssociationSet Name="FK_Publicidad" Association="Self.FK_Publicidad">
             <End Role="Publicidad" EntitySet="Publicidad" />
             <End Role="HotelPublicidad" EntitySet="HotelPublicidad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolAdministrador" Association="Self.FK_RolAdministrador">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Administrador" EntitySet="Administrador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoHabitacion" Association="Self.FK_TipoHabitacion">
+            <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
+            <End Role="Habitacion" EntitySet="Habitacion" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -297,14 +361,16 @@
           <Property Name="id_Administrador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="usuario_Administrador" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="contrasenna_Administrador" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rol_Administrador" Type="Int32" Nullable="false" />
           <NavigationProperty Name="HotelAdministrador" Relationship="Self.FK_Administrador" FromRole="Administrador" ToRole="HotelAdministrador" />
+          <NavigationProperty Name="Rol" Relationship="Self.FK_RolAdministrador" FromRole="Administrador" ToRole="Rol" />
         </EntityType>
         <EntityType Name="Caracteristica">
           <Key>
             <PropertyRef Name="id_Caracteristica" />
           </Key>
           <Property Name="id_Caracteristica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="descripcion_Caracteristica" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_Caracteristica" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Caracteristica_Habitacion" Relationship="Self.FK_Caracteristica" FromRole="Caracteristica" ToRole="Caracteristica_Habitacion" />
         </EntityType>
         <EntityType Name="Caracteristica_Habitacion">
@@ -312,10 +378,10 @@
             <PropertyRef Name="id_Caracteristica_Habitacion" />
           </Key>
           <Property Name="id_Caracteristica_Habitacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idHabitacion_Caracteristica_Habitacion" Type="Int32" Nullable="false" />
           <Property Name="idCaracteristica_Caracteristica_Habitacion" Type="Int32" Nullable="false" />
+          <Property Name="tipo_Habitacion_Caracteristica_Habitacion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Caracteristica" Relationship="Self.FK_Caracteristica" FromRole="Caracteristica_Habitacion" ToRole="Caracteristica" />
-          <NavigationProperty Name="Habitacion" Relationship="Self.FK_Habitacion" FromRole="Caracteristica_Habitacion" ToRole="Habitacion" />
+          <NavigationProperty Name="Tipo_Habitacion" Relationship="Self.FK_Caracteristica_Habitacion" FromRole="Caracteristica_Habitacion" ToRole="Tipo_Habitacion" />
         </EntityType>
         <EntityType Name="Cliente">
           <Key>
@@ -333,9 +399,7 @@
             <PropertyRef Name="id_Facilidad" />
           </Key>
           <Property Name="id_Facilidad" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="descripcion_Facilidad" Type="String" MaxLength="350" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="fileIDimagen_Facilidad" Type="Guid" Nullable="false" />
-          <Property Name="imagen_Facilidad" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="descripcion_Facilidad" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="hotel_Facilidad" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Hotel" Relationship="Self.FK_HotelFacilidad" FromRole="Facilidad" ToRole="Hotel" />
         </EntityType>
@@ -344,36 +408,28 @@
             <PropertyRef Name="numero_Habitacion" />
           </Key>
           <Property Name="numero_Habitacion" Type="Int32" Nullable="false" />
-          <Property Name="tipo_Habitacion" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="descripcion_Habitacion" Type="String" MaxLength="350" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="estado_Habitacion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="tarifa" Type="Double" Nullable="false" />
-          <Property Name="fileIDimagen_Habitacion" Type="Guid" Nullable="false" />
-          <Property Name="imagen_Habitacion" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="hotel_Habitacion" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Caracteristica_Habitacion" Relationship="Self.FK_Habitacion" FromRole="Habitacion" ToRole="Caracteristica_Habitacion" />
+          <Property Name="tipo_Habitacion_Habitacion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Reservacion" Relationship="Self.FK_HabitacionReservacion" FromRole="Habitacion" ToRole="Reservacion" />
-          <NavigationProperty Name="Hotel" Relationship="Self.FK_HotelHabitacion" FromRole="Habitacion" ToRole="Hotel" />
+          <NavigationProperty Name="Tipo_Habitacion" Relationship="Self.FK_TipoHabitacion" FromRole="Habitacion" ToRole="Tipo_Habitacion" />
         </EntityType>
         <EntityType Name="Hotel">
           <Key>
             <PropertyRef Name="nombre_Hotel" />
           </Key>
           <Property Name="nombre_Hotel" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="descripcion_Hotel" Type="String" MaxLength="350" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="fileIDimagen_Hotel" Type="Guid" Nullable="false" />
-          <Property Name="imagen_Hotel" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="latitud_Hotel" Type="Double" Nullable="false" />
-          <Property Name="longitud_Hotel" Type="Double" Nullable="false" />
-          <Property Name="comoLlegar_Hotel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_Hotel" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sobreNosotros_Hotel" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="latitud_Hotel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="longitud_Hotel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comoLlegar_Hotel" Type="String" MaxLength="350" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="telefono_Hotel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="aptoPostal_Hotel" Type="Int32" />
           <Property Name="email_Hotel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="sobreNosotros" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Facilidad" Relationship="Self.FK_HotelFacilidad" FromRole="Hotel" ToRole="Facilidad" />
-          <NavigationProperty Name="Habitacion" Relationship="Self.FK_HotelHabitacion" FromRole="Hotel" ToRole="Habitacion" />
           <NavigationProperty Name="HotelAdministrador" Relationship="Self.FK_Hotel" FromRole="Hotel" ToRole="HotelAdministrador" />
           <NavigationProperty Name="HotelPublicidad" Relationship="Self.FK_HotelPublicidad" FromRole="Hotel" ToRole="HotelPublicidad" />
+          <NavigationProperty Name="Tipo_Habitacion" Relationship="Self.FK_HotelTipoHabitacion" FromRole="Hotel" ToRole="Tipo_Habitacion" />
         </EntityType>
         <EntityType Name="HotelAdministrador">
           <Key>
@@ -401,8 +457,6 @@
           </Key>
           <Property Name="id_Publicidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="link_Publicidad" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="fileIDimagen_Publicidad" Type="Guid" Nullable="false" />
-          <Property Name="imagen_Publicidad" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="HotelPublicidad" Relationship="Self.FK_Publicidad" FromRole="Publicidad" ToRole="HotelPublicidad" />
         </EntityType>
         <EntityType Name="Reservacion">
@@ -417,6 +471,39 @@
           <NavigationProperty Name="Cliente" Relationship="Self.FK_Cliente" FromRole="Reservacion" ToRole="Cliente" />
           <NavigationProperty Name="Habitacion" Relationship="Self.FK_HabitacionReservacion" FromRole="Reservacion" ToRole="Habitacion" />
         </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="id_Rol" />
+          </Key>
+          <Property Name="id_Rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo_Rol" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_Rol" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Administrador" Relationship="Self.FK_RolAdministrador" FromRole="Rol" ToRole="Administrador" />
+        </EntityType>
+        <EntityType Name="Tipo_Habitacion">
+          <Key>
+            <PropertyRef Name="nombre_Tipo_Habitacion" />
+          </Key>
+          <Property Name="nombre_Tipo_Habitacion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tarifa_Tipo_Habitacion" Type="Double" Nullable="false" />
+          <Property Name="descripcion_Tipo_Habitacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hotel_Tipo_Habitacion" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Caracteristica_Habitacion" Relationship="Self.FK_Caracteristica_Habitacion" FromRole="Tipo_Habitacion" ToRole="Caracteristica_Habitacion" />
+          <NavigationProperty Name="Habitacion" Relationship="Self.FK_TipoHabitacion" FromRole="Tipo_Habitacion" ToRole="Habitacion" />
+          <NavigationProperty Name="Hotel" Relationship="Self.FK_HotelTipoHabitacion" FromRole="Tipo_Habitacion" ToRole="Hotel" />
+        </EntityType>
+        <EntityType Name="Imagen">
+          <Key>
+            <PropertyRef Name="id_Imagen" />
+            <PropertyRef Name="idEntidad_Imagen" />
+            <PropertyRef Name="fileID_Imagen" />
+          </Key>
+          <Property Name="id_Imagen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idEntidad_Imagen" Type="Int32" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="fileID_Imagen" Type="Guid" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <Association Name="FK_Administrador">
           <End Role="Administrador" Type="Self.Administrador" Multiplicity="1" />
           <End Role="HotelAdministrador" Type="Self.HotelAdministrador" Multiplicity="*" />
@@ -426,6 +513,18 @@
             </Principal>
             <Dependent Role="HotelAdministrador">
               <PropertyRef Name="idAdministrador_HotelAdministradores" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolAdministrador">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+          <End Role="Administrador" Type="Self.Administrador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="id_Rol" />
+            </Principal>
+            <Dependent Role="Administrador">
+              <PropertyRef Name="rol_Administrador" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -441,15 +540,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Habitacion">
-          <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="1" />
+        <Association Name="FK_Caracteristica_Habitacion">
+          <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="1" />
           <End Role="Caracteristica_Habitacion" Type="Self.Caracteristica_Habitacion" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Habitacion">
-              <PropertyRef Name="numero_Habitacion" />
+            <Principal Role="Tipo_Habitacion">
+              <PropertyRef Name="nombre_Tipo_Habitacion" />
             </Principal>
             <Dependent Role="Caracteristica_Habitacion">
-              <PropertyRef Name="idHabitacion_Caracteristica_Habitacion" />
+              <PropertyRef Name="tipo_Habitacion_Caracteristica_Habitacion" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -489,15 +588,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_HotelHabitacion">
-          <End Role="Hotel" Type="Self.Hotel" Multiplicity="0..1" />
+        <Association Name="FK_TipoHabitacion">
+          <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="1" />
           <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Hotel">
-              <PropertyRef Name="nombre_Hotel" />
+            <Principal Role="Tipo_Habitacion">
+              <PropertyRef Name="nombre_Tipo_Habitacion" />
             </Principal>
             <Dependent Role="Habitacion">
-              <PropertyRef Name="hotel_Habitacion" />
+              <PropertyRef Name="tipo_Habitacion_Habitacion" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -525,6 +624,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_HotelTipoHabitacion">
+          <End Role="Hotel" Type="Self.Hotel" Multiplicity="0..1" />
+          <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="nombre_Hotel" />
+            </Principal>
+            <Dependent Role="Tipo_Habitacion">
+              <PropertyRef Name="hotel_Tipo_Habitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Publicidad">
           <End Role="Publicidad" Type="Self.Publicidad" Multiplicity="1" />
           <End Role="HotelPublicidad" Type="Self.HotelPublicidad" Multiplicity="*" />
@@ -549,16 +660,23 @@
           <EntitySet Name="HotelPublicidad" EntityType="Self.HotelPublicidad" />
           <EntitySet Name="Publicidad" EntityType="Self.Publicidad" />
           <EntitySet Name="Reservacion" EntityType="Self.Reservacion" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" />
+          <EntitySet Name="Tipo_Habitacion" EntityType="Self.Tipo_Habitacion" />
+          <EntitySet Name="Imagen" EntityType="Self.Imagen" />
           <AssociationSet Name="FK_Administrador" Association="Self.FK_Administrador">
             <End Role="Administrador" EntitySet="Administrador" />
             <End Role="HotelAdministrador" EntitySet="HotelAdministrador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolAdministrador" Association="Self.FK_RolAdministrador">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Administrador" EntitySet="Administrador" />
           </AssociationSet>
           <AssociationSet Name="FK_Caracteristica" Association="Self.FK_Caracteristica">
             <End Role="Caracteristica" EntitySet="Caracteristica" />
             <End Role="Caracteristica_Habitacion" EntitySet="Caracteristica_Habitacion" />
           </AssociationSet>
-          <AssociationSet Name="FK_Habitacion" Association="Self.FK_Habitacion">
-            <End Role="Habitacion" EntitySet="Habitacion" />
+          <AssociationSet Name="FK_Caracteristica_Habitacion" Association="Self.FK_Caracteristica_Habitacion">
+            <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
             <End Role="Caracteristica_Habitacion" EntitySet="Caracteristica_Habitacion" />
           </AssociationSet>
           <AssociationSet Name="FK_Cliente" Association="Self.FK_Cliente">
@@ -573,8 +691,8 @@
             <End Role="Habitacion" EntitySet="Habitacion" />
             <End Role="Reservacion" EntitySet="Reservacion" />
           </AssociationSet>
-          <AssociationSet Name="FK_HotelHabitacion" Association="Self.FK_HotelHabitacion">
-            <End Role="Hotel" EntitySet="Hotel" />
+          <AssociationSet Name="FK_TipoHabitacion" Association="Self.FK_TipoHabitacion">
+            <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
             <End Role="Habitacion" EntitySet="Habitacion" />
           </AssociationSet>
           <AssociationSet Name="FK_Hotel" Association="Self.FK_Hotel">
@@ -584,6 +702,10 @@
           <AssociationSet Name="FK_HotelPublicidad" Association="Self.FK_HotelPublicidad">
             <End Role="Hotel" EntitySet="Hotel" />
             <End Role="HotelPublicidad" EntitySet="HotelPublicidad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelTipoHabitacion" Association="Self.FK_HotelTipoHabitacion">
+            <End Role="Hotel" EntitySet="Hotel" />
+            <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
           </AssociationSet>
           <AssociationSet Name="FK_Publicidad" Association="Self.FK_Publicidad">
             <End Role="Publicidad" EntitySet="Publicidad" />
@@ -602,6 +724,7 @@
                 <ScalarProperty Name="id_Administrador" ColumnName="id_Administrador" />
                 <ScalarProperty Name="usuario_Administrador" ColumnName="usuario_Administrador" />
                 <ScalarProperty Name="contrasenna_Administrador" ColumnName="contrasenna_Administrador" />
+                <ScalarProperty Name="rol_Administrador" ColumnName="rol_Administrador" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -617,8 +740,8 @@
             <EntityTypeMapping TypeName="HotelDB.Caracteristica_Habitacion">
               <MappingFragment StoreEntitySet="Caracteristica_Habitacion">
                 <ScalarProperty Name="id_Caracteristica_Habitacion" ColumnName="id_Caracteristica_Habitacion" />
-                <ScalarProperty Name="idHabitacion_Caracteristica_Habitacion" ColumnName="idHabitacion_Caracteristica_Habitacion" />
                 <ScalarProperty Name="idCaracteristica_Caracteristica_Habitacion" ColumnName="idCaracteristica_Caracteristica_Habitacion" />
+                <ScalarProperty Name="tipo_Habitacion_Caracteristica_Habitacion" ColumnName="tipo_Habitacion_Caracteristica_Habitacion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -638,8 +761,6 @@
               <MappingFragment StoreEntitySet="Facilidad">
                 <ScalarProperty Name="id_Facilidad" ColumnName="id_Facilidad" />
                 <ScalarProperty Name="descripcion_Facilidad" ColumnName="descripcion_Facilidad" />
-                <ScalarProperty Name="fileIDimagen_Facilidad" ColumnName="fileIDimagen_Facilidad" />
-                <ScalarProperty Name="imagen_Facilidad" ColumnName="imagen_Facilidad" />
                 <ScalarProperty Name="hotel_Facilidad" ColumnName="hotel_Facilidad" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -648,13 +769,8 @@
             <EntityTypeMapping TypeName="HotelDB.Habitacion">
               <MappingFragment StoreEntitySet="Habitacion">
                 <ScalarProperty Name="numero_Habitacion" ColumnName="numero_Habitacion" />
-                <ScalarProperty Name="tipo_Habitacion" ColumnName="tipo_Habitacion" />
-                <ScalarProperty Name="descripcion_Habitacion" ColumnName="descripcion_Habitacion" />
                 <ScalarProperty Name="estado_Habitacion" ColumnName="estado_Habitacion" />
-                <ScalarProperty Name="tarifa" ColumnName="tarifa" />
-                <ScalarProperty Name="fileIDimagen_Habitacion" ColumnName="fileIDimagen_Habitacion" />
-                <ScalarProperty Name="imagen_Habitacion" ColumnName="imagen_Habitacion" />
-                <ScalarProperty Name="hotel_Habitacion" ColumnName="hotel_Habitacion" />
+                <ScalarProperty Name="tipo_Habitacion_Habitacion" ColumnName="tipo_Habitacion_Habitacion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -663,15 +779,13 @@
               <MappingFragment StoreEntitySet="Hotel">
                 <ScalarProperty Name="nombre_Hotel" ColumnName="nombre_Hotel" />
                 <ScalarProperty Name="descripcion_Hotel" ColumnName="descripcion_Hotel" />
-                <ScalarProperty Name="fileIDimagen_Hotel" ColumnName="fileIDimagen_Hotel" />
-                <ScalarProperty Name="imagen_Hotel" ColumnName="imagen_Hotel" />
+                <ScalarProperty Name="sobreNosotros_Hotel" ColumnName="sobreNosotros_Hotel" />
                 <ScalarProperty Name="latitud_Hotel" ColumnName="latitud_Hotel" />
                 <ScalarProperty Name="longitud_Hotel" ColumnName="longitud_Hotel" />
                 <ScalarProperty Name="comoLlegar_Hotel" ColumnName="comoLlegar_Hotel" />
                 <ScalarProperty Name="telefono_Hotel" ColumnName="telefono_Hotel" />
                 <ScalarProperty Name="aptoPostal_Hotel" ColumnName="aptoPostal_Hotel" />
                 <ScalarProperty Name="email_Hotel" ColumnName="email_Hotel" />
-                <ScalarProperty Name="sobreNosotros" ColumnName="sobreNosotros" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -698,8 +812,6 @@
               <MappingFragment StoreEntitySet="Publicidad">
                 <ScalarProperty Name="id_Publicidad" ColumnName="id_Publicidad" />
                 <ScalarProperty Name="link_Publicidad" ColumnName="link_Publicidad" />
-                <ScalarProperty Name="fileIDimagen_Publicidad" ColumnName="fileIDimagen_Publicidad" />
-                <ScalarProperty Name="imagen_Publicidad" ColumnName="imagen_Publicidad" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -711,6 +823,36 @@
                 <ScalarProperty Name="fechaSalida_Reservacion" ColumnName="fechaSalida_Reservacion" />
                 <ScalarProperty Name="idHabitacion_Reservacion" ColumnName="idHabitacion_Reservacion" />
                 <ScalarProperty Name="idCliente_Reservacion" ColumnName="idCliente_Reservacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol">
+            <EntityTypeMapping TypeName="HotelDB.Rol">
+              <MappingFragment StoreEntitySet="Rol">
+                <ScalarProperty Name="id_Rol" ColumnName="id_Rol" />
+                <ScalarProperty Name="tipo_Rol" ColumnName="tipo_Rol" />
+                <ScalarProperty Name="descripcion_Rol" ColumnName="descripcion_Rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_Habitacion">
+            <EntityTypeMapping TypeName="HotelDB.Tipo_Habitacion">
+              <MappingFragment StoreEntitySet="Tipo_Habitacion">
+                <ScalarProperty Name="nombre_Tipo_Habitacion" ColumnName="nombre_Tipo_Habitacion" />
+                <ScalarProperty Name="tarifa_Tipo_Habitacion" ColumnName="tarifa_Tipo_Habitacion" />
+                <ScalarProperty Name="descripcion_Tipo_Habitacion" ColumnName="descripcion_Tipo_Habitacion" />
+                <ScalarProperty Name="hotel_Tipo_Habitacion" ColumnName="hotel_Tipo_Habitacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Imagen">
+            <EntityTypeMapping TypeName="HotelDB.Imagen">
+              <MappingFragment StoreEntitySet="Imagen">
+                <ScalarProperty Name="id_Imagen" ColumnName="id_Imagen" />
+                <ScalarProperty Name="idEntidad_Imagen" ColumnName="idEntidad_Imagen" />
+                <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+                <ScalarProperty Name="fileID_Imagen" ColumnName="fileID_Imagen" />
+                <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

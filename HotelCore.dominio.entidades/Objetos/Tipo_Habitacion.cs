@@ -12,20 +12,24 @@ namespace HotelCore.dominio.entidades.Objetos
     using System;
     using System.Collections.Generic;
     
-    public partial class Habitacion
+    public partial class Tipo_Habitacion
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Habitacion()
+        public Tipo_Habitacion()
         {
-            this.Reservacion = new HashSet<Reservacion>();
+            this.Caracteristica_Habitacion = new HashSet<Caracteristica_Habitacion>();
+            this.Habitacion = new HashSet<Habitacion>();
         }
     
-        public int numero_Habitacion { get; set; }
-        public string estado_Habitacion { get; set; }
-        public string tipo_Habitacion_Habitacion { get; set; }
+        public string nombre_Tipo_Habitacion { get; set; }
+        public double tarifa_Tipo_Habitacion { get; set; }
+        public string descripcion_Tipo_Habitacion { get; set; }
+        public string hotel_Tipo_Habitacion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reservacion> Reservacion { get; set; }
-        public virtual Tipo_Habitacion Tipo_Habitacion { get; set; }
+        public virtual ICollection<Caracteristica_Habitacion> Caracteristica_Habitacion { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Habitacion> Habitacion { get; set; }
+        public virtual Hotel Hotel { get; set; }
     }
 }

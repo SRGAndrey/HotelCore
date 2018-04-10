@@ -18,30 +18,28 @@ namespace HotelCore.dominio.entidades.Objetos
         public Hotel()
         {
             this.Facilidad = new HashSet<Facilidad>();
-            this.Habitacion = new HashSet<Habitacion>();
             this.HotelAdministrador = new HashSet<HotelAdministrador>();
             this.HotelPublicidad = new HashSet<HotelPublicidad>();
+            this.Tipo_Habitacion = new HashSet<Tipo_Habitacion>();
         }
     
         public string nombre_Hotel { get; set; }
         public string descripcion_Hotel { get; set; }
-        public System.Guid fileIDimagen_Hotel { get; set; }
-        public byte[] imagen_Hotel { get; set; }
-        public double latitud_Hotel { get; set; }
-        public double longitud_Hotel { get; set; }
+        public string sobreNosotros_Hotel { get; set; }
+        public string latitud_Hotel { get; set; }
+        public string longitud_Hotel { get; set; }
         public string comoLlegar_Hotel { get; set; }
         public string telefono_Hotel { get; set; }
         public Nullable<int> aptoPostal_Hotel { get; set; }
         public string email_Hotel { get; set; }
-        public string sobreNosotros { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Facilidad> Facilidad { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Habitacion> Habitacion { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HotelAdministrador> HotelAdministrador { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HotelPublicidad> HotelPublicidad { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tipo_Habitacion> Tipo_Habitacion { get; set; }
     }
 }

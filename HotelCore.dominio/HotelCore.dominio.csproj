@@ -44,6 +44,7 @@
     <Compile Include="IRepositorio\IRepositorioAdministrador.cs" />
     <Compile Include="IRepositorio\IRepositorioCliente.cs" />
     <Compile Include="IRepositorio\IRepositorioHotel.cs" />
+    <Compile Include="IRepositorio\IRepositorioImagen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

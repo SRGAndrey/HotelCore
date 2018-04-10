@@ -16,8 +16,6 @@ namespace HotelCore.dominio.entidades.Objetos
     {
         public string id_Facilidad { get; set; }
         public string descripcion_Facilidad { get; set; }
-        public System.Guid fileIDimagen_Facilidad { get; set; }
-        public byte[] imagen_Facilidad { get; set; }
         public string hotel_Facilidad { get; set; }
     
         public virtual Hotel Hotel { get; set; }

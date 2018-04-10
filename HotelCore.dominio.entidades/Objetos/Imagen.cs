@@ -12,13 +12,12 @@ namespace HotelCore.dominio.entidades.Objetos
     using System;
     using System.Collections.Generic;
     
-    public partial class Caracteristica_Habitacion
+    public partial class Imagen
     {
-        public int id_Caracteristica_Habitacion { get; set; }
-        public int idCaracteristica_Caracteristica_Habitacion { get; set; }
-        public string tipo_Habitacion_Caracteristica_Habitacion { get; set; }
-    
-        public virtual Caracteristica Caracteristica { get; set; }
-        public virtual Tipo_Habitacion Tipo_Habitacion { get; set; }
+        public int id_Imagen { get; set; }
+        public int idEntidad_Imagen { get; set; }
+        public string descripcion_Imagen { get; set; }
+        public System.Guid fileID_Imagen { get; set; }
+        public byte[] imagen_Imagen { get; set; }
     }
 }
