@@ -64,6 +64,8 @@
     <Compile Include="Objetos\Cliente.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Objetos\Entidad.cs" />
+    <Compile Include="Objetos\Entidad_SubEntidad_Imagen.cs" />
     <Compile Include="Objetos\Facilidad.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
@@ -88,6 +90,17 @@
     <Compile Include="Objetos\Imagen.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Objetos\ImagenesBar.cs" />
+    <Compile Include="Objetos\ImagenesCafeteria.cs" />
+    <Compile Include="Objetos\ImagenesDescripcion.cs" />
+    <Compile Include="Objetos\ImagenesFacilidades.cs" />
+    <Compile Include="Objetos\ImagenesHotel.cs" />
+    <Compile Include="Objetos\ImagenesInfantiles.cs" />
+    <Compile Include="Objetos\ImagenesJacuzzi.cs" />
+    <Compile Include="Objetos\ImagenesPiscina.cs" />
+    <Compile Include="Objetos\ImagenesRestaurante.cs" />
+    <Compile Include="Objetos\ImagenesSobreNosotros.cs" />
+    <Compile Include="Objetos\ImagenesTenis.cs" />
     <Compile Include="Objetos\Publicidad.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
@@ -97,6 +110,7 @@
     <Compile Include="Objetos\Rol.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Objetos\SubEntidad.cs" />
     <Compile Include="Objetos\Tipo_Habitacion.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
