@@ -9,30 +9,62 @@ using HotelCore.infraestructura.datos.Modelo;
 public class RepositorioImagen : IRepositorioImagen
 {
     private HotelDBEntities db = new HotelDBEntities();
-    public bool actualizar(int id)
+
+    
+    public List<ImagenesBar> obtenerImagenesBar()
     {
-        throw new NotImplementedException();
+        return db.ImagenesBar.ToList();
     }
 
-    public bool eliminar(int id)
+    public List<ImagenesCafeteria> obtenerImagenesCafeteria()
     {
-        throw new NotImplementedException();
+        return db.ImagenesCafeteria.ToList();
     }
 
-    public bool insertarImagen(Imagen imagen)
+    public List<ImagenesDescripcion> obtenerImagenesDescripcion()
     {
-        throw new NotImplementedException();
+        var imgDescripcion = db.ImagenesDescripcion.ToList();
+        return imgDescripcion;
     }
 
-    public Imagen obtenerImagen(int idEntidad, string descripcion)
+    public List<ImagenesFacilidades> obtenerImagenesFacilidades()
     {
-        throw new NotImplementedException();
+        return db.ImagenesFacilidades.ToList();
     }
 
-    public List<Imagen> obtenerImagenes(int idEntidad)
+    public List<ImagenesHotel> obtenerImagenesHotel()
     {
-        var imagenes = db.Imagen.Where(x => x.idEntidad_Imagen == idEntidad).ToList();
-        return imagenes;
+        return db.ImagenesHotel.ToList();
+    }
+
+    public List<ImagenesInfantiles> obtenerImagenesInfantiles()
+    {
+        return db.ImagenesInfantiles.ToList();
+    }
+
+    public List<ImagenesJacuzzi> obtenerImagenesJacuzzi()
+    {
+        return db.ImagenesJacuzzi.ToList();
+    }
+
+    public List<ImagenesPiscina> obtenerImagenesPiscina()
+    {
+        return db.ImagenesPiscina.ToList();
+    }
+
+    public List<ImagenesRestaurante> obtenerImagenesRestaurante()
+    {
+        return db.ImagenesRestaurante.ToList();
+    }
+
+    public List<ImagenesSobreNosotros> obtenerImagenesSobreNosotros()
+    {
+        return db.ImagenesSobreNosotros.ToList();
+    }
+
+    public List<ImagenesTenis> obtenerImagenesTenis()
+    {
+        return db.ImagenesTenis.ToList();
     }
 }
 

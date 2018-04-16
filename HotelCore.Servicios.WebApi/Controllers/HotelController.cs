@@ -33,23 +33,18 @@ namespace HotelCore.Servicios.WebApi.Controllers
         public IHttpActionResult obtenerHotel(string id)
         {
             db.Configuration.ProxyCreationEnabled = false;
+            
             RepositorioHotel repositorioHotel = new RepositorioHotel();
             Hotel hotel = repositorioHotel.obtenerHotel(id);
-
             RepositorioImagen repositorioImagenes = new RepositorioImagen();
-            var imagenes = repositorioImagenes.obtenerImagenes(1);
+            var imagenesDescrip = repositorioImagenes.obtenerImagenesDescripcion();
+            var imagenesSobreNosotros = repositorioImagenes.obtenerImagenesSobreNosotros();
 
             HotelConImagenes hotelConImagenes = new HotelConImagenes();
-            hotelConImagenes.aptoPostal_Hotel = hotel.aptoPostal_Hotel;
-            hotelConImagenes.comoLlegar_Hotel = hotel.comoLlegar_Hotel;
-            hotelConImagenes.descripcion_Hotel = hotel.descripcion_Hotel;
-            hotelConImagenes.email_Hotel = hotel.email_Hotel;
-            hotelConImagenes.latitud_Hotel = hotel.latitud_Hotel;
-            hotelConImagenes.longitud_Hotel = hotel.longitud_Hotel;
-            hotelConImagenes.nombre_Hotel = hotel.nombre_Hotel;
-            hotelConImagenes.sobreNosotros_Hotel = hotel.sobreNosotros_Hotel;
-            hotelConImagenes.telefono_Hotel = hotel.telefono_Hotel;
-            hotelConImagenes.imagenes = imagenes;
+            hotelConImagenes.hotel = hotel;
+            hotelConImagenes.imagenesDescripcion = imagenesDescrip;
+            hotelConImagenes.galeria = imagenesSobreNosotros;
+           
 
             return Ok(hotelConImagenes);
         }

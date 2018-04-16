@@ -7,11 +7,16 @@ using System.Threading.Tasks;
 
 public interface IRepositorioImagen
 {
-    bool insertarImagen(Imagen imagen);
-    Imagen obtenerImagen(int idEntidad, String descripcion);
-    bool actualizar(int id);
-    bool eliminar(int id);
-
-    List<Imagen> obtenerImagenes(int idEntidad);
+    List<ImagenesHotel> obtenerImagenesHotel();
+    List<ImagenesBar> obtenerImagenesBar();
+    List<ImagenesCafeteria> obtenerImagenesCafeteria();
+    List<ImagenesDescripcion> obtenerImagenesDescripcion();
+    List<ImagenesFacilidades> obtenerImagenesFacilidades();
+    List<ImagenesInfantiles> obtenerImagenesInfantiles();
+    List<ImagenesJacuzzi> obtenerImagenesJacuzzi();
+    List<ImagenesPiscina> obtenerImagenesPiscina();
+    List<ImagenesRestaurante> obtenerImagenesRestaurante();
+    List<ImagenesSobreNosotros> obtenerImagenesSobreNosotros();
+    List<ImagenesTenis> obtenerImagenesTenis();
 }
 

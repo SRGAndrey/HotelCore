@@ -23,9 +23,9 @@ namespace HotelCore.Servicios.WebApi.Controllers
         public List<Imagen> obtenerImagenes(int idEntidad)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            RepositorioImagen repositorio = new RepositorioImagen();
-            var imagenes = repositorio.obtenerImagenes(idEntidad);
-            return imagenes;
+            //RepositorioImagen repositorio = new RepositorioImagen();
+            //var imagenes = repositorio.obtenerImagenes(idEntidad);
+            return null;
         }
 
         // GET: api/Imagen/5

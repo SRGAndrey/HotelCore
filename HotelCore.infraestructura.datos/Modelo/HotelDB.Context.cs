@@ -30,15 +30,29 @@ namespace HotelCore.infraestructura.datos.Modelo
         public virtual DbSet<Caracteristica> Caracteristica { get; set; }
         public virtual DbSet<Caracteristica_Habitacion> Caracteristica_Habitacion { get; set; }
         public virtual DbSet<Cliente> Cliente { get; set; }
+        public virtual DbSet<Entidad> Entidad { get; set; }
+        public virtual DbSet<Entidad_SubEntidad_Imagen> Entidad_SubEntidad_Imagen { get; set; }
         public virtual DbSet<Facilidad> Facilidad { get; set; }
         public virtual DbSet<Habitacion> Habitacion { get; set; }
         public virtual DbSet<Hotel> Hotel { get; set; }
         public virtual DbSet<HotelAdministrador> HotelAdministrador { get; set; }
         public virtual DbSet<HotelPublicidad> HotelPublicidad { get; set; }
+        public virtual DbSet<Imagen> Imagen { get; set; }
         public virtual DbSet<Publicidad> Publicidad { get; set; }
         public virtual DbSet<Reservacion> Reservacion { get; set; }
         public virtual DbSet<Rol> Rol { get; set; }
+        public virtual DbSet<SubEntidad> SubEntidad { get; set; }
         public virtual DbSet<Tipo_Habitacion> Tipo_Habitacion { get; set; }
-        public virtual DbSet<Imagen> Imagen { get; set; }
+        public virtual DbSet<ImagenesBar> ImagenesBar { get; set; }
+        public virtual DbSet<ImagenesCafeteria> ImagenesCafeteria { get; set; }
+        public virtual DbSet<ImagenesDescripcion> ImagenesDescripcion { get; set; }
+        public virtual DbSet<ImagenesFacilidades> ImagenesFacilidades { get; set; }
+        public virtual DbSet<ImagenesHotel> ImagenesHotel { get; set; }
+        public virtual DbSet<ImagenesInfantiles> ImagenesInfantiles { get; set; }
+        public virtual DbSet<ImagenesJacuzzi> ImagenesJacuzzi { get; set; }
+        public virtual DbSet<ImagenesPiscina> ImagenesPiscina { get; set; }
+        public virtual DbSet<ImagenesRestaurante> ImagenesRestaurante { get; set; }
+        public virtual DbSet<ImagenesSobreNosotros> ImagenesSobreNosotros { get; set; }
+        public virtual DbSet<ImagenesTenis> ImagenesTenis { get; set; }
     }
 }

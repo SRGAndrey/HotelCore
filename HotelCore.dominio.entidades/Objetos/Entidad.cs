@@ -12,18 +12,16 @@ namespace HotelCore.dominio.entidades.Objetos
     using System;
     using System.Collections.Generic;
     
-    public partial class Imagen
+    public partial class Entidad
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Imagen()
+        public Entidad()
         {
             this.Entidad_SubEntidad_Imagen = new HashSet<Entidad_SubEntidad_Imagen>();
         }
     
-        public int id_Imagen { get; set; }
-        public System.Guid fileID_Imagen { get; set; }
-        public byte[] imagen_Imagen { get; set; }
-        public string descripcion_Imagen { get; set; }
+        public int id_Entidad { get; set; }
+        public string descripcion_Entidad { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Entidad_SubEntidad_Imagen> Entidad_SubEntidad_Imagen { get; set; }

@@ -10,6 +10,7 @@ public class RepositorioHotel : IRepositorioHotel
 {
     private HotelDBEntities db = new HotelDBEntities();
 
+   
     public bool actualizar(Hotel hotel)
     {
         throw new NotImplementedException();
