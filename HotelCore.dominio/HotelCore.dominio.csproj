@@ -43,6 +43,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="IRepositorio\IRepositorioAdministrador.cs" />
     <Compile Include="IRepositorio\IRepositorioCliente.cs" />
+    <Compile Include="IRepositorio\IRepositorioFacilidad.cs" />
     <Compile Include="IRepositorio\IRepositorioHotel.cs" />
     <Compile Include="IRepositorio\IRepositorioImagen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

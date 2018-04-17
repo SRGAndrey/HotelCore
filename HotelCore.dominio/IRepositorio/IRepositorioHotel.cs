@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using HotelCore.dominio.entidades.Objetos;
 
-    public interface IRepositorioHotel
-    {
+public interface IRepositorioHotel
+{
     bool insertar(Hotel hotel);
     Hotel obtenerHotel(String nombre);
     bool actualizar(Hotel hotel);

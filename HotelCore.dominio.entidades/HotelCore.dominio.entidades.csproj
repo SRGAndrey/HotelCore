@@ -64,11 +64,16 @@
     <Compile Include="Objetos\Cliente.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Objetos\Entidad.cs" />
-    <Compile Include="Objetos\Entidad_SubEntidad_Imagen.cs" />
+    <Compile Include="Objetos\Entidad.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objetos\Entidad_SubEntidad_Imagen.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Objetos\Facilidad.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Objetos\FacilidadesConImagenes.cs" />
     <Compile Include="Objetos\Habitacion.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
@@ -78,29 +83,51 @@
     <Compile Include="Objetos\HotelAdministrador.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Objetos\HotelConImagenes.cs" />
     <Compile Include="Objetos\HotelDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Objetos\HotelConImagenes.cs" />
     <Compile Include="Objetos\HotelPublicidad.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Objetos\Imagen.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Objetos\ImagenesBar.cs" />
-    <Compile Include="Objetos\ImagenesCafeteria.cs" />
-    <Compile Include="Objetos\ImagenesDescripcion.cs" />
-    <Compile Include="Objetos\ImagenesFacilidades.cs" />
-    <Compile Include="Objetos\ImagenesHotel.cs" />
-    <Compile Include="Objetos\ImagenesInfantiles.cs" />
-    <Compile Include="Objetos\ImagenesJacuzzi.cs" />
-    <Compile Include="Objetos\ImagenesPiscina.cs" />
-    <Compile Include="Objetos\ImagenesRestaurante.cs" />
-    <Compile Include="Objetos\ImagenesSobreNosotros.cs" />
-    <Compile Include="Objetos\ImagenesTenis.cs" />
+    <Compile Include="Objetos\ImagenesBar.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objetos\ImagenesCafeteria.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objetos\ImagenesDescripcion.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objetos\ImagenesFacilidades.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objetos\ImagenesHotel.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objetos\ImagenesInfantiles.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objetos\ImagenesJacuzzi.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objetos\ImagenesPiscina.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objetos\ImagenesRestaurante.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objetos\ImagenesSobreNosotros.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objetos\ImagenesTenis.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Objetos\Publicidad.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
@@ -110,18 +137,21 @@
     <Compile Include="Objetos\Rol.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Objetos\SubEntidad.cs" />
+    <Compile Include="Objetos\SubEntidad.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Objetos\Tipo_Habitacion.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

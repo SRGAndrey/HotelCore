@@ -64,6 +64,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio\RepositorioAdministrador.cs" />
+    <Compile Include="Repositorio\RepositorioFacilidad.cs" />
     <Compile Include="Repositorio\RepositorioHotel.cs" />
     <Compile Include="Repositorio\RepositorioImagen.cs" />
   </ItemGroup>
@@ -93,7 +94,6 @@
       <Name>HotelCore.dominio</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Modelo\HotelDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
