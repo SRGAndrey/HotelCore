@@ -46,7 +46,7 @@
     <Compile Include="IRepositorio\IRepositorioFacilidad.cs" />
     <Compile Include="IRepositorio\IRepositorioHotel.cs" />
     <Compile Include="IRepositorio\IRepositorioImagen.cs" />
-    <Compile Include="IRepositorio\IRepositorioReservación.cs" />
+    <Compile Include="IRepositorio\IRespositorioReservacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

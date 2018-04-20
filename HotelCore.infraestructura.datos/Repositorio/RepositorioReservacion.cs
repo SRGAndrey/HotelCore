@@ -21,6 +21,8 @@ public class RepositorioReservacion : IRespositorioReservacion
         ImagenesStandard imagenStandard = repoImagen.obtenerImagenesStandard();
         ImagenesSuite imagenSuite = repoImagen.obtenerImagenesSuite();
 
+
+        
         bool disponible = false;
         int encontrado = 1;
         while (disponible == false)
@@ -52,7 +54,7 @@ public class RepositorioReservacion : IRespositorioReservacion
             }
             else
             {
-                
+        
                     var habitacionesDisponibles = from Habitacion h in contexto.Habitacion
                                                   join Tipo_Habitacion th in contexto.Tipo_Habitacion
                                                   on h.tipo_Habitacion_Habitacion equals th.nombre_Tipo_Habitacion
@@ -101,5 +103,35 @@ public class RepositorioReservacion : IRespositorioReservacion
         }
         return habitDisponible;
     }
+
+    public Reservacion insertarReservacion(Reservacion nuevaReservacion, Cliente cliente)
+    {
+        Reservacion reserv = new Reservacion();
+        try
+        {
+            var proced = 0;
+            proced = contexto.insertar_Reservacion(nuevaReservacion.fechaLLegada_Reservacion, nuevaReservacion.fechaSalida_Reservacion, 
+                nuevaReservacion.idHabitacion_Reservacion,cliente.cedula_Cliente,cliente.nombre_Cliente,cliente.apellidos_Cliente,
+                cliente.tarjeta_Cliente,cliente.email_Cliente);
+
+            if (proced != 0)
+            {                
+                reserv = contexto.Reservacion.Find(nuevaReservacion.id_Reservacion);
+                return reserv;
+            }else
+            {
+                reserv = null;
+                return reserv;
+            }
+
+        }
+        catch (Exception ex)
+        {
+            reserv = null;
+            return reserv;
+        }
+    }
 }
+
+
 

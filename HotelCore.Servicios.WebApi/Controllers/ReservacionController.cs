@@ -37,6 +37,37 @@ namespace HotelCore.Servicios.WebApi.Controllers
             return Ok(habitacionDisponible);
         }
 
+        [Route("Reservacion/HacerReservacion")]
+        [HttpGet]
+        [HttpPost]
+        public IHttpActionResult HacerReservacion(string fechaLlegada, string fechaSalida, int habitacion, string cedula, 
+            string nombre, string apellidos, int tarjeta, string email)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+
+            System.DateTime fechaInicio = DateTime.Parse(fechaLlegada);
+            System.DateTime fechaFinal = DateTime.Parse(fechaSalida);
+
+            Reservacion reser = new Reservacion();
+            Cliente cliente = new Cliente();
+
+            reser.fechaLLegada_Reservacion = fechaInicio;
+            reser.fechaSalida_Reservacion = fechaFinal;
+            reser.idHabitacion_Reservacion = habitacion;
+
+            cliente.cedula_Cliente = cedula;
+            cliente.apellidos_Cliente = apellidos;
+            cliente.email_Cliente = email;
+            cliente.nombre_Cliente = nombre;
+            cliente.tarjeta_Cliente = tarjeta;
+            
+            RepositorioReservacion repositorio = new RepositorioReservacion();
+
+            Reservacion reservacion = repositorio.insertarReservacion(reser, cliente);
+
+            return Ok(reservacion);
+        }
+
         // GET: api/Reservacion/5
         public string Get(int id)
         {
