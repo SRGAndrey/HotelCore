@@ -58,7 +58,7 @@
     <Compile Include="Objetos\Caracteristica.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Objetos\Caracteristica_Habitacion.cs">
+    <Compile Include="Objetos\Caracteristica_Tipo_Habitacion.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Objetos\Cliente.cs">
@@ -77,6 +77,7 @@
     <Compile Include="Objetos\Habitacion.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Objetos\HabitacionDisponible.cs" />
     <Compile Include="Objetos\Hotel.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
@@ -107,6 +108,9 @@
     <Compile Include="Objetos\ImagenesFacilidades.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Objetos\ImagenesHabitacion.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Objetos\ImagenesHotel.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
@@ -114,6 +118,9 @@
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Objetos\ImagenesJacuzzi.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objetos\ImagenesJunior.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Objetos\ImagenesPiscina.cs">
@@ -125,7 +132,16 @@
     <Compile Include="Objetos\ImagenesSobreNosotros.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Objetos\ImagenesStandard.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objetos\ImagenesSuite.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Objetos\ImagenesTenis.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objetos\Promocion.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Objetos\Publicidad.cs">
@@ -135,6 +151,12 @@
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Objetos\Rol.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objetos\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Objetos\sp_helpdiagrams_Result.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Objetos\SubEntidad.cs">

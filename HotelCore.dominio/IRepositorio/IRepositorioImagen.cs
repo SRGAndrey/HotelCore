@@ -18,5 +18,8 @@ public interface IRepositorioImagen
     List<ImagenesRestaurante> obtenerImagenesRestaurante();
     List<ImagenesSobreNosotros> obtenerImagenesSobreNosotros();
     List<ImagenesTenis> obtenerImagenesTenis();
+    ImagenesJunior obtenerImagenesJunior();
+    ImagenesStandard obtenerImagenesStandard();
+    ImagenesSuite obtenerImagenesSuite();
 }
 

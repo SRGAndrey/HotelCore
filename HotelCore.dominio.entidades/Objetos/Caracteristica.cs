@@ -17,13 +17,13 @@ namespace HotelCore.dominio.entidades.Objetos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Caracteristica()
         {
-            this.Caracteristica_Habitacion = new HashSet<Caracteristica_Habitacion>();
+            this.Caracteristica_Tipo_Habitacion = new HashSet<Caracteristica_Tipo_Habitacion>();
         }
     
         public int id_Caracteristica { get; set; }
         public string descripcion_Caracteristica { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Caracteristica_Habitacion> Caracteristica_Habitacion { get; set; }
+        public virtual ICollection<Caracteristica_Tipo_Habitacion> Caracteristica_Tipo_Habitacion { get; set; }
     }
 }

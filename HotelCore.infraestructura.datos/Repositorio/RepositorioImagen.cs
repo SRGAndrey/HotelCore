@@ -11,10 +11,13 @@ public class RepositorioImagen : IRepositorioImagen
     private HotelDBEntities db = new HotelDBEntities();
 
     
-    public List<ImagenesBar> obtenerImagenesBar()
+
+    public ImagenesJunior obtenerImagenesJunior()
     {
-        return db.ImagenesBar.ToList();
+        
+        return db.ImagenesJunior.First();
     }
+
 
     public List<ImagenesCafeteria> obtenerImagenesCafeteria()
     {
@@ -65,6 +68,20 @@ public class RepositorioImagen : IRepositorioImagen
     public List<ImagenesTenis> obtenerImagenesTenis()
     {
         return db.ImagenesTenis.ToList();
+    }
+
+    public List<ImagenesBar> obtenerImagenesBar()
+    {
+        return db.ImagenesBar.ToList();
+    }
+
+    public ImagenesStandard obtenerImagenesStandard()
+    {
+        return db.ImagenesStandard.First();
+    }
+    public ImagenesSuite obtenerImagenesSuite()
+    {
+        return db.ImagenesSuite.First();
     }
 }
 
