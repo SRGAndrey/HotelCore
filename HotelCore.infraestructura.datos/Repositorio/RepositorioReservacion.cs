@@ -62,7 +62,9 @@ public class RepositorioReservacion : IRespositorioReservacion
                     foreach (var reserv in reservada)
                     {
                         if (fechaInicio >= reserv.fechaLLegada_Reservacion && fechaInicio <= reserv.fechaSalida_Reservacion ||
-                            fechaFinal >= reserv.fechaLLegada_Reservacion && fechaFinal <= reserv.fechaSalida_Reservacion)
+                            fechaFinal >= reserv.fechaLLegada_Reservacion && fechaFinal <= reserv.fechaSalida_Reservacion ||
+                            reserv.fechaLLegada_Reservacion >= fechaInicio && reserv.fechaLLegada_Reservacion <= fechaFinal ||
+                            reserv.fechaSalida_Reservacion >= fechaInicio && reserv.fechaSalida_Reservacion <= fechaFinal))
                         {
                             break;
                         }
