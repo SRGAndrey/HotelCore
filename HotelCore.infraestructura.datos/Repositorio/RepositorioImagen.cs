@@ -8,7 +8,7 @@ using HotelCore.infraestructura.datos.Modelo;
 
 public class RepositorioImagen : IRepositorioImagen
 {
-    private HotelDBEntities db = new HotelDBEntities();
+    private ISD_HotelEntities db = new ISD_HotelEntities();
 
     
 
