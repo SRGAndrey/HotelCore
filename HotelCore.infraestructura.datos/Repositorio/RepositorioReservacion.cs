@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 public class RepositorioReservacion : IRespositorioReservacion
 {
-    private HotelDBEntities contexto = new HotelDBEntities();
+    private ISD_HotelEntities contexto = new ISD_HotelEntities();
     public HabitacionDisponible habitacionDisponible(System.DateTime fechaInicio, System.DateTime fechaFinal, string tipo)
     {
         HabitacionDisponible habitDisponible = new HabitacionDisponible();
@@ -64,7 +64,7 @@ public class RepositorioReservacion : IRespositorioReservacion
                         if (fechaInicio >= reserv.fechaLLegada_Reservacion && fechaInicio <= reserv.fechaSalida_Reservacion ||
                             fechaFinal >= reserv.fechaLLegada_Reservacion && fechaFinal <= reserv.fechaSalida_Reservacion ||
                             reserv.fechaLLegada_Reservacion >= fechaInicio && reserv.fechaLLegada_Reservacion <= fechaFinal ||
-                            reserv.fechaSalida_Reservacion >= fechaInicio && reserv.fechaSalida_Reservacion <= fechaFinal))
+                            reserv.fechaSalida_Reservacion >= fechaInicio && reserv.fechaSalida_Reservacion <= fechaFinal)
                         {
                             break;
                         }

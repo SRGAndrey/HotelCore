@@ -8,7 +8,7 @@ using HotelCore.infraestructura.datos.Modelo;
 
 public class RepositorioHotel : IRepositorioHotel
 {
-    private HotelDBEntities db = new HotelDBEntities();
+    private ISD_HotelEntities db = new ISD_HotelEntities();
 
    
     public bool actualizar(Hotel hotel)

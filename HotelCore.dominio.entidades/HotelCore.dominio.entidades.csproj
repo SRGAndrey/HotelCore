@@ -58,7 +58,7 @@
     <Compile Include="Objetos\Caracteristica.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Objetos\Caracteristica_Tipo_Habitacion.cs">
+    <Compile Include="Objetos\Caracteristica_Habitacion.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Objetos\Cliente.cs">
@@ -108,7 +108,7 @@
     <Compile Include="Objetos\ImagenesFacilidades.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Objetos\ImagenesHabitacion.cs">
+    <Compile Include="Objetos\ImagenesHabitaciones.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Objetos\ImagenesHotel.cs">
@@ -141,9 +141,6 @@
     <Compile Include="Objetos\ImagenesTenis.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Objetos\Promocion.cs">
-      <DependentUpon>HotelDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Objetos\Publicidad.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
@@ -151,12 +148,6 @@
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Objetos\Rol.cs">
-      <DependentUpon>HotelDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Objetos\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>HotelDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Objetos\sp_helpdiagrams_Result.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Objetos\SubEntidad.cs">
