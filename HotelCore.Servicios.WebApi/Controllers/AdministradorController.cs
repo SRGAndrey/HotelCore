@@ -30,13 +30,20 @@ namespace HotelCore.Servicios.WebApi.Controllers
         [ResponseType(typeof(Administrador))]
         [Route("Admin/obtenerAdmin")]
         [HttpGet]
-        public IHttpActionResult obtenerAdmin(int id)
+        public IHttpActionResult obtenerAdmin(string usuario, string contra)
         {
-            db.Configuration.ProxyCreationEnabled = false;
-            RepositorioAdministrador repositorio = new RepositorioAdministrador();
-            Administrador admin = repositorio.obtenerAdmin(id);
-
-            return Ok(admin);
+            try
+            {
+                db.Configuration.ProxyCreationEnabled = false;
+                RepositorioAdministrador repositorio = new RepositorioAdministrador();
+                Administrador admin = repositorio.obtenerAdmin(usuario, contra);
+                return Ok(admin);
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+           
         }
 
         // PUT: api/Administrador/5
