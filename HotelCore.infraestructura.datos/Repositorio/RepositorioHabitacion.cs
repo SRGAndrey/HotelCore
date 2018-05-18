@@ -32,7 +32,33 @@ public class RepositorioHabitacion : IRepositorioHabitacion
     public List<Habitacion> obtenerHabitaciones()
     {
         List<Habitacion> habitaciones = new List<Habitacion>();
-        habitaciones = db.Habitacion.ToList();
+        DateTime fechaDeHoy = DateTime.Today;
+
+        var habitacionReservadas = from Habitacion h in db.Habitacion
+                               join Reservacion r in db.Tipo_Habitacion
+                               on h.numero_Habitacion equals r.idHabitacion_Reservacion
+                               where fechaDeHoy >= r.fechaLLegada_Reservacion && fechaDeHoy <= r.fechaSalida_Reservacion 
+                               select new
+                                   {
+                                       h
+                                   };
+        var habitacionesDisponibles = from Habitacion h in db.Habitacion
+                                     where h.estado_Habitacion == "Disponible"
+                                     select new
+                                     {
+                                         h
+                                     };
+
+        foreach (var habitacion in habitacionReservadas)
+        {
+            habitaciones.Add(habitacion.h);
+        }
+
+        foreach (var habitacion in habitacionesDisponibles)
+        {
+            habitaciones.Add(habitacion.h);
+        }
+
         return habitaciones;
     }
 }
