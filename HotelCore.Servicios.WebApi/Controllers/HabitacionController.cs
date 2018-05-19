@@ -10,6 +10,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using HotelCore.dominio.entidades.Objetos;
 using HotelCore.infraestructura.datos.Modelo;
+using PagedList;
 
 namespace HotelCore.Servicios.WebApi.Controllers
 {
@@ -18,11 +19,16 @@ namespace HotelCore.Servicios.WebApi.Controllers
         private HotelDBEntities db = new HotelDBEntities();
 
         // GET: api/Habitacion
+        // GET: api/Hotel/5
+        [ResponseType(typeof(Habitacion))]
+        [Route("Habitacion/obtenerHabitaciones")]
+        [HttpGet]
         public IHttpActionResult obtenerHabitaciones()
         {
             List<Habitacion> habitaciones = new List<Habitacion>();
             RepositorioHabitacion reposiorio = new RepositorioHabitacion();
             habitaciones = reposiorio.obtenerHabitaciones();
+
             return Ok(habitaciones);
         }
 
