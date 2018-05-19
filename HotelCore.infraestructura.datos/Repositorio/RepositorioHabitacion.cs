@@ -35,19 +35,19 @@ public class RepositorioHabitacion : IRepositorioHabitacion
         DateTime fechaDeHoy = DateTime.Today;
 
         var habitacionReservadas = from Habitacion h in db.Habitacion
-                               join Reservacion r in db.Tipo_Habitacion
-                               on h.numero_Habitacion equals r.idHabitacion_Reservacion
-                               where fechaDeHoy >= r.fechaLLegada_Reservacion && fechaDeHoy <= r.fechaSalida_Reservacion 
-                               select new
+                                   join Reservacion r in db.Reservacion
+                                   on h.numero_Habitacion equals r.idHabitacion_Reservacion
+                                   where fechaDeHoy >= r.fechaLLegada_Reservacion && fechaDeHoy <= r.fechaSalida_Reservacion
+                                   select new
                                    {
                                        h
                                    };
         var habitacionesDisponibles = from Habitacion h in db.Habitacion
-                                     where h.estado_Habitacion == "Disponible"
-                                     select new
-                                     {
-                                         h
-                                     };
+                                      where h.estado_Habitacion == "Disponible"
+                                      select new
+                                      {
+                                          h
+                                      };
 
         foreach (var habitacion in habitacionReservadas)
         {
