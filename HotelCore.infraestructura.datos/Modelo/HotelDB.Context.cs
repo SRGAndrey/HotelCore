@@ -16,10 +16,10 @@ namespace HotelCore.infraestructura.datos.Modelo
     using System.Linq;
     using dominio.entidades.Objetos;
 
-    public partial class ISD_HotelEntities : DbContext
+    public partial class HotelDBEntities : DbContext
     {
-        public ISD_HotelEntities()
-            : base("name=ISD_HotelEntities")
+        public HotelDBEntities()
+            : base("name=HotelDBEntities")
         {
         }
     
@@ -30,7 +30,7 @@ namespace HotelCore.infraestructura.datos.Modelo
     
         public virtual DbSet<Administrador> Administrador { get; set; }
         public virtual DbSet<Caracteristica> Caracteristica { get; set; }
-        public virtual DbSet<Caracteristica_Habitacion> Caracteristica_Habitacion { get; set; }
+        public virtual DbSet<Caracteristica_Tipo_Habitacion> Caracteristica_Tipo_Habitacion { get; set; }
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Entidad> Entidad { get; set; }
         public virtual DbSet<Entidad_SubEntidad_Imagen> Entidad_SubEntidad_Imagen { get; set; }
@@ -40,6 +40,7 @@ namespace HotelCore.infraestructura.datos.Modelo
         public virtual DbSet<HotelAdministrador> HotelAdministrador { get; set; }
         public virtual DbSet<HotelPublicidad> HotelPublicidad { get; set; }
         public virtual DbSet<Imagen> Imagen { get; set; }
+        public virtual DbSet<Promocion> Promocion { get; set; }
         public virtual DbSet<Publicidad> Publicidad { get; set; }
         public virtual DbSet<Reservacion> Reservacion { get; set; }
         public virtual DbSet<Rol> Rol { get; set; }
@@ -49,7 +50,7 @@ namespace HotelCore.infraestructura.datos.Modelo
         public virtual DbSet<ImagenesCafeteria> ImagenesCafeteria { get; set; }
         public virtual DbSet<ImagenesDescripcion> ImagenesDescripcion { get; set; }
         public virtual DbSet<ImagenesFacilidades> ImagenesFacilidades { get; set; }
-        public virtual DbSet<ImagenesHabitaciones> ImagenesHabitaciones { get; set; }
+        public virtual DbSet<ImagenesHabitacion> ImagenesHabitacion { get; set; }
         public virtual DbSet<ImagenesHotel> ImagenesHotel { get; set; }
         public virtual DbSet<ImagenesInfantiles> ImagenesInfantiles { get; set; }
         public virtual DbSet<ImagenesJacuzzi> ImagenesJacuzzi { get; set; }
@@ -64,6 +65,45 @@ namespace HotelCore.infraestructura.datos.Modelo
         public virtual int actualiza_Estado_Habitacion()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("actualiza_Estado_Habitacion");
+        }
+    
+        public virtual int cancelar_Promocion(string nombre)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("cancelar_Promocion", nombreParameter);
+        }
+    
+        public virtual int crear_Promocion(string nombre, Nullable<System.DateTime> inicio, Nullable<System.DateTime> fin, Nullable<int> descuento)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var inicioParameter = inicio.HasValue ?
+                new ObjectParameter("inicio", inicio) :
+                new ObjectParameter("inicio", typeof(System.DateTime));
+    
+            var finParameter = fin.HasValue ?
+                new ObjectParameter("fin", fin) :
+                new ObjectParameter("fin", typeof(System.DateTime));
+    
+            var descuentoParameter = descuento.HasValue ?
+                new ObjectParameter("descuento", descuento) :
+                new ObjectParameter("descuento", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("crear_Promocion", nombreParameter, inicioParameter, finParameter, descuentoParameter);
+        }
+    
+        public virtual int Estado_Promocion(string nombre)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Estado_Promocion", nombreParameter);
         }
     
         public virtual int insertar_Cliente(string cedula, string nombre, string apellido, Nullable<int> tarjeta_Cliente, string email)
@@ -126,6 +166,36 @@ namespace HotelCore.infraestructura.datos.Modelo
                 new ObjectParameter("email", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insertar_Reservacion", fechaLLegadaParameter, fechasalidaParameter, idHabitacionParameter, idClienteParameter, nombreParameter, apellidoParameter, tarjeta_ClienteParameter, emailParameter);
+        }
+    
+        public virtual int insertar_Tipo_Habitacion(string nombre, string descrip, Nullable<double> tarifa, string hotel)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var descripParameter = descrip != null ?
+                new ObjectParameter("descrip", descrip) :
+                new ObjectParameter("descrip", typeof(string));
+    
+            var tarifaParameter = tarifa.HasValue ?
+                new ObjectParameter("tarifa", tarifa) :
+                new ObjectParameter("tarifa", typeof(double));
+    
+            var hotelParameter = hotel != null ?
+                new ObjectParameter("hotel", hotel) :
+                new ObjectParameter("hotel", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insertar_Tipo_Habitacion", nombreParameter, descripParameter, tarifaParameter, hotelParameter);
+        }
+    
+        public virtual int obtener_tarifa_Tipo_Habitacion(string nombre, ObjectParameter tarifa)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("obtener_tarifa_Tipo_Habitacion", nombreParameter, tarifa);
         }
     }
 }

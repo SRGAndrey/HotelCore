@@ -49,6 +49,35 @@ namespace HotelCore.Servicios.WebApi.Controllers
             return Ok(hotelConImagenes);
         }
 
+
+        // GET: api/Hotel/5
+        [ResponseType(typeof(Tipo_Habitacion))]
+        [Route("Hotel/obtenerHabitacion")]
+        [HttpGet]
+        public IHttpActionResult obtenerHabitacion()
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+
+            RepositorioHotel repositorioHotel = new RepositorioHotel();
+            List<Tipo_Habitacion> hotel = repositorioHotel.obtenerHabitacion();
+            RepositorioImagen repositorioImagenes = new RepositorioImagen();
+            var imagenesJunior = repositorioImagenes.obtenerImagenesJunior();
+            var imagenSuite = repositorioImagenes.obtenerImagenesSuite();
+            var imagenStandard = repositorioImagenes.obtenerImagenesStandard();
+
+            Tarifa tipo = new Tarifa();
+            tipo.tipoHabitacion = hotel;
+            tipo.imagenJunior = imagenesJunior;
+            tipo.imagenSuite = imagenSuite;
+            tipo.imagenStandard = imagenStandard;
+
+
+
+
+            return Ok(tipo);
+        }
+
+
         // PUT: api/Hotel/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutHotel(string id, Hotel hotel)

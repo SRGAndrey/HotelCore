@@ -19,8 +19,8 @@ namespace HotelCore.dominio.entidades.Objetos
         {
             this.Facilidad = new HashSet<Facilidad>();
             this.HotelAdministrador = new HashSet<HotelAdministrador>();
-            this.HotelPublicidad = new HashSet<HotelPublicidad>();
             this.Tipo_Habitacion = new HashSet<Tipo_Habitacion>();
+            this.HotelPublicidad = new HashSet<HotelPublicidad>();
         }
     
         public string nombre_Hotel { get; set; }
@@ -38,8 +38,8 @@ namespace HotelCore.dominio.entidades.Objetos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HotelAdministrador> HotelAdministrador { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HotelPublicidad> HotelPublicidad { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tipo_Habitacion> Tipo_Habitacion { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HotelPublicidad> HotelPublicidad { get; set; }
     }
 }

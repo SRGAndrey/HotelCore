@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 public class RepositorioReservacion : IRespositorioReservacion
 {
-    private ISD_HotelEntities contexto = new ISD_HotelEntities();
+    private HotelDBEntities contexto = new HotelDBEntities();
     public HabitacionDisponible habitacionDisponible(System.DateTime fechaInicio, System.DateTime fechaFinal, string tipo)
     {
         HabitacionDisponible habitDisponible = new HabitacionDisponible();

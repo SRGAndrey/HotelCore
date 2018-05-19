@@ -4,55 +4,6 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="40b983d615f9478e958b8a9b17a96ba9" Name="Diagram1">
-        <EntityTypeShape EntityType="HotelDB.Administrador" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.Caracteristica" Width="1.5" PointX="3" PointY="20" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.Caracteristica_Habitacion" Width="1.5" PointX="5.25" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.Cliente" Width="1.5" PointX="5.25" PointY="19.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.Entidad" Width="1.5" PointX="5.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.Entidad_SubEntidad_Imagen" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.Facilidad" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.Habitacion" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.Hotel" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.HotelAdministrador" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.HotelPublicidad" Width="1.5" PointX="6" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.Imagen" Width="1.5" PointX="5.75" PointY="9.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.Publicidad" Width="1.5" PointX="3.75" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.Reservacion" Width="1.5" PointX="7.5" PointY="16.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.Rol" Width="1.5" PointX="1.5" PointY="17.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.SubEntidad" Width="1.5" PointX="5.75" PointY="22.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.Tipo_Habitacion" Width="1.5" PointX="3" PointY="13.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.ImagenesBar" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.ImagenesCafeteria" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.ImagenesDescripcion" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.ImagenesFacilidades" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.ImagenesHabitaciones" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.ImagenesHotel" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.ImagenesInfantiles" Width="1.5" PointX="7.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.ImagenesJacuzzi" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.ImagenesJunior" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.ImagenesPiscina" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.ImagenesRestaurante" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.ImagenesSobreNosotros" Width="1.5" PointX="12.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.ImagenesStandard" Width="1.5" PointX="9.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.ImagenesSuite" Width="1.5" PointX="11.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.ImagenesTenis" Width="1.5" PointX="13.75" PointY="12.75" IsExpanded="true" />
-        <AssociationConnector Association="HotelDB.FK_Administrador" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelDB.FK_RolAdministrador" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelDB.FK_Caracteristica" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelDB.FK_Caracteristica_Habitacion" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelDB.FK_Cliente" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelDB.FK_EntidadFK" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelDB.FK_Imagen" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelDB.FK_SubEntidad" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelDB.FK_HotelFacilidad" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelDB.FK_HabitacionReservacion" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelDB.FK_TipoHabitacion" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelDB.FK_Hotel" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelDB.FK_HotelPublicidad" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelDB.FK_HotelTipoHabitacion" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelDB.FK_Publicidad" ManuallyRouted="false" />
-      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

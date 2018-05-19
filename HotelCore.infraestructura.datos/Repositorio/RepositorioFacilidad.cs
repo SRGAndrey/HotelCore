@@ -8,7 +8,7 @@ using HotelCore.infraestructura.datos.Modelo;
 
 public class RepositorioFacilidad : IRepositorioFacilidad
 {
-    private ISD_HotelEntities db = new ISD_HotelEntities();
+    private HotelDBEntities db = new HotelDBEntities();
     public bool actualizar(Facilidad facilidad)
     {
         throw new NotImplementedException();

@@ -1,5 +1,6 @@
 ﻿using HotelCore.dominio.entidades.Objetos;
 using HotelCore.infraestructura.datos.Modelo;
+using HotelCore.infraestructura.datos.Repositorio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,21 @@ namespace HotelCore.Servicios.WebApi.Controllers
             
             return Ok(habitacionDisponible);
         }
+
+        [Route("Reservacion/CargarDatosCliente")]
+        [HttpGet]
+        [HttpPost]
+        public IHttpActionResult CargarDatosCliente(string cedula)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+
+            RepositorioCliente repositorio = new RepositorioCliente();
+            Cliente clienteResultante = repositorio.obtenerCliente(cedula);
+
+            return Ok(clienteResultante);
+
+        }//cargardatos cliente
+
 
         [Route("Reservacion/HacerReservacion")]
         [HttpGet]

@@ -21,13 +21,13 @@
           <Property Name="id_Caracteristica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="descripcion_Caracteristica" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
-        <EntityType Name="Caracteristica_Habitacion">
+        <EntityType Name="Caracteristica_Tipo_Habitacion">
           <Key>
-            <PropertyRef Name="id_Caracteristica_Habitacion" />
+            <PropertyRef Name="id_Caracteristica_Tipo_Habitacion" />
           </Key>
-          <Property Name="id_Caracteristica_Habitacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idCaracteristica_Caracteristica_Habitacion" Type="int" Nullable="false" />
-          <Property Name="tipo_Habitacion_Caracteristica_Habitacion" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="id_Caracteristica_Tipo_Habitacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCaracteristica_Caracteristica_Tipo_Habitacion" Type="int" Nullable="false" />
+          <Property Name="tipo_Habitacion_Caracteristica_Tipo_Habitacion" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="Cliente">
           <Key>
@@ -69,7 +69,7 @@
           </Key>
           <Property Name="numero_Habitacion" Type="int" Nullable="false" />
           <Property Name="estado_Habitacion" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="tipo_Habitacion_Habitacion" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="tipo_Habitacion_Habitacion" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="Hotel">
           <Key>
@@ -110,6 +110,17 @@
           <Property Name="imagen_Imagen" Type="varbinary(max)" />
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
+        <EntityType Name="Promocion">
+          <Key>
+            <PropertyRef Name="id_Promocion" />
+          </Key>
+          <Property Name="id_Promocion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="inicio_Promocion" Type="date" Nullable="false" />
+          <Property Name="fin_Promocion" Type="date" Nullable="false" />
+          <Property Name="descuento_Promocion" Type="int" Nullable="false" />
+          <Property Name="estado_Promocion" Type="int" Nullable="false" />
+          <Property Name="tipo_Habitacion_Promocion" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
         <EntityType Name="Publicidad">
           <Key>
             <PropertyRef Name="id_Publicidad" />
@@ -146,13 +157,13 @@
           <Key>
             <PropertyRef Name="nombre_Tipo_Habitacion" />
           </Key>
-          <Property Name="nombre_Tipo_Habitacion" Type="varchar" MaxLength="15" Nullable="false" />
-          <Property Name="tarifa_Tipo_Habitacion" Type="float" Nullable="false" />
+          <Property Name="nombre_Tipo_Habitacion" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="descripcion_Tipo_Habitacion" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="tarifa_Tipo_Habitacion" Type="float" Nullable="false" />
           <Property Name="hotel_Tipo_Habitacion" Type="varchar" MaxLength="25" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesBar' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesBar' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesBar">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -165,7 +176,7 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesBar' no tiene definida
           <Property Name="imagen_Imagen" Type="varbinary(max)" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesCafeteria' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesCafeteria' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesCafeteria">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -178,7 +189,7 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesCafeteria' no tiene de
           <Property Name="imagen_Imagen" Type="varbinary(max)" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesDescripcion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesDescripcion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesDescripcion">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -191,7 +202,7 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesDescripcion' no tiene 
           <Property Name="imagen_Imagen" Type="varbinary(max)" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesFacilidades' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesFacilidades' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesFacilidades">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -204,8 +215,8 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesFacilidades' no tiene 
           <Property Name="imagen_Imagen" Type="varbinary(max)" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesHabitaciones' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
-        <EntityType Name="ImagenesHabitaciones">
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesHabitacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ImagenesHabitacion">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
             <PropertyRef Name="descripcion_SubEntidad" />
@@ -217,7 +228,7 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesHabitaciones' no tiene
           <Property Name="imagen_Imagen" Type="varbinary(max)" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesHotel' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesHotel' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesHotel">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -230,7 +241,7 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesHotel' no tiene defini
           <Property Name="imagen_Imagen" Type="varbinary(max)" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesInfantiles' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesInfantiles' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesInfantiles">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -243,7 +254,7 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesInfantiles' no tiene d
           <Property Name="imagen_Imagen" Type="varbinary(max)" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesJacuzzi' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesJacuzzi' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesJacuzzi">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -256,7 +267,7 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesJacuzzi' no tiene defi
           <Property Name="imagen_Imagen" Type="varbinary(max)" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesJunior' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesJunior' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesJunior">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -269,7 +280,7 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesJunior' no tiene defin
           <Property Name="imagen_Imagen" Type="varbinary(max)" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesPiscina' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesPiscina' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesPiscina">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -282,7 +293,7 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesPiscina' no tiene defi
           <Property Name="imagen_Imagen" Type="varbinary(max)" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesRestaurante' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesRestaurante' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesRestaurante">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -295,7 +306,7 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesRestaurante' no tiene 
           <Property Name="imagen_Imagen" Type="varbinary(max)" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesSobreNosotros' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesSobreNosotros' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesSobreNosotros">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -308,7 +319,7 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesSobreNosotros' no tien
           <Property Name="imagen_Imagen" Type="varbinary(max)" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesStandard' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesStandard' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesStandard">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -321,7 +332,7 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesStandard' no tiene def
           <Property Name="imagen_Imagen" Type="varbinary(max)" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesSuite' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesSuite' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesSuite">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -334,7 +345,7 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesSuite' no tiene defini
           <Property Name="imagen_Imagen" Type="varbinary(max)" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesTenis">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -360,25 +371,13 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
         </Association>
         <Association Name="FK_Caracteristica">
           <End Role="Caracteristica" Type="Self.Caracteristica" Multiplicity="1" />
-          <End Role="Caracteristica_Habitacion" Type="Self.Caracteristica_Habitacion" Multiplicity="*" />
+          <End Role="Caracteristica_Tipo_Habitacion" Type="Self.Caracteristica_Tipo_Habitacion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Caracteristica">
               <PropertyRef Name="id_Caracteristica" />
             </Principal>
-            <Dependent Role="Caracteristica_Habitacion">
-              <PropertyRef Name="idCaracteristica_Caracteristica_Habitacion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Caracteristica_Habitacion">
-          <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="1" />
-          <End Role="Caracteristica_Habitacion" Type="Self.Caracteristica_Habitacion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tipo_Habitacion">
-              <PropertyRef Name="nombre_Tipo_Habitacion" />
-            </Principal>
-            <Dependent Role="Caracteristica_Habitacion">
-              <PropertyRef Name="tipo_Habitacion_Caracteristica_Habitacion" />
+            <Dependent Role="Caracteristica_Tipo_Habitacion">
+              <PropertyRef Name="idCaracteristica_Caracteristica_Tipo_Habitacion" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -430,6 +429,18 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Hotel_Tipo_Habitacion">
+          <End Role="Hotel" Type="Self.Hotel" Multiplicity="0..1" />
+          <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="nombre_Hotel" />
+            </Principal>
+            <Dependent Role="Tipo_Habitacion">
+              <PropertyRef Name="hotel_Tipo_Habitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_HotelFacilidad">
           <End Role="Hotel" Type="Self.Hotel" Multiplicity="0..1" />
           <End Role="Facilidad" Type="Self.Facilidad" Multiplicity="*" />
@@ -451,18 +462,6 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
             </Principal>
             <Dependent Role="HotelPublicidad">
               <PropertyRef Name="Hotel_HotelPublicidad" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_HotelTipoHabitacion">
-          <End Role="Hotel" Type="Self.Hotel" Multiplicity="0..1" />
-          <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Hotel">
-              <PropertyRef Name="nombre_Hotel" />
-            </Principal>
-            <Dependent Role="Tipo_Habitacion">
-              <PropertyRef Name="hotel_Tipo_Habitacion" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -514,7 +513,7 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TipoHabitacion">
+        <Association Name="FK_Tipo_Habitacion_Habitacion">
           <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="1" />
           <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -526,7 +525,43 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Tipo_Habitacion_Promocion">
+          <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="1" />
+          <End Role="Promocion" Type="Self.Promocion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Habitacion">
+              <PropertyRef Name="nombre_Tipo_Habitacion" />
+            </Principal>
+            <Dependent Role="Promocion">
+              <PropertyRef Name="tipo_Habitacion_Promocion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoHabitacion_Caract">
+          <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="1" />
+          <End Role="Caracteristica_Tipo_Habitacion" Type="Self.Caracteristica_Tipo_Habitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Habitacion">
+              <PropertyRef Name="nombre_Tipo_Habitacion" />
+            </Principal>
+            <Dependent Role="Caracteristica_Tipo_Habitacion">
+              <PropertyRef Name="tipo_Habitacion_Caracteristica_Tipo_Habitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="actualiza_Estado_Habitacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="cancelar_Promocion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="crear_Promocion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="inicio" Type="date" Mode="In" />
+          <Parameter Name="fin" Type="date" Mode="In" />
+          <Parameter Name="descuento" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Estado_Promocion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="insertar_Cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="cedula" Type="varchar" Mode="In" />
           <Parameter Name="nombre" Type="varchar" Mode="In" />
@@ -544,10 +579,20 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
           <Parameter Name="tarjeta_Cliente" Type="int" Mode="In" />
           <Parameter Name="email" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="insertar_Tipo_Habitacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="descrip" Type="varchar" Mode="In" />
+          <Parameter Name="tarifa" Type="float" Mode="In" />
+          <Parameter Name="hotel" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="obtener_tarifa_Tipo_Habitacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="tarifa" Type="float" Mode="InOut" />
+        </Function>
         <EntityContainer Name="HotelDBStoreContainer">
           <EntitySet Name="Administrador" EntityType="Self.Administrador" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Caracteristica" EntityType="Self.Caracteristica" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Caracteristica_Habitacion" EntityType="Self.Caracteristica_Habitacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Caracteristica_Tipo_Habitacion" EntityType="Self.Caracteristica_Tipo_Habitacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Entidad" EntityType="Self.Entidad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Entidad_SubEntidad_Imagen" EntityType="Self.Entidad_SubEntidad_Imagen" Schema="dbo" store:Type="Tables" />
@@ -557,6 +602,7 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
           <EntitySet Name="HotelAdministrador" EntityType="Self.HotelAdministrador" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HotelPublicidad" EntityType="Self.HotelPublicidad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Imagen" EntityType="Self.Imagen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Promocion" EntityType="Self.Promocion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Publicidad" EntityType="Self.Publicidad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reservacion" EntityType="Self.Reservacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
@@ -594,13 +640,13 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
     [ImagenesFacilidades].[imagen_Imagen] AS [imagen_Imagen]
     FROM [dbo].[ImagenesFacilidades] AS [ImagenesFacilidades]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="ImagenesHabitaciones" EntityType="Self.ImagenesHabitaciones" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="ImagenesHabitacion" EntityType="Self.ImagenesHabitacion" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [ImagenesHabitaciones].[descripcion_Entidad] AS [descripcion_Entidad], 
-    [ImagenesHabitaciones].[descripcion_SubEntidad] AS [descripcion_SubEntidad], 
-    [ImagenesHabitaciones].[descripcion_Imagen] AS [descripcion_Imagen], 
-    [ImagenesHabitaciones].[imagen_Imagen] AS [imagen_Imagen]
-    FROM [dbo].[ImagenesHabitaciones] AS [ImagenesHabitaciones]</DefiningQuery>
+    [ImagenesHabitacion].[descripcion_Entidad] AS [descripcion_Entidad], 
+    [ImagenesHabitacion].[descripcion_SubEntidad] AS [descripcion_SubEntidad], 
+    [ImagenesHabitacion].[descripcion_Imagen] AS [descripcion_Imagen], 
+    [ImagenesHabitacion].[imagen_Imagen] AS [imagen_Imagen]
+    FROM [dbo].[ImagenesHabitacion] AS [ImagenesHabitacion]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ImagenesHotel" EntityType="Self.ImagenesHotel" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -688,11 +734,7 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
           </AssociationSet>
           <AssociationSet Name="FK_Caracteristica" Association="Self.FK_Caracteristica">
             <End Role="Caracteristica" EntitySet="Caracteristica" />
-            <End Role="Caracteristica_Habitacion" EntitySet="Caracteristica_Habitacion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Caracteristica_Habitacion" Association="Self.FK_Caracteristica_Habitacion">
-            <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
-            <End Role="Caracteristica_Habitacion" EntitySet="Caracteristica_Habitacion" />
+            <End Role="Caracteristica_Tipo_Habitacion" EntitySet="Caracteristica_Tipo_Habitacion" />
           </AssociationSet>
           <AssociationSet Name="FK_Cliente" Association="Self.FK_Cliente">
             <End Role="Cliente" EntitySet="Cliente" />
@@ -710,6 +752,10 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
             <End Role="Hotel" EntitySet="Hotel" />
             <End Role="HotelAdministrador" EntitySet="HotelAdministrador" />
           </AssociationSet>
+          <AssociationSet Name="FK_Hotel_Tipo_Habitacion" Association="Self.FK_Hotel_Tipo_Habitacion">
+            <End Role="Hotel" EntitySet="Hotel" />
+            <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
+          </AssociationSet>
           <AssociationSet Name="FK_HotelFacilidad" Association="Self.FK_HotelFacilidad">
             <End Role="Hotel" EntitySet="Hotel" />
             <End Role="Facilidad" EntitySet="Facilidad" />
@@ -717,10 +763,6 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
           <AssociationSet Name="FK_HotelPublicidad" Association="Self.FK_HotelPublicidad">
             <End Role="Hotel" EntitySet="Hotel" />
             <End Role="HotelPublicidad" EntitySet="HotelPublicidad" />
-          </AssociationSet>
-          <AssociationSet Name="FK_HotelTipoHabitacion" Association="Self.FK_HotelTipoHabitacion">
-            <End Role="Hotel" EntitySet="Hotel" />
-            <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
           </AssociationSet>
           <AssociationSet Name="FK_Imagen" Association="Self.FK_Imagen">
             <End Role="Imagen" EntitySet="Imagen" />
@@ -738,9 +780,17 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
             <End Role="SubEntidad" EntitySet="SubEntidad" />
             <End Role="Entidad_SubEntidad_Imagen" EntitySet="Entidad_SubEntidad_Imagen" />
           </AssociationSet>
-          <AssociationSet Name="FK_TipoHabitacion" Association="Self.FK_TipoHabitacion">
+          <AssociationSet Name="FK_Tipo_Habitacion_Habitacion" Association="Self.FK_Tipo_Habitacion_Habitacion">
             <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
             <End Role="Habitacion" EntitySet="Habitacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tipo_Habitacion_Promocion" Association="Self.FK_Tipo_Habitacion_Promocion">
+            <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
+            <End Role="Promocion" EntitySet="Promocion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoHabitacion_Caract" Association="Self.FK_TipoHabitacion_Caract">
+            <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
+            <End Role="Caracteristica_Tipo_Habitacion" EntitySet="Caracteristica_Tipo_Habitacion" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -765,17 +815,17 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
           </Key>
           <Property Name="id_Caracteristica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="descripcion_Caracteristica" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Caracteristica_Habitacion" Relationship="Self.FK_Caracteristica" FromRole="Caracteristica" ToRole="Caracteristica_Habitacion" />
+          <NavigationProperty Name="Caracteristica_Tipo_Habitacion" Relationship="Self.FK_Caracteristica" FromRole="Caracteristica" ToRole="Caracteristica_Tipo_Habitacion" />
         </EntityType>
-        <EntityType Name="Caracteristica_Habitacion">
+        <EntityType Name="Caracteristica_Tipo_Habitacion">
           <Key>
-            <PropertyRef Name="id_Caracteristica_Habitacion" />
+            <PropertyRef Name="id_Caracteristica_Tipo_Habitacion" />
           </Key>
-          <Property Name="id_Caracteristica_Habitacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idCaracteristica_Caracteristica_Habitacion" Type="Int32" Nullable="false" />
-          <Property Name="tipo_Habitacion_Caracteristica_Habitacion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Caracteristica" Relationship="Self.FK_Caracteristica" FromRole="Caracteristica_Habitacion" ToRole="Caracteristica" />
-          <NavigationProperty Name="Tipo_Habitacion" Relationship="Self.FK_Caracteristica_Habitacion" FromRole="Caracteristica_Habitacion" ToRole="Tipo_Habitacion" />
+          <Property Name="id_Caracteristica_Tipo_Habitacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCaracteristica_Caracteristica_Tipo_Habitacion" Type="Int32" Nullable="false" />
+          <Property Name="tipo_Habitacion_Caracteristica_Tipo_Habitacion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Caracteristica" Relationship="Self.FK_Caracteristica" FromRole="Caracteristica_Tipo_Habitacion" ToRole="Caracteristica" />
+          <NavigationProperty Name="Tipo_Habitacion" Relationship="Self.FK_TipoHabitacion_Caract" FromRole="Caracteristica_Tipo_Habitacion" ToRole="Tipo_Habitacion" />
         </EntityType>
         <EntityType Name="Cliente">
           <Key>
@@ -823,9 +873,9 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
           </Key>
           <Property Name="numero_Habitacion" Type="Int32" Nullable="false" />
           <Property Name="estado_Habitacion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="tipo_Habitacion_Habitacion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipo_Habitacion_Habitacion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Reservacion" Relationship="Self.FK_HabitacionReservacion" FromRole="Habitacion" ToRole="Reservacion" />
-          <NavigationProperty Name="Tipo_Habitacion" Relationship="Self.FK_TipoHabitacion" FromRole="Habitacion" ToRole="Tipo_Habitacion" />
+          <NavigationProperty Name="Tipo_Habitacion" Relationship="Self.FK_Tipo_Habitacion_Habitacion" FromRole="Habitacion" ToRole="Tipo_Habitacion" />
         </EntityType>
         <EntityType Name="Hotel">
           <Key>
@@ -842,8 +892,8 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
           <Property Name="email_Hotel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Facilidad" Relationship="Self.FK_HotelFacilidad" FromRole="Hotel" ToRole="Facilidad" />
           <NavigationProperty Name="HotelAdministrador" Relationship="Self.FK_Hotel" FromRole="Hotel" ToRole="HotelAdministrador" />
+          <NavigationProperty Name="Tipo_Habitacion" Relationship="Self.FK_Hotel_Tipo_Habitacion" FromRole="Hotel" ToRole="Tipo_Habitacion" />
           <NavigationProperty Name="HotelPublicidad" Relationship="Self.FK_HotelPublicidad" FromRole="Hotel" ToRole="HotelPublicidad" />
-          <NavigationProperty Name="Tipo_Habitacion" Relationship="Self.FK_HotelTipoHabitacion" FromRole="Hotel" ToRole="Tipo_Habitacion" />
         </EntityType>
         <EntityType Name="HotelAdministrador">
           <Key>
@@ -874,6 +924,18 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
           <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="descripcion_Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Entidad_SubEntidad_Imagen" Relationship="Self.FK_Imagen" FromRole="Imagen" ToRole="Entidad_SubEntidad_Imagen" />
+        </EntityType>
+        <EntityType Name="Promocion">
+          <Key>
+            <PropertyRef Name="id_Promocion" />
+          </Key>
+          <Property Name="id_Promocion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="inicio_Promocion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fin_Promocion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="descuento_Promocion" Type="Int32" Nullable="false" />
+          <Property Name="estado_Promocion" Type="Int32" Nullable="false" />
+          <Property Name="tipo_Habitacion_Promocion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Tipo_Habitacion" Relationship="Self.FK_Tipo_Habitacion_Promocion" FromRole="Promocion" ToRole="Tipo_Habitacion" />
         </EntityType>
         <EntityType Name="Publicidad">
           <Key>
@@ -916,13 +978,14 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
           <Key>
             <PropertyRef Name="nombre_Tipo_Habitacion" />
           </Key>
-          <Property Name="nombre_Tipo_Habitacion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="tarifa_Tipo_Habitacion" Type="Double" Nullable="false" />
+          <Property Name="nombre_Tipo_Habitacion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="descripcion_Tipo_Habitacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tarifa_Tipo_Habitacion" Type="Double" Nullable="false" />
           <Property Name="hotel_Tipo_Habitacion" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Caracteristica_Habitacion" Relationship="Self.FK_Caracteristica_Habitacion" FromRole="Tipo_Habitacion" ToRole="Caracteristica_Habitacion" />
-          <NavigationProperty Name="Habitacion" Relationship="Self.FK_TipoHabitacion" FromRole="Tipo_Habitacion" ToRole="Habitacion" />
-          <NavigationProperty Name="Hotel" Relationship="Self.FK_HotelTipoHabitacion" FromRole="Tipo_Habitacion" ToRole="Hotel" />
+          <NavigationProperty Name="Caracteristica_Tipo_Habitacion" Relationship="Self.FK_TipoHabitacion_Caract" FromRole="Tipo_Habitacion" ToRole="Caracteristica_Tipo_Habitacion" />
+          <NavigationProperty Name="Habitacion" Relationship="Self.FK_Tipo_Habitacion_Habitacion" FromRole="Tipo_Habitacion" ToRole="Habitacion" />
+          <NavigationProperty Name="Hotel" Relationship="Self.FK_Hotel_Tipo_Habitacion" FromRole="Tipo_Habitacion" ToRole="Hotel" />
+          <NavigationProperty Name="Promocion" Relationship="Self.FK_Tipo_Habitacion_Promocion" FromRole="Tipo_Habitacion" ToRole="Promocion" />
         </EntityType>
         <EntityType Name="ImagenesBar">
           <Key>
@@ -968,7 +1031,7 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
           <Property Name="descripcion_Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="ImagenesHabitaciones">
+        <EntityType Name="ImagenesHabitacion">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
             <PropertyRef Name="descripcion_SubEntidad" />
@@ -1115,25 +1178,25 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
         </Association>
         <Association Name="FK_Caracteristica">
           <End Role="Caracteristica" Type="Self.Caracteristica" Multiplicity="1" />
-          <End Role="Caracteristica_Habitacion" Type="Self.Caracteristica_Habitacion" Multiplicity="*" />
+          <End Role="Caracteristica_Tipo_Habitacion" Type="Self.Caracteristica_Tipo_Habitacion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Caracteristica">
               <PropertyRef Name="id_Caracteristica" />
             </Principal>
-            <Dependent Role="Caracteristica_Habitacion">
-              <PropertyRef Name="idCaracteristica_Caracteristica_Habitacion" />
+            <Dependent Role="Caracteristica_Tipo_Habitacion">
+              <PropertyRef Name="idCaracteristica_Caracteristica_Tipo_Habitacion" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Caracteristica_Habitacion">
+        <Association Name="FK_TipoHabitacion_Caract">
           <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="1" />
-          <End Role="Caracteristica_Habitacion" Type="Self.Caracteristica_Habitacion" Multiplicity="*" />
+          <End Role="Caracteristica_Tipo_Habitacion" Type="Self.Caracteristica_Tipo_Habitacion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tipo_Habitacion">
               <PropertyRef Name="nombre_Tipo_Habitacion" />
             </Principal>
-            <Dependent Role="Caracteristica_Habitacion">
-              <PropertyRef Name="tipo_Habitacion_Caracteristica_Habitacion" />
+            <Dependent Role="Caracteristica_Tipo_Habitacion">
+              <PropertyRef Name="tipo_Habitacion_Caracteristica_Tipo_Habitacion" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1209,7 +1272,7 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TipoHabitacion">
+        <Association Name="FK_Tipo_Habitacion_Habitacion">
           <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="1" />
           <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1233,6 +1296,18 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Hotel_Tipo_Habitacion">
+          <End Role="Hotel" Type="Self.Hotel" Multiplicity="0..1" />
+          <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="nombre_Hotel" />
+            </Principal>
+            <Dependent Role="Tipo_Habitacion">
+              <PropertyRef Name="hotel_Tipo_Habitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_HotelPublicidad">
           <End Role="Hotel" Type="Self.Hotel" Multiplicity="1" />
           <End Role="HotelPublicidad" Type="Self.HotelPublicidad" Multiplicity="*" />
@@ -1242,18 +1317,6 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
             </Principal>
             <Dependent Role="HotelPublicidad">
               <PropertyRef Name="Hotel_HotelPublicidad" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_HotelTipoHabitacion">
-          <End Role="Hotel" Type="Self.Hotel" Multiplicity="0..1" />
-          <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Hotel">
-              <PropertyRef Name="nombre_Hotel" />
-            </Principal>
-            <Dependent Role="Tipo_Habitacion">
-              <PropertyRef Name="hotel_Tipo_Habitacion" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1269,10 +1332,22 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ISD_HotelEntities" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK_Tipo_Habitacion_Promocion">
+          <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="1" />
+          <End Role="Promocion" Type="Self.Promocion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Habitacion">
+              <PropertyRef Name="nombre_Tipo_Habitacion" />
+            </Principal>
+            <Dependent Role="Promocion">
+              <PropertyRef Name="tipo_Habitacion_Promocion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HotelDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Administrador" EntityType="Self.Administrador" />
           <EntitySet Name="Caracteristica" EntityType="Self.Caracteristica" />
-          <EntitySet Name="Caracteristica_Habitacion" EntityType="Self.Caracteristica_Habitacion" />
+          <EntitySet Name="Caracteristica_Tipo_Habitacion" EntityType="Self.Caracteristica_Tipo_Habitacion" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" />
           <EntitySet Name="Entidad" EntityType="Self.Entidad" />
           <EntitySet Name="Entidad_SubEntidad_Imagen" EntityType="Self.Entidad_SubEntidad_Imagen" />
@@ -1282,6 +1357,7 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
           <EntitySet Name="HotelAdministrador" EntityType="Self.HotelAdministrador" />
           <EntitySet Name="HotelPublicidad" EntityType="Self.HotelPublicidad" />
           <EntitySet Name="Imagen" EntityType="Self.Imagen" />
+          <EntitySet Name="Promocion" EntityType="Self.Promocion" />
           <EntitySet Name="Publicidad" EntityType="Self.Publicidad" />
           <EntitySet Name="Reservacion" EntityType="Self.Reservacion" />
           <EntitySet Name="Rol" EntityType="Self.Rol" />
@@ -1291,7 +1367,7 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
           <EntitySet Name="ImagenesCafeteria" EntityType="Self.ImagenesCafeteria" />
           <EntitySet Name="ImagenesDescripcion" EntityType="Self.ImagenesDescripcion" />
           <EntitySet Name="ImagenesFacilidades" EntityType="Self.ImagenesFacilidades" />
-          <EntitySet Name="ImagenesHabitaciones" EntityType="Self.ImagenesHabitaciones" />
+          <EntitySet Name="ImagenesHabitacion" EntityType="Self.ImagenesHabitacion" />
           <EntitySet Name="ImagenesHotel" EntityType="Self.ImagenesHotel" />
           <EntitySet Name="ImagenesInfantiles" EntityType="Self.ImagenesInfantiles" />
           <EntitySet Name="ImagenesJacuzzi" EntityType="Self.ImagenesJacuzzi" />
@@ -1312,11 +1388,11 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
           </AssociationSet>
           <AssociationSet Name="FK_Caracteristica" Association="Self.FK_Caracteristica">
             <End Role="Caracteristica" EntitySet="Caracteristica" />
-            <End Role="Caracteristica_Habitacion" EntitySet="Caracteristica_Habitacion" />
+            <End Role="Caracteristica_Tipo_Habitacion" EntitySet="Caracteristica_Tipo_Habitacion" />
           </AssociationSet>
-          <AssociationSet Name="FK_Caracteristica_Habitacion" Association="Self.FK_Caracteristica_Habitacion">
+          <AssociationSet Name="FK_TipoHabitacion_Caract" Association="Self.FK_TipoHabitacion_Caract">
             <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
-            <End Role="Caracteristica_Habitacion" EntitySet="Caracteristica_Habitacion" />
+            <End Role="Caracteristica_Tipo_Habitacion" EntitySet="Caracteristica_Tipo_Habitacion" />
           </AssociationSet>
           <AssociationSet Name="FK_Cliente" Association="Self.FK_Cliente">
             <End Role="Cliente" EntitySet="Cliente" />
@@ -1342,7 +1418,7 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
             <End Role="Habitacion" EntitySet="Habitacion" />
             <End Role="Reservacion" EntitySet="Reservacion" />
           </AssociationSet>
-          <AssociationSet Name="FK_TipoHabitacion" Association="Self.FK_TipoHabitacion">
+          <AssociationSet Name="FK_Tipo_Habitacion_Habitacion" Association="Self.FK_Tipo_Habitacion_Habitacion">
             <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
             <End Role="Habitacion" EntitySet="Habitacion" />
           </AssociationSet>
@@ -1350,19 +1426,35 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
             <End Role="Hotel" EntitySet="Hotel" />
             <End Role="HotelAdministrador" EntitySet="HotelAdministrador" />
           </AssociationSet>
+          <AssociationSet Name="FK_Hotel_Tipo_Habitacion" Association="Self.FK_Hotel_Tipo_Habitacion">
+            <End Role="Hotel" EntitySet="Hotel" />
+            <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
+          </AssociationSet>
           <AssociationSet Name="FK_HotelPublicidad" Association="Self.FK_HotelPublicidad">
             <End Role="Hotel" EntitySet="Hotel" />
             <End Role="HotelPublicidad" EntitySet="HotelPublicidad" />
-          </AssociationSet>
-          <AssociationSet Name="FK_HotelTipoHabitacion" Association="Self.FK_HotelTipoHabitacion">
-            <End Role="Hotel" EntitySet="Hotel" />
-            <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
           </AssociationSet>
           <AssociationSet Name="FK_Publicidad" Association="Self.FK_Publicidad">
             <End Role="Publicidad" EntitySet="Publicidad" />
             <End Role="HotelPublicidad" EntitySet="HotelPublicidad" />
           </AssociationSet>
+          <AssociationSet Name="FK_Tipo_Habitacion_Promocion" Association="Self.FK_Tipo_Habitacion_Promocion">
+            <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
+            <End Role="Promocion" EntitySet="Promocion" />
+          </AssociationSet>
           <FunctionImport Name="actualiza_Estado_Habitacion" />
+          <FunctionImport Name="cancelar_Promocion">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="crear_Promocion">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="inicio" Mode="In" Type="DateTime" />
+            <Parameter Name="fin" Mode="In" Type="DateTime" />
+            <Parameter Name="descuento" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Estado_Promocion">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="insertar_Cliente">
             <Parameter Name="cedula" Mode="In" Type="String" />
             <Parameter Name="nombre" Mode="In" Type="String" />
@@ -1380,13 +1472,23 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
             <Parameter Name="tarjeta_Cliente" Mode="In" Type="Int32" />
             <Parameter Name="email" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="insertar_Tipo_Habitacion">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="descrip" Mode="In" Type="String" />
+            <Parameter Name="tarifa" Mode="In" Type="Double" />
+            <Parameter Name="hotel" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="obtener_tarifa_Tipo_Habitacion">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="tarifa" Mode="InOut" Type="Double" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="HotelDBStoreContainer" CdmEntityContainer="ISD_HotelEntities">
+        <EntityContainerMapping StorageEntityContainer="HotelDBStoreContainer" CdmEntityContainer="HotelDBEntities">
           <EntitySetMapping Name="Administrador">
             <EntityTypeMapping TypeName="HotelDB.Administrador">
               <MappingFragment StoreEntitySet="Administrador">
@@ -1405,12 +1507,12 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Caracteristica_Habitacion">
-            <EntityTypeMapping TypeName="HotelDB.Caracteristica_Habitacion">
-              <MappingFragment StoreEntitySet="Caracteristica_Habitacion">
-                <ScalarProperty Name="id_Caracteristica_Habitacion" ColumnName="id_Caracteristica_Habitacion" />
-                <ScalarProperty Name="idCaracteristica_Caracteristica_Habitacion" ColumnName="idCaracteristica_Caracteristica_Habitacion" />
-                <ScalarProperty Name="tipo_Habitacion_Caracteristica_Habitacion" ColumnName="tipo_Habitacion_Caracteristica_Habitacion" />
+          <EntitySetMapping Name="Caracteristica_Tipo_Habitacion">
+            <EntityTypeMapping TypeName="HotelDB.Caracteristica_Tipo_Habitacion">
+              <MappingFragment StoreEntitySet="Caracteristica_Tipo_Habitacion">
+                <ScalarProperty Name="id_Caracteristica_Tipo_Habitacion" ColumnName="id_Caracteristica_Tipo_Habitacion" />
+                <ScalarProperty Name="idCaracteristica_Caracteristica_Tipo_Habitacion" ColumnName="idCaracteristica_Caracteristica_Tipo_Habitacion" />
+                <ScalarProperty Name="tipo_Habitacion_Caracteristica_Tipo_Habitacion" ColumnName="tipo_Habitacion_Caracteristica_Tipo_Habitacion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1504,6 +1606,18 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Promocion">
+            <EntityTypeMapping TypeName="HotelDB.Promocion">
+              <MappingFragment StoreEntitySet="Promocion">
+                <ScalarProperty Name="id_Promocion" ColumnName="id_Promocion" />
+                <ScalarProperty Name="inicio_Promocion" ColumnName="inicio_Promocion" />
+                <ScalarProperty Name="fin_Promocion" ColumnName="fin_Promocion" />
+                <ScalarProperty Name="descuento_Promocion" ColumnName="descuento_Promocion" />
+                <ScalarProperty Name="estado_Promocion" ColumnName="estado_Promocion" />
+                <ScalarProperty Name="tipo_Habitacion_Promocion" ColumnName="tipo_Habitacion_Promocion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Publicidad">
             <EntityTypeMapping TypeName="HotelDB.Publicidad">
               <MappingFragment StoreEntitySet="Publicidad">
@@ -1544,8 +1658,8 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
             <EntityTypeMapping TypeName="HotelDB.Tipo_Habitacion">
               <MappingFragment StoreEntitySet="Tipo_Habitacion">
                 <ScalarProperty Name="nombre_Tipo_Habitacion" ColumnName="nombre_Tipo_Habitacion" />
-                <ScalarProperty Name="tarifa_Tipo_Habitacion" ColumnName="tarifa_Tipo_Habitacion" />
                 <ScalarProperty Name="descripcion_Tipo_Habitacion" ColumnName="descripcion_Tipo_Habitacion" />
+                <ScalarProperty Name="tarifa_Tipo_Habitacion" ColumnName="tarifa_Tipo_Habitacion" />
                 <ScalarProperty Name="hotel_Tipo_Habitacion" ColumnName="hotel_Tipo_Habitacion" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1590,9 +1704,9 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ImagenesHabitaciones">
-            <EntityTypeMapping TypeName="HotelDB.ImagenesHabitaciones">
-              <MappingFragment StoreEntitySet="ImagenesHabitaciones">
+          <EntitySetMapping Name="ImagenesHabitacion">
+            <EntityTypeMapping TypeName="HotelDB.ImagenesHabitacion">
+              <MappingFragment StoreEntitySet="ImagenesHabitacion">
                 <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
                 <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
                 <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
@@ -1701,8 +1815,13 @@ advertencia 6002: La tabla o vista 'ISD_Hotel.dbo.ImagenesTenis' no tiene defini
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="actualiza_Estado_Habitacion" FunctionName="HotelDB.Store.actualiza_Estado_Habitacion" />
+          <FunctionImportMapping FunctionImportName="cancelar_Promocion" FunctionName="HotelDB.Store.cancelar_Promocion" />
+          <FunctionImportMapping FunctionImportName="crear_Promocion" FunctionName="HotelDB.Store.crear_Promocion" />
+          <FunctionImportMapping FunctionImportName="Estado_Promocion" FunctionName="HotelDB.Store.Estado_Promocion" />
           <FunctionImportMapping FunctionImportName="insertar_Cliente" FunctionName="HotelDB.Store.insertar_Cliente" />
           <FunctionImportMapping FunctionImportName="insertar_Reservacion" FunctionName="HotelDB.Store.insertar_Reservacion" />
+          <FunctionImportMapping FunctionImportName="insertar_Tipo_Habitacion" FunctionName="HotelDB.Store.insertar_Tipo_Habitacion" />
+          <FunctionImportMapping FunctionImportName="obtener_tarifa_Tipo_Habitacion" FunctionName="HotelDB.Store.obtener_tarifa_Tipo_Habitacion" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

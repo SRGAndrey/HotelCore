@@ -4,11 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HotelCore.dominio.entidades.Objetos;
-    interface IRepositorioCliente
+    public interface IRepositorioCliente
     {
-    bool create(Cliente cliente);
-    Cliente retrieve(int id);
-    bool update(Cliente distrito);
-    bool delete(int id);
-}
+    bool insertar(Cliente cliente);
+
+    Cliente obtenerCliente(string cedula);
+
+    bool actualizar(Cliente cliente);
+
+    bool eliminar(string cedula);
+
+    List<Cliente> obtenerClientes();
+}//IRepositorio
 

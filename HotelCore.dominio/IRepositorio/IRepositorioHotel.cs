@@ -9,9 +9,12 @@ public interface IRepositorioHotel
 {
     bool insertar(Hotel hotel);
     Hotel obtenerHotel(String nombre);
+    Tipo_Habitacion obtenerHabitacion(String nombre);
+
     bool actualizar(Hotel hotel);
     bool eliminar(String nombre);
 
     List<Hotel> obtenerHoteles();
+    List<Tipo_Habitacion> obtenerHabitacion();
 }
 

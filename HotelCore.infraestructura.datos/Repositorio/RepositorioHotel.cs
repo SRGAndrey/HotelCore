@@ -8,7 +8,7 @@ using HotelCore.infraestructura.datos.Modelo;
 
 public class RepositorioHotel : IRepositorioHotel
 {
-    private ISD_HotelEntities db = new ISD_HotelEntities();
+    private HotelDBEntities db = new HotelDBEntities();
 
    
     public bool actualizar(Hotel hotel)
@@ -33,11 +33,23 @@ public class RepositorioHotel : IRepositorioHotel
         Hotel hotel = db.Hotel.Find(nombre);
         return hotel;
     }
+    public Tipo_Habitacion obtenerHabitacion(string nombre)
+    {
+        Tipo_Habitacion hotel = db.Tipo_Habitacion.Find(nombre);
+        return hotel;
+    }
 
     public List<Hotel> obtenerHoteles()
     {
         List<Hotel> hoteles = db.Hotel.ToList();
         return hoteles;
+    }
+
+    public List<Tipo_Habitacion> obtenerHabitacion()
+    {
+        List<Tipo_Habitacion> habitacion = new List<Tipo_Habitacion>();
+        habitacion = db.Tipo_Habitacion.ToList();
+        return habitacion;
     }
 }
 
