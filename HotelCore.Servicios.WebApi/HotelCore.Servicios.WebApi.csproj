@@ -182,6 +182,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdministradorController.cs" />
     <Compile Include="Controllers\FacilidadController.cs" />
+    <Compile Include="Controllers\HabitacionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Controllers\ImagenController.cs" />
@@ -266,6 +267,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HotelCore.aplicacion\HotelCore.aplicacion.csproj">
+      <Project>{7bd1420e-cf52-4ec6-8687-d4ca50853037}</Project>
+      <Name>HotelCore.aplicacion</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HotelCore.dominio.entidades\HotelCore.dominio.entidades.csproj">
       <Project>{92e6a20a-040d-430d-9169-ce9bc0fd7e67}</Project>
       <Name>HotelCore.dominio.entidades</Name>
@@ -274,9 +279,9 @@
       <Project>{821eb02f-0ba4-41ff-8e6e-ba261074cb92}</Project>
       <Name>HotelCore.dominio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HotelCore.infraestructura.datos\HotelCore.infraestructura.datos.csproj">
-      <Project>{04de1ea1-d4b6-4361-8102-e83e44dd26b7}</Project>
-      <Name>HotelCore.infraestructura.datos</Name>
+    <ProjectReference Include="..\HotelCore.infraestructuraIoC\HotelCore.infraestructuraIoC.csproj">
+      <Project>{b6617954-3cb6-4828-9bc9-520a90f740ae}</Project>
+      <Name>HotelCore.infraestructuraIoC</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

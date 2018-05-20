@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{821EB02F-0BA4-41FF-8E6E-BA261074CB92}</ProjectGuid>
+    <ProjectGuid>{B6617954-3CB6-4828-9BC9-520A90F740AE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HotelCore.dominio</RootNamespace>
-    <AssemblyName>HotelCore.dominio</AssemblyName>
+    <RootNamespace>HotelCore.infraestructuraIoC</RootNamespace>
+    <AssemblyName>HotelCore.infraestructuraIoC</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -73,23 +73,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="IRepositorio\IRepositorioAdministrador.cs" />
-    <Compile Include="IRepositorio\IRepositorioCliente.cs" />
-    <Compile Include="IRepositorio\IRepositorioFacilidad.cs" />
-    <Compile Include="IRepositorio\IRepositorioHabitacion.cs" />
-    <Compile Include="IRepositorio\IRepositorioHotel.cs" />
-    <Compile Include="IRepositorio\IRepositorioImagen.cs" />
-    <Compile Include="IRepositorio\IRespositorioReservacion.cs" />
+    <Compile Include="FabricaIoC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HotelCore.dominio.entidades\HotelCore.dominio.entidades.csproj">
       <Project>{92e6a20a-040d-430d-9169-ce9bc0fd7e67}</Project>
       <Name>HotelCore.dominio.entidades</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HotelCore.dominio\HotelCore.dominio.csproj">
+      <Project>{821eb02f-0ba4-41ff-8e6e-ba261074cb92}</Project>
+      <Name>HotelCore.dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HotelCore.infraestructura.datos\HotelCore.infraestructura.datos.csproj">
+      <Project>{04de1ea1-d4b6-4361-8102-e83e44dd26b7}</Project>
+      <Name>HotelCore.infraestructura.datos</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

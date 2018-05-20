@@ -17,6 +17,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelCore.dominio.entidades
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelCore.Servicios.WebApi", "HotelCore.Servicios.WebApi\HotelCore.Servicios.WebApi.csproj", "{9FAE2363-4DED-424C-8345-13FFBA485F33}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aplicacion", "Aplicacion", "{BEEC1676-01E9-41EF-9D0C-3EAC6488F1EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelCore.aplicacion", "HotelCore.aplicacion\HotelCore.aplicacion.csproj", "{7BD1420E-CF52-4EC6-8687-D4CA50853037}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelCore.infraestructuraIoC", "HotelCore.infraestructuraIoC\HotelCore.infraestructuraIoC.csproj", "{B6617954-3CB6-4828-9BC9-520A90F740AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +45,14 @@ Global
 		{9FAE2363-4DED-424C-8345-13FFBA485F33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FAE2363-4DED-424C-8345-13FFBA485F33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FAE2363-4DED-424C-8345-13FFBA485F33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BD1420E-CF52-4EC6-8687-D4CA50853037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BD1420E-CF52-4EC6-8687-D4CA50853037}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BD1420E-CF52-4EC6-8687-D4CA50853037}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BD1420E-CF52-4EC6-8687-D4CA50853037}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6617954-3CB6-4828-9BC9-520A90F740AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6617954-3CB6-4828-9BC9-520A90F740AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6617954-3CB6-4828-9BC9-520A90F740AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6617954-3CB6-4828-9BC9-520A90F740AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,5 +62,7 @@ Global
 		{04DE1EA1-D4B6-4361-8102-E83E44DD26B7} = {6CF8B367-C4F0-4FF0-8545-85AC3F8A726B}
 		{92E6A20A-040D-430D-9169-CE9BC0FD7E67} = {6665EF4E-7D1B-4AA9-9DD4-DC9823DA2413}
 		{9FAE2363-4DED-424C-8345-13FFBA485F33} = {876452AF-FDC0-4F36-B3E2-EC7DC24F5FB2}
+		{7BD1420E-CF52-4EC6-8687-D4CA50853037} = {BEEC1676-01E9-41EF-9D0C-3EAC6488F1EA}
+		{B6617954-3CB6-4828-9BC9-520A90F740AE} = {6CF8B367-C4F0-4FF0-8545-85AC3F8A726B}
 	EndGlobalSection
 EndGlobal

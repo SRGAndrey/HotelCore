@@ -1,6 +1,4 @@
 ﻿using HotelCore.dominio.entidades.Objetos;
-using HotelCore.infraestructura.datos.Modelo;
-using HotelCore.infraestructura.datos.Repositorio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +11,6 @@ namespace HotelCore.Servicios.WebApi.Controllers
 {
     public class ReservacionController : ApiController
     {
-        private HotelDBEntities db = new HotelDBEntities();
         // GET: api/Reservacion
         public IEnumerable<string> Get()
         {
@@ -30,11 +27,11 @@ namespace HotelCore.Servicios.WebApi.Controllers
 
             System.DateTime fechaInicio = DateTime.Parse(fechaLlegada);
             System.DateTime fechaFinal = DateTime.Parse(fechaSalida);
-            db.Configuration.ProxyCreationEnabled = false;
-            RepositorioReservacion repositorio = new RepositorioReservacion();
+            //RepositorioReservacion repositorio = new RepositorioReservacion();
+            IReservacionLN repositorio = FabricaIoC.Contenedor.Resolver<ReservacionLN>();
 
-            HabitacionDisponible habitacionDisponible = repositorio.habitacionDisponible(fechaInicio, fechaFinal,tipo);
-            
+            HabitacionDisponible habitacionDisponible = repositorio.habitacionDisponible(fechaInicio, fechaFinal, tipo);
+
             return Ok(habitacionDisponible);
         }
 
@@ -43,9 +40,9 @@ namespace HotelCore.Servicios.WebApi.Controllers
         [HttpPost]
         public IHttpActionResult CargarDatosCliente(string cedula)
         {
-            db.Configuration.ProxyCreationEnabled = false;
 
-            RepositorioCliente repositorio = new RepositorioCliente();
+            IClienteLN repositorio = FabricaIoC.Contenedor.Resolver<ClienteLN>();
+            //RepositorioCliente repositorio = new RepositorioCliente();
             Cliente clienteResultante = repositorio.obtenerCliente(cedula);
 
             return Ok(clienteResultante);
@@ -56,10 +53,9 @@ namespace HotelCore.Servicios.WebApi.Controllers
         [Route("Reservacion/HacerReservacion")]
         [HttpGet]
         [HttpPost]
-        public IHttpActionResult HacerReservacion(string fechaLlegada, string fechaSalida, int habitacion, string cedula, 
+        public IHttpActionResult HacerReservacion(string fechaLlegada, string fechaSalida, int habitacion, string cedula,
             string nombre, string apellidos, int tarjeta, string email)
         {
-            db.Configuration.ProxyCreationEnabled = false;
 
             System.DateTime fechaInicio = DateTime.Parse(fechaLlegada);
             System.DateTime fechaFinal = DateTime.Parse(fechaSalida);
@@ -76,34 +72,16 @@ namespace HotelCore.Servicios.WebApi.Controllers
             cliente.email_Cliente = email;
             cliente.nombre_Cliente = nombre;
             cliente.tarjeta_Cliente = tarjeta;
-            
-            RepositorioReservacion repositorio = new RepositorioReservacion();
+
+            IReservacionLN repositorio = FabricaIoC.Contenedor.Resolver<ReservacionLN>();
+
+            //RepositorioReservacion repositorio = new RepositorioReservacion();
 
             Reservacion reservacion = repositorio.insertarReservacion(reser, cliente);
 
             return Ok(reservacion);
         }
 
-        // GET: api/Reservacion/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST: api/Reservacion
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT: api/Reservacion/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/Rese
-          
-        public void Delete(int id)
-        {
-        }
+        
     }
 }
