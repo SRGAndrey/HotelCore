@@ -24,7 +24,15 @@ namespace HotelCore.Servicios.WebApi.Controllers
             habitaciones = repositorio.obtenerHabitaciones();
             return Ok(habitaciones);
         }
+        public IHttpActionResult obtenerTodas()
+        {
+            List<AdministrarHabitacion> habitaciones = new List<AdministrarHabitacion>();
+            //RepositorioHabitacion reposiorio = new RepositorioHabitacion();
+            IHabitacionLN repositorio = FabricaIoC.Contenedor.Resolver<HabitacionLN>();
+            habitaciones = repositorio.obtenerTodas();
+            return Ok(habitaciones);
+        }
 
-             
+
     }
 }

@@ -47,5 +47,12 @@ public class HabitacionLN : IHabitacionLN
         retornoHabitaciones = dominio.obtenerHabitaciones();
         return retornoHabitaciones;
     }
+
+    public List<AdministrarHabitacion> obtenerTodas()
+    {
+        List<AdministrarHabitacion> retornoHabitaciones;
+        retornoHabitaciones = dominio.obtenerTodas();
+        return retornoHabitaciones;
+    }
 }
 

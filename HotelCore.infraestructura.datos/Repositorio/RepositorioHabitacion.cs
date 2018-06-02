@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using HotelCore.dominio.entidades.Objetos;
 using HotelCore.infraestructura.datos.Modelo;
-
 public class RepositorioHabitacion : IRepositorioHabitacion
 {
     private HotelDBEntities db = new HotelDBEntities();
@@ -61,4 +60,22 @@ public class RepositorioHabitacion : IRepositorioHabitacion
 
         return habitaciones;
     }
+
+    public List<AdministrarHabitacion> obtenerTodas()
+    {
+        var TipoYHabitaciones = new List<AdministrarHabitacion>();
+        var obj = new AdministrarHabitacion();
+        var tipo = db.Tipo_Habitacion.ToList();
+        foreach (var tipoHabitacion in tipo)
+        {
+            var habitacion = db.Habitacion.Where(q => q.tipo_Habitacion_Habitacion == tipoHabitacion.nombre_Tipo_Habitacion).OrderBy(q => q.numero_Habitacion).ToList();
+            obj.nombre_Tipo_Habitacion = tipoHabitacion.nombre_Tipo_Habitacion;
+            obj.habitaciones = habitacion;
+            TipoYHabitaciones.Add(obj);
+            obj = new AdministrarHabitacion();
+        }
+
+        return TipoYHabitaciones;
+    }
+
 }

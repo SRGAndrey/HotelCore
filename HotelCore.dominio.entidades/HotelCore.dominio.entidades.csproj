@@ -55,6 +55,7 @@
     <Compile Include="Objetos\Administrador.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Objetos\AdministrarHabitacion.cs" />
     <Compile Include="Objetos\Caracteristica.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>

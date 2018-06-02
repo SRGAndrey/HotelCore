@@ -17,5 +17,7 @@ public interface IHabitacionLN
         bool eliminar(int numero);
 
         List<Habitacion> obtenerHabitaciones();
-    }
+
+        List<AdministrarHabitacion> obtenerTodas();
+}
 
