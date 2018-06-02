@@ -23,5 +23,7 @@ public interface IHabitacionLN
         Tipo_Habitacion obtenerTipoHabitacion(string tipo);
 
         Tipo_Habitacion actualizarTipo(string tipo, string descripcion, double tarifa);
+
+        List<HabitacionesDisponibles> obtenerHabitaciones(System.DateTime fechaInicio, System.DateTime fechaFinal, string tipos);
 }
 

@@ -68,5 +68,12 @@ public class HabitacionLN : IHabitacionLN
         tipoHabitacion = dominio.actualizarTipo(tipo, descripcion, tarifa);
         return tipoHabitacion;
     }
+
+    public List<HabitacionesDisponibles> obtenerHabitaciones(System.DateTime fechaInicio, System.DateTime fechaFinal, string tipos)
+    {
+        List<HabitacionesDisponibles> habitaciones = new List<HabitacionesDisponibles>();
+        habitaciones = dominio.obtenerHabitaciones(fechaInicio, fechaFinal, tipos);
+        return habitaciones;
+    }
 }
 

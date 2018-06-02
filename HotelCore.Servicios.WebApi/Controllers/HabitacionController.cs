@@ -64,6 +64,28 @@ namespace HotelCore.Servicios.WebApi.Controllers
             return Ok(habitacion);
         }
 
+        //[ResponseType(typeof(HabitacionDisponible))]
+
+        [Route("Habitacion/ObtenerDisponibilidad")]
+
+        [HttpGet]
+
+        [HttpPost]
+
+        public IHttpActionResult ObtenerDisponibilidad(string fechaLlegada, string fechaSalida, string tipo)
+        {
+
+            System.DateTime fechaInicio = DateTime.Parse(fechaLlegada);
+
+            System.DateTime fechaFinal = DateTime.Parse(fechaSalida);
+
+            List<HabitacionesDisponibles> hds = new List<HabitacionesDisponibles>();
+            //RepositorioHabitacion reposiorio = new RepositorioHabitacion();
+            IHabitacionLN repositorio = FabricaIoC.Contenedor.Resolver<HabitacionLN>();
+            hds = repositorio.obtenerHabitaciones(fechaInicio, fechaFinal, tipo);
+            return Ok(hds);
+
+        }//obtenerDisponibilidad
 
     }
 }

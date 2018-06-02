@@ -79,6 +79,7 @@
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Objetos\HabitacionDisponible.cs" />
+    <Compile Include="Objetos\HabitacionesDisponibles.cs" />
     <Compile Include="Objetos\Hotel.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
