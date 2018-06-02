@@ -54,5 +54,19 @@ public class HabitacionLN : IHabitacionLN
         retornoHabitaciones = dominio.obtenerTodas();
         return retornoHabitaciones;
     }
+
+    public Tipo_Habitacion obtenerTipoHabitacion(string tipo)
+    {
+        Tipo_Habitacion tipoHabitacion;
+        tipoHabitacion = dominio.obtenerTipoHabitacion(tipo);
+        return tipoHabitacion;
+    }
+
+    public Tipo_Habitacion actualizarTipo(string tipo, string descripcion, double tarifa)
+    {
+        Tipo_Habitacion tipoHabitacion;
+        tipoHabitacion = dominio.actualizarTipo(tipo, descripcion, tarifa);
+        return tipoHabitacion;
+    }
 }
 

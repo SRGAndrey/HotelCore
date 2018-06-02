@@ -34,19 +34,19 @@ public class RepositorioHabitacion : IRepositorioHabitacion
         DateTime fechaDeHoy = DateTime.Today;
 
         var habitacionReservadas = from Habitacion h in db.Habitacion
-                               join Reservacion r in db.Reservacion
-                               on h.numero_Habitacion equals r.idHabitacion_Reservacion
-                               where fechaDeHoy >= r.fechaLLegada_Reservacion && fechaDeHoy <= r.fechaSalida_Reservacion 
-                               select new
+                                   join Reservacion r in db.Reservacion
+                                   on h.numero_Habitacion equals r.idHabitacion_Reservacion
+                                   where fechaDeHoy >= r.fechaLLegada_Reservacion && fechaDeHoy <= r.fechaSalida_Reservacion
+                                   select new
                                    {
                                        h
                                    };
         var habitacionesDisponibles = from Habitacion h in db.Habitacion
-                                     where h.estado_Habitacion == "Disponible"
-                                     select new
-                                     {
-                                         h
-                                     };
+                                      where h.estado_Habitacion == "Disponible"
+                                      select new
+                                      {
+                                          h
+                                      };
 
         foreach (var habitacion in habitacionReservadas)
         {
@@ -78,4 +78,20 @@ public class RepositorioHabitacion : IRepositorioHabitacion
         return TipoYHabitaciones;
     }
 
+    public Tipo_Habitacion obtenerTipoHabitacion(string tipo)
+    {
+        Tipo_Habitacion tipoHabitacion = db.Tipo_Habitacion.Find(tipo);
+        return tipoHabitacion;
+    }
+
+    public Tipo_Habitacion actualizarTipo(string tipo, string descripcion, double tarifa)
+    {
+
+        Tipo_Habitacion habitacion = new Tipo_Habitacion();
+        habitacion.descripcion_Tipo_Habitacion = descripcion;
+        habitacion.hotel_Tipo_Habitacion = "Patito";
+        habitacion.tarifa_Tipo_Habitacion = tarifa;
+        habitacion.nombre_Tipo_Habitacion = tipo;
+        return db.Tipo_Habitacion.Find(tipo); ;
+    }
 }

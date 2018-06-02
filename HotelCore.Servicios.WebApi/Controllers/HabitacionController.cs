@@ -16,6 +16,9 @@ namespace HotelCore.Servicios.WebApi.Controllers
     public class HabitacionController : ApiController
     {
         // GET: api/Habitacion
+        [Route("Habitacion/obtenerHabitaciones")]
+        [HttpGet()]
+        [HttpPost()]
         public IHttpActionResult obtenerHabitaciones()
         {
             List<Habitacion> habitaciones = new List<Habitacion>();
@@ -24,6 +27,10 @@ namespace HotelCore.Servicios.WebApi.Controllers
             habitaciones = repositorio.obtenerHabitaciones();
             return Ok(habitaciones);
         }
+
+        [Route("Habitacion/obtenerTodas")]
+        [HttpGet()]
+        [HttpPost()]
         public IHttpActionResult obtenerTodas()
         {
             List<AdministrarHabitacion> habitaciones = new List<AdministrarHabitacion>();
@@ -31,6 +38,30 @@ namespace HotelCore.Servicios.WebApi.Controllers
             IHabitacionLN repositorio = FabricaIoC.Contenedor.Resolver<HabitacionLN>();
             habitaciones = repositorio.obtenerTodas();
             return Ok(habitaciones);
+        }
+
+        [Route("Habitacion/obtenerTipoHabitacion")]
+        [HttpGet()]
+        [HttpPost()]
+        public IHttpActionResult obtenerTipoHabitacion(string tipo)
+        {
+            Tipo_Habitacion habitacion = new Tipo_Habitacion();
+            //RepositorioHabitacion reposiorio = new RepositorioHabitacion();
+            IHabitacionLN repositorio = FabricaIoC.Contenedor.Resolver<HabitacionLN>();
+            habitacion = repositorio.obtenerTipoHabitacion(tipo);
+            return Ok(habitacion);
+        }
+
+        [Route("Habitacion/actualizarTipo")]
+        [HttpGet()]
+        [HttpPost()]
+        public IHttpActionResult actualizarTipo(string tipo, string descripcion, double tarifa)
+        {
+            Tipo_Habitacion habitacion = new Tipo_Habitacion();
+            //RepositorioHabitacion reposiorio = new RepositorioHabitacion();
+            IHabitacionLN repositorio = FabricaIoC.Contenedor.Resolver<HabitacionLN>();
+            habitacion = repositorio.actualizarTipo(tipo, descripcion, tarifa);
+            return Ok(habitacion);
         }
 
 

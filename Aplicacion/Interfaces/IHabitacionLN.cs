@@ -19,5 +19,9 @@ public interface IHabitacionLN
         List<Habitacion> obtenerHabitaciones();
 
         List<AdministrarHabitacion> obtenerTodas();
+
+        Tipo_Habitacion obtenerTipoHabitacion(string tipo);
+
+        Tipo_Habitacion actualizarTipo(string tipo, string descripcion, double tarifa);
 }
 
