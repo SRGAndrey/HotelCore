@@ -1,0 +1,1848 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HotelDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Administrador">
+          <Key>
+            <PropertyRef Name="id_Administrador" />
+          </Key>
+          <Property Name="id_Administrador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usuario_Administrador" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="contrasenna_Administrador" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="rol_Administrador" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Caracteristica">
+          <Key>
+            <PropertyRef Name="id_Caracteristica" />
+          </Key>
+          <Property Name="id_Caracteristica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion_Caracteristica" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Caracteristica_Tipo_Habitacion">
+          <Key>
+            <PropertyRef Name="id_Caracteristica_Tipo_Habitacion" />
+          </Key>
+          <Property Name="id_Caracteristica_Tipo_Habitacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCaracteristica_Caracteristica_Tipo_Habitacion" Type="int" Nullable="false" />
+          <Property Name="tipo_Habitacion_Caracteristica_Tipo_Habitacion" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="cedula_Cliente" />
+          </Key>
+          <Property Name="cedula_Cliente" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="nombre_Cliente" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="apellidos_Cliente" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tarjeta_Cliente" Type="int" Nullable="false" />
+          <Property Name="email_Cliente" Type="varchar" MaxLength="35" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Entidad">
+          <Key>
+            <PropertyRef Name="id_Entidad" />
+          </Key>
+          <Property Name="id_Entidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Entidad_SubEntidad_Imagen">
+          <Key>
+            <PropertyRef Name="id_Entidad_SubEntidad_Imagen" />
+          </Key>
+          <Property Name="id_Entidad_SubEntidad_Imagen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idEntidad_Entidad_SubEntidad_Imagen" Type="int" Nullable="false" />
+          <Property Name="idSubEntidad_Entidad_SubEntidad_Imagen" Type="int" Nullable="false" />
+          <Property Name="idImagen_Entidad_SubEntidad_Imagen" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Facilidad">
+          <Key>
+            <PropertyRef Name="id_Facilidad" />
+          </Key>
+          <Property Name="id_Facilidad" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="descripcion_Facilidad" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="hotel_Facilidad" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Habitacion">
+          <Key>
+            <PropertyRef Name="numero_Habitacion" />
+          </Key>
+          <Property Name="numero_Habitacion" Type="int" Nullable="false" />
+          <Property Name="estado_Habitacion" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="tipo_Habitacion_Habitacion" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Hotel">
+          <Key>
+            <PropertyRef Name="nombre_Hotel" />
+          </Key>
+          <Property Name="nombre_Hotel" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="descripcion_Hotel" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="sobreNosotros_Hotel" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="latitud_Hotel" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="longitud_Hotel" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="comoLlegar_Hotel" Type="varchar" MaxLength="350" Nullable="false" />
+          <Property Name="telefono_Hotel" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="aptoPostal_Hotel" Type="int" />
+          <Property Name="email_Hotel" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HotelAdministrador">
+          <Key>
+            <PropertyRef Name="id_HotelAdministradores" />
+          </Key>
+          <Property Name="id_HotelAdministradores" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idAdministrador_HotelAdministradores" Type="int" Nullable="false" />
+          <Property Name="Hotel_HotelAdministradores" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HotelPublicidad">
+          <Key>
+            <PropertyRef Name="id_HotelPublicidad" />
+          </Key>
+          <Property Name="id_HotelPublicidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idPublicidad_HotelPublicidad" Type="int" Nullable="false" />
+          <Property Name="Hotel_HotelPublicidad" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Imagen">
+          <Key>
+            <PropertyRef Name="id_Imagen" />
+          </Key>
+          <Property Name="id_Imagen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fileID_Imagen" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+          <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Promocion">
+          <Key>
+            <PropertyRef Name="id_Promocion" />
+          </Key>
+          <Property Name="id_Promocion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="inicio_Promocion" Type="date" Nullable="false" />
+          <Property Name="fin_Promocion" Type="date" Nullable="false" />
+          <Property Name="descuento_Promocion" Type="int" Nullable="false" />
+          <Property Name="estado_Promocion" Type="int" Nullable="false" />
+          <Property Name="tipo_Habitacion_Promocion" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Publicidad">
+          <Key>
+            <PropertyRef Name="id_Publicidad" />
+          </Key>
+          <Property Name="id_Publicidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="link_Publicidad" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reservacion">
+          <Key>
+            <PropertyRef Name="id_Reservacion" />
+          </Key>
+          <Property Name="id_Reservacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fechaLLegada_Reservacion" Type="smalldatetime" Nullable="false" />
+          <Property Name="fechaSalida_Reservacion" Type="smalldatetime" Nullable="false" />
+          <Property Name="idHabitacion_Reservacion" Type="int" Nullable="false" />
+          <Property Name="idCliente_Reservacion" Type="varchar" MaxLength="12" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="id_Rol" />
+          </Key>
+          <Property Name="id_Rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo_Rol" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="descripcion_Rol" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubEntidad">
+          <Key>
+            <PropertyRef Name="id_SubEntidad" />
+          </Key>
+          <Property Name="id_SubEntidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tipo_Habitacion">
+          <Key>
+            <PropertyRef Name="nombre_Tipo_Habitacion" />
+          </Key>
+          <Property Name="nombre_Tipo_Habitacion" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="descripcion_Tipo_Habitacion" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="tarifa_Tipo_Habitacion" Type="float" Nullable="false" />
+          <Property Name="hotel_Tipo_Habitacion" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesBar' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ImagenesBar">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesCafeteria' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ImagenesCafeteria">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesDescripcion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ImagenesDescripcion">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesFacilidades' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ImagenesFacilidades">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesHabitacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ImagenesHabitacion">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesHotel' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ImagenesHotel">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesInfantiles' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ImagenesInfantiles">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesJacuzzi' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ImagenesJacuzzi">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesJunior' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ImagenesJunior">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesPiscina' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ImagenesPiscina">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesRestaurante' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ImagenesRestaurante">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesSobreNosotros' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ImagenesSobreNosotros">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesStandard' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ImagenesStandard">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesSuite' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ImagenesSuite">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ImagenesTenis">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Administrador">
+          <End Role="Administrador" Type="Self.Administrador" Multiplicity="1" />
+          <End Role="HotelAdministrador" Type="Self.HotelAdministrador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Administrador">
+              <PropertyRef Name="id_Administrador" />
+            </Principal>
+            <Dependent Role="HotelAdministrador">
+              <PropertyRef Name="idAdministrador_HotelAdministradores" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Caracteristica">
+          <End Role="Caracteristica" Type="Self.Caracteristica" Multiplicity="1" />
+          <End Role="Caracteristica_Tipo_Habitacion" Type="Self.Caracteristica_Tipo_Habitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caracteristica">
+              <PropertyRef Name="id_Caracteristica" />
+            </Principal>
+            <Dependent Role="Caracteristica_Tipo_Habitacion">
+              <PropertyRef Name="idCaracteristica_Caracteristica_Tipo_Habitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cliente">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Reservacion" Type="Self.Reservacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="cedula_Cliente" />
+            </Principal>
+            <Dependent Role="Reservacion">
+              <PropertyRef Name="idCliente_Reservacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntidadFK">
+          <End Role="Entidad" Type="Self.Entidad" Multiplicity="1" />
+          <End Role="Entidad_SubEntidad_Imagen" Type="Self.Entidad_SubEntidad_Imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entidad">
+              <PropertyRef Name="id_Entidad" />
+            </Principal>
+            <Dependent Role="Entidad_SubEntidad_Imagen">
+              <PropertyRef Name="idEntidad_Entidad_SubEntidad_Imagen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HabitacionReservacion">
+          <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="1" />
+          <End Role="Reservacion" Type="Self.Reservacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Habitacion">
+              <PropertyRef Name="numero_Habitacion" />
+            </Principal>
+            <Dependent Role="Reservacion">
+              <PropertyRef Name="idHabitacion_Reservacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hotel">
+          <End Role="Hotel" Type="Self.Hotel" Multiplicity="1" />
+          <End Role="HotelAdministrador" Type="Self.HotelAdministrador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="nombre_Hotel" />
+            </Principal>
+            <Dependent Role="HotelAdministrador">
+              <PropertyRef Name="Hotel_HotelAdministradores" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hotel_Tipo_Habitacion">
+          <End Role="Hotel" Type="Self.Hotel" Multiplicity="0..1" />
+          <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="nombre_Hotel" />
+            </Principal>
+            <Dependent Role="Tipo_Habitacion">
+              <PropertyRef Name="hotel_Tipo_Habitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelFacilidad">
+          <End Role="Hotel" Type="Self.Hotel" Multiplicity="0..1" />
+          <End Role="Facilidad" Type="Self.Facilidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="nombre_Hotel" />
+            </Principal>
+            <Dependent Role="Facilidad">
+              <PropertyRef Name="hotel_Facilidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelPublicidad">
+          <End Role="Hotel" Type="Self.Hotel" Multiplicity="1" />
+          <End Role="HotelPublicidad" Type="Self.HotelPublicidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="nombre_Hotel" />
+            </Principal>
+            <Dependent Role="HotelPublicidad">
+              <PropertyRef Name="Hotel_HotelPublicidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Imagen">
+          <End Role="Imagen" Type="Self.Imagen" Multiplicity="1" />
+          <End Role="Entidad_SubEntidad_Imagen" Type="Self.Entidad_SubEntidad_Imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Imagen">
+              <PropertyRef Name="id_Imagen" />
+            </Principal>
+            <Dependent Role="Entidad_SubEntidad_Imagen">
+              <PropertyRef Name="idImagen_Entidad_SubEntidad_Imagen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Publicidad">
+          <End Role="Publicidad" Type="Self.Publicidad" Multiplicity="1" />
+          <End Role="HotelPublicidad" Type="Self.HotelPublicidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publicidad">
+              <PropertyRef Name="id_Publicidad" />
+            </Principal>
+            <Dependent Role="HotelPublicidad">
+              <PropertyRef Name="idPublicidad_HotelPublicidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolAdministrador">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+          <End Role="Administrador" Type="Self.Administrador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="id_Rol" />
+            </Principal>
+            <Dependent Role="Administrador">
+              <PropertyRef Name="rol_Administrador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubEntidad">
+          <End Role="SubEntidad" Type="Self.SubEntidad" Multiplicity="1" />
+          <End Role="Entidad_SubEntidad_Imagen" Type="Self.Entidad_SubEntidad_Imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubEntidad">
+              <PropertyRef Name="id_SubEntidad" />
+            </Principal>
+            <Dependent Role="Entidad_SubEntidad_Imagen">
+              <PropertyRef Name="idSubEntidad_Entidad_SubEntidad_Imagen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tipo_Habitacion_Habitacion">
+          <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="1" />
+          <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Habitacion">
+              <PropertyRef Name="nombre_Tipo_Habitacion" />
+            </Principal>
+            <Dependent Role="Habitacion">
+              <PropertyRef Name="tipo_Habitacion_Habitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tipo_Habitacion_Promocion">
+          <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="1" />
+          <End Role="Promocion" Type="Self.Promocion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Habitacion">
+              <PropertyRef Name="nombre_Tipo_Habitacion" />
+            </Principal>
+            <Dependent Role="Promocion">
+              <PropertyRef Name="tipo_Habitacion_Promocion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoHabitacion_Caract">
+          <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="1" />
+          <End Role="Caracteristica_Tipo_Habitacion" Type="Self.Caracteristica_Tipo_Habitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Habitacion">
+              <PropertyRef Name="nombre_Tipo_Habitacion" />
+            </Principal>
+            <Dependent Role="Caracteristica_Tipo_Habitacion">
+              <PropertyRef Name="tipo_Habitacion_Caracteristica_Tipo_Habitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="actualiza_Estado_Habitacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="cancelar_Promocion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="crear_Promocion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="inicio" Type="date" Mode="In" />
+          <Parameter Name="fin" Type="date" Mode="In" />
+          <Parameter Name="descuento" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Estado_Promocion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="insertar_Cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cedula" Type="varchar" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="apellido" Type="varchar" Mode="In" />
+          <Parameter Name="tarjeta_Cliente" Type="int" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="insertar_Reservacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fechaLLegada" Type="date" Mode="In" />
+          <Parameter Name="fechasalida" Type="date" Mode="In" />
+          <Parameter Name="idHabitacion" Type="int" Mode="In" />
+          <Parameter Name="idCliente" Type="varchar" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="apellido" Type="varchar" Mode="In" />
+          <Parameter Name="tarjeta_Cliente" Type="int" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="insertar_Tipo_Habitacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="descrip" Type="varchar" Mode="In" />
+          <Parameter Name="tarifa" Type="float" Mode="In" />
+          <Parameter Name="hotel" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="obtener_tarifa_Tipo_Habitacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="tarifa" Type="float" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="HotelDBStoreContainer">
+          <EntitySet Name="Administrador" EntityType="Self.Administrador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Caracteristica" EntityType="Self.Caracteristica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Caracteristica_Tipo_Habitacion" EntityType="Self.Caracteristica_Tipo_Habitacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Entidad" EntityType="Self.Entidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Entidad_SubEntidad_Imagen" EntityType="Self.Entidad_SubEntidad_Imagen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Facilidad" EntityType="Self.Facilidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Habitacion" EntityType="Self.Habitacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hotel" EntityType="Self.Hotel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HotelAdministrador" EntityType="Self.HotelAdministrador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HotelPublicidad" EntityType="Self.HotelPublicidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Imagen" EntityType="Self.Imagen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Promocion" EntityType="Self.Promocion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Publicidad" EntityType="Self.Publicidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reservacion" EntityType="Self.Reservacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubEntidad" EntityType="Self.SubEntidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_Habitacion" EntityType="Self.Tipo_Habitacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImagenesBar" EntityType="Self.ImagenesBar" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ImagenesBar].[descripcion_Entidad] AS [descripcion_Entidad], 
+    [ImagenesBar].[descripcion_SubEntidad] AS [descripcion_SubEntidad], 
+    [ImagenesBar].[descripcion_Imagen] AS [descripcion_Imagen], 
+    [ImagenesBar].[imagen_Imagen] AS [imagen_Imagen]
+    FROM [dbo].[ImagenesBar] AS [ImagenesBar]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ImagenesCafeteria" EntityType="Self.ImagenesCafeteria" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ImagenesCafeteria].[descripcion_Entidad] AS [descripcion_Entidad], 
+    [ImagenesCafeteria].[descripcion_SubEntidad] AS [descripcion_SubEntidad], 
+    [ImagenesCafeteria].[descripcion_Imagen] AS [descripcion_Imagen], 
+    [ImagenesCafeteria].[imagen_Imagen] AS [imagen_Imagen]
+    FROM [dbo].[ImagenesCafeteria] AS [ImagenesCafeteria]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ImagenesDescripcion" EntityType="Self.ImagenesDescripcion" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ImagenesDescripcion].[descripcion_Entidad] AS [descripcion_Entidad], 
+    [ImagenesDescripcion].[descripcion_SubEntidad] AS [descripcion_SubEntidad], 
+    [ImagenesDescripcion].[descripcion_Imagen] AS [descripcion_Imagen], 
+    [ImagenesDescripcion].[imagen_Imagen] AS [imagen_Imagen]
+    FROM [dbo].[ImagenesDescripcion] AS [ImagenesDescripcion]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ImagenesFacilidades" EntityType="Self.ImagenesFacilidades" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ImagenesFacilidades].[descripcion_Entidad] AS [descripcion_Entidad], 
+    [ImagenesFacilidades].[descripcion_SubEntidad] AS [descripcion_SubEntidad], 
+    [ImagenesFacilidades].[descripcion_Imagen] AS [descripcion_Imagen], 
+    [ImagenesFacilidades].[imagen_Imagen] AS [imagen_Imagen]
+    FROM [dbo].[ImagenesFacilidades] AS [ImagenesFacilidades]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ImagenesHabitacion" EntityType="Self.ImagenesHabitacion" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ImagenesHabitacion].[descripcion_Entidad] AS [descripcion_Entidad], 
+    [ImagenesHabitacion].[descripcion_SubEntidad] AS [descripcion_SubEntidad], 
+    [ImagenesHabitacion].[descripcion_Imagen] AS [descripcion_Imagen], 
+    [ImagenesHabitacion].[imagen_Imagen] AS [imagen_Imagen]
+    FROM [dbo].[ImagenesHabitacion] AS [ImagenesHabitacion]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ImagenesHotel" EntityType="Self.ImagenesHotel" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ImagenesHotel].[descripcion_Entidad] AS [descripcion_Entidad], 
+    [ImagenesHotel].[descripcion_SubEntidad] AS [descripcion_SubEntidad], 
+    [ImagenesHotel].[descripcion_Imagen] AS [descripcion_Imagen], 
+    [ImagenesHotel].[imagen_Imagen] AS [imagen_Imagen]
+    FROM [dbo].[ImagenesHotel] AS [ImagenesHotel]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ImagenesInfantiles" EntityType="Self.ImagenesInfantiles" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ImagenesInfantiles].[descripcion_Entidad] AS [descripcion_Entidad], 
+    [ImagenesInfantiles].[descripcion_SubEntidad] AS [descripcion_SubEntidad], 
+    [ImagenesInfantiles].[descripcion_Imagen] AS [descripcion_Imagen], 
+    [ImagenesInfantiles].[imagen_Imagen] AS [imagen_Imagen]
+    FROM [dbo].[ImagenesInfantiles] AS [ImagenesInfantiles]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ImagenesJacuzzi" EntityType="Self.ImagenesJacuzzi" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ImagenesJacuzzi].[descripcion_Entidad] AS [descripcion_Entidad], 
+    [ImagenesJacuzzi].[descripcion_SubEntidad] AS [descripcion_SubEntidad], 
+    [ImagenesJacuzzi].[descripcion_Imagen] AS [descripcion_Imagen], 
+    [ImagenesJacuzzi].[imagen_Imagen] AS [imagen_Imagen]
+    FROM [dbo].[ImagenesJacuzzi] AS [ImagenesJacuzzi]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ImagenesJunior" EntityType="Self.ImagenesJunior" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ImagenesJunior].[descripcion_Entidad] AS [descripcion_Entidad], 
+    [ImagenesJunior].[descripcion_SubEntidad] AS [descripcion_SubEntidad], 
+    [ImagenesJunior].[descripcion_Imagen] AS [descripcion_Imagen], 
+    [ImagenesJunior].[imagen_Imagen] AS [imagen_Imagen]
+    FROM [dbo].[ImagenesJunior] AS [ImagenesJunior]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ImagenesPiscina" EntityType="Self.ImagenesPiscina" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ImagenesPiscina].[descripcion_Entidad] AS [descripcion_Entidad], 
+    [ImagenesPiscina].[descripcion_SubEntidad] AS [descripcion_SubEntidad], 
+    [ImagenesPiscina].[descripcion_Imagen] AS [descripcion_Imagen], 
+    [ImagenesPiscina].[imagen_Imagen] AS [imagen_Imagen]
+    FROM [dbo].[ImagenesPiscina] AS [ImagenesPiscina]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ImagenesRestaurante" EntityType="Self.ImagenesRestaurante" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ImagenesRestaurante].[descripcion_Entidad] AS [descripcion_Entidad], 
+    [ImagenesRestaurante].[descripcion_SubEntidad] AS [descripcion_SubEntidad], 
+    [ImagenesRestaurante].[descripcion_Imagen] AS [descripcion_Imagen], 
+    [ImagenesRestaurante].[imagen_Imagen] AS [imagen_Imagen]
+    FROM [dbo].[ImagenesRestaurante] AS [ImagenesRestaurante]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ImagenesSobreNosotros" EntityType="Self.ImagenesSobreNosotros" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ImagenesSobreNosotros].[descripcion_Entidad] AS [descripcion_Entidad], 
+    [ImagenesSobreNosotros].[descripcion_SubEntidad] AS [descripcion_SubEntidad], 
+    [ImagenesSobreNosotros].[descripcion_Imagen] AS [descripcion_Imagen], 
+    [ImagenesSobreNosotros].[imagen_Imagen] AS [imagen_Imagen]
+    FROM [dbo].[ImagenesSobreNosotros] AS [ImagenesSobreNosotros]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ImagenesStandard" EntityType="Self.ImagenesStandard" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ImagenesStandard].[descripcion_Entidad] AS [descripcion_Entidad], 
+    [ImagenesStandard].[descripcion_SubEntidad] AS [descripcion_SubEntidad], 
+    [ImagenesStandard].[descripcion_Imagen] AS [descripcion_Imagen], 
+    [ImagenesStandard].[imagen_Imagen] AS [imagen_Imagen]
+    FROM [dbo].[ImagenesStandard] AS [ImagenesStandard]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ImagenesSuite" EntityType="Self.ImagenesSuite" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ImagenesSuite].[descripcion_Entidad] AS [descripcion_Entidad], 
+    [ImagenesSuite].[descripcion_SubEntidad] AS [descripcion_SubEntidad], 
+    [ImagenesSuite].[descripcion_Imagen] AS [descripcion_Imagen], 
+    [ImagenesSuite].[imagen_Imagen] AS [imagen_Imagen]
+    FROM [dbo].[ImagenesSuite] AS [ImagenesSuite]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ImagenesTenis" EntityType="Self.ImagenesTenis" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ImagenesTenis].[descripcion_Entidad] AS [descripcion_Entidad], 
+    [ImagenesTenis].[descripcion_SubEntidad] AS [descripcion_SubEntidad], 
+    [ImagenesTenis].[descripcion_Imagen] AS [descripcion_Imagen], 
+    [ImagenesTenis].[imagen_Imagen] AS [imagen_Imagen]
+    FROM [dbo].[ImagenesTenis] AS [ImagenesTenis]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Administrador" Association="Self.FK_Administrador">
+            <End Role="Administrador" EntitySet="Administrador" />
+            <End Role="HotelAdministrador" EntitySet="HotelAdministrador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Caracteristica" Association="Self.FK_Caracteristica">
+            <End Role="Caracteristica" EntitySet="Caracteristica" />
+            <End Role="Caracteristica_Tipo_Habitacion" EntitySet="Caracteristica_Tipo_Habitacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cliente" Association="Self.FK_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Reservacion" EntitySet="Reservacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntidadFK" Association="Self.FK_EntidadFK">
+            <End Role="Entidad" EntitySet="Entidad" />
+            <End Role="Entidad_SubEntidad_Imagen" EntitySet="Entidad_SubEntidad_Imagen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HabitacionReservacion" Association="Self.FK_HabitacionReservacion">
+            <End Role="Habitacion" EntitySet="Habitacion" />
+            <End Role="Reservacion" EntitySet="Reservacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hotel" Association="Self.FK_Hotel">
+            <End Role="Hotel" EntitySet="Hotel" />
+            <End Role="HotelAdministrador" EntitySet="HotelAdministrador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hotel_Tipo_Habitacion" Association="Self.FK_Hotel_Tipo_Habitacion">
+            <End Role="Hotel" EntitySet="Hotel" />
+            <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelFacilidad" Association="Self.FK_HotelFacilidad">
+            <End Role="Hotel" EntitySet="Hotel" />
+            <End Role="Facilidad" EntitySet="Facilidad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelPublicidad" Association="Self.FK_HotelPublicidad">
+            <End Role="Hotel" EntitySet="Hotel" />
+            <End Role="HotelPublicidad" EntitySet="HotelPublicidad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Imagen" Association="Self.FK_Imagen">
+            <End Role="Imagen" EntitySet="Imagen" />
+            <End Role="Entidad_SubEntidad_Imagen" EntitySet="Entidad_SubEntidad_Imagen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Publicidad" Association="Self.FK_Publicidad">
+            <End Role="Publicidad" EntitySet="Publicidad" />
+            <End Role="HotelPublicidad" EntitySet="HotelPublicidad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolAdministrador" Association="Self.FK_RolAdministrador">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Administrador" EntitySet="Administrador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubEntidad" Association="Self.FK_SubEntidad">
+            <End Role="SubEntidad" EntitySet="SubEntidad" />
+            <End Role="Entidad_SubEntidad_Imagen" EntitySet="Entidad_SubEntidad_Imagen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tipo_Habitacion_Habitacion" Association="Self.FK_Tipo_Habitacion_Habitacion">
+            <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
+            <End Role="Habitacion" EntitySet="Habitacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tipo_Habitacion_Promocion" Association="Self.FK_Tipo_Habitacion_Promocion">
+            <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
+            <End Role="Promocion" EntitySet="Promocion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoHabitacion_Caract" Association="Self.FK_TipoHabitacion_Caract">
+            <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
+            <End Role="Caracteristica_Tipo_Habitacion" EntitySet="Caracteristica_Tipo_Habitacion" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HotelDB" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Administrador">
+          <Key>
+            <PropertyRef Name="id_Administrador" />
+          </Key>
+          <Property Name="id_Administrador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usuario_Administrador" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contrasenna_Administrador" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rol_Administrador" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="HotelAdministrador" Relationship="Self.FK_Administrador" FromRole="Administrador" ToRole="HotelAdministrador" />
+          <NavigationProperty Name="Rol" Relationship="Self.FK_RolAdministrador" FromRole="Administrador" ToRole="Rol" />
+        </EntityType>
+        <EntityType Name="Caracteristica">
+          <Key>
+            <PropertyRef Name="id_Caracteristica" />
+          </Key>
+          <Property Name="id_Caracteristica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion_Caracteristica" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Caracteristica_Tipo_Habitacion" Relationship="Self.FK_Caracteristica" FromRole="Caracteristica" ToRole="Caracteristica_Tipo_Habitacion" />
+        </EntityType>
+        <EntityType Name="Caracteristica_Tipo_Habitacion">
+          <Key>
+            <PropertyRef Name="id_Caracteristica_Tipo_Habitacion" />
+          </Key>
+          <Property Name="id_Caracteristica_Tipo_Habitacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCaracteristica_Caracteristica_Tipo_Habitacion" Type="Int32" Nullable="false" />
+          <Property Name="tipo_Habitacion_Caracteristica_Tipo_Habitacion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Caracteristica" Relationship="Self.FK_Caracteristica" FromRole="Caracteristica_Tipo_Habitacion" ToRole="Caracteristica" />
+          <NavigationProperty Name="Tipo_Habitacion" Relationship="Self.FK_TipoHabitacion_Caract" FromRole="Caracteristica_Tipo_Habitacion" ToRole="Tipo_Habitacion" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="cedula_Cliente" />
+          </Key>
+          <Property Name="cedula_Cliente" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre_Cliente" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidos_Cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tarjeta_Cliente" Type="Int32" Nullable="false" />
+          <Property Name="email_Cliente" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Reservacion" Relationship="Self.FK_Cliente" FromRole="Cliente" ToRole="Reservacion" />
+        </EntityType>
+        <EntityType Name="Entidad">
+          <Key>
+            <PropertyRef Name="id_Entidad" />
+          </Key>
+          <Property Name="id_Entidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion_Entidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Entidad_SubEntidad_Imagen" Relationship="Self.FK_EntidadFK" FromRole="Entidad" ToRole="Entidad_SubEntidad_Imagen" />
+        </EntityType>
+        <EntityType Name="Entidad_SubEntidad_Imagen">
+          <Key>
+            <PropertyRef Name="id_Entidad_SubEntidad_Imagen" />
+          </Key>
+          <Property Name="id_Entidad_SubEntidad_Imagen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idEntidad_Entidad_SubEntidad_Imagen" Type="Int32" Nullable="false" />
+          <Property Name="idSubEntidad_Entidad_SubEntidad_Imagen" Type="Int32" Nullable="false" />
+          <Property Name="idImagen_Entidad_SubEntidad_Imagen" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Entidad" Relationship="Self.FK_EntidadFK" FromRole="Entidad_SubEntidad_Imagen" ToRole="Entidad" />
+          <NavigationProperty Name="Imagen" Relationship="Self.FK_Imagen" FromRole="Entidad_SubEntidad_Imagen" ToRole="Imagen" />
+          <NavigationProperty Name="SubEntidad" Relationship="Self.FK_SubEntidad" FromRole="Entidad_SubEntidad_Imagen" ToRole="SubEntidad" />
+        </EntityType>
+        <EntityType Name="Facilidad">
+          <Key>
+            <PropertyRef Name="id_Facilidad" />
+          </Key>
+          <Property Name="id_Facilidad" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_Facilidad" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hotel_Facilidad" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Hotel" Relationship="Self.FK_HotelFacilidad" FromRole="Facilidad" ToRole="Hotel" />
+        </EntityType>
+        <EntityType Name="Habitacion">
+          <Key>
+            <PropertyRef Name="numero_Habitacion" />
+          </Key>
+          <Property Name="numero_Habitacion" Type="Int32" Nullable="false" />
+          <Property Name="estado_Habitacion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipo_Habitacion_Habitacion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Reservacion" Relationship="Self.FK_HabitacionReservacion" FromRole="Habitacion" ToRole="Reservacion" />
+          <NavigationProperty Name="Tipo_Habitacion" Relationship="Self.FK_Tipo_Habitacion_Habitacion" FromRole="Habitacion" ToRole="Tipo_Habitacion" />
+        </EntityType>
+        <EntityType Name="Hotel">
+          <Key>
+            <PropertyRef Name="nombre_Hotel" />
+          </Key>
+          <Property Name="nombre_Hotel" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_Hotel" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sobreNosotros_Hotel" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="latitud_Hotel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="longitud_Hotel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comoLlegar_Hotel" Type="String" MaxLength="350" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono_Hotel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="aptoPostal_Hotel" Type="Int32" />
+          <Property Name="email_Hotel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Facilidad" Relationship="Self.FK_HotelFacilidad" FromRole="Hotel" ToRole="Facilidad" />
+          <NavigationProperty Name="HotelAdministrador" Relationship="Self.FK_Hotel" FromRole="Hotel" ToRole="HotelAdministrador" />
+          <NavigationProperty Name="Tipo_Habitacion" Relationship="Self.FK_Hotel_Tipo_Habitacion" FromRole="Hotel" ToRole="Tipo_Habitacion" />
+          <NavigationProperty Name="HotelPublicidad" Relationship="Self.FK_HotelPublicidad" FromRole="Hotel" ToRole="HotelPublicidad" />
+        </EntityType>
+        <EntityType Name="HotelAdministrador">
+          <Key>
+            <PropertyRef Name="id_HotelAdministradores" />
+          </Key>
+          <Property Name="id_HotelAdministradores" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idAdministrador_HotelAdministradores" Type="Int32" Nullable="false" />
+          <Property Name="Hotel_HotelAdministradores" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Administrador" Relationship="Self.FK_Administrador" FromRole="HotelAdministrador" ToRole="Administrador" />
+          <NavigationProperty Name="Hotel" Relationship="Self.FK_Hotel" FromRole="HotelAdministrador" ToRole="Hotel" />
+        </EntityType>
+        <EntityType Name="HotelPublicidad">
+          <Key>
+            <PropertyRef Name="id_HotelPublicidad" />
+          </Key>
+          <Property Name="id_HotelPublicidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idPublicidad_HotelPublicidad" Type="Int32" Nullable="false" />
+          <Property Name="Hotel_HotelPublicidad" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Hotel" Relationship="Self.FK_HotelPublicidad" FromRole="HotelPublicidad" ToRole="Hotel" />
+          <NavigationProperty Name="Publicidad" Relationship="Self.FK_Publicidad" FromRole="HotelPublicidad" ToRole="Publicidad" />
+        </EntityType>
+        <EntityType Name="Imagen">
+          <Key>
+            <PropertyRef Name="id_Imagen" />
+          </Key>
+          <Property Name="id_Imagen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fileID_Imagen" Type="Guid" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="descripcion_Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Entidad_SubEntidad_Imagen" Relationship="Self.FK_Imagen" FromRole="Imagen" ToRole="Entidad_SubEntidad_Imagen" />
+        </EntityType>
+        <EntityType Name="Promocion">
+          <Key>
+            <PropertyRef Name="id_Promocion" />
+          </Key>
+          <Property Name="id_Promocion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="inicio_Promocion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fin_Promocion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="descuento_Promocion" Type="Int32" Nullable="false" />
+          <Property Name="estado_Promocion" Type="Int32" Nullable="false" />
+          <Property Name="tipo_Habitacion_Promocion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Tipo_Habitacion" Relationship="Self.FK_Tipo_Habitacion_Promocion" FromRole="Promocion" ToRole="Tipo_Habitacion" />
+        </EntityType>
+        <EntityType Name="Publicidad">
+          <Key>
+            <PropertyRef Name="id_Publicidad" />
+          </Key>
+          <Property Name="id_Publicidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="link_Publicidad" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="HotelPublicidad" Relationship="Self.FK_Publicidad" FromRole="Publicidad" ToRole="HotelPublicidad" />
+        </EntityType>
+        <EntityType Name="Reservacion">
+          <Key>
+            <PropertyRef Name="id_Reservacion" />
+          </Key>
+          <Property Name="id_Reservacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fechaLLegada_Reservacion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fechaSalida_Reservacion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="idHabitacion_Reservacion" Type="Int32" Nullable="false" />
+          <Property Name="idCliente_Reservacion" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK_Cliente" FromRole="Reservacion" ToRole="Cliente" />
+          <NavigationProperty Name="Habitacion" Relationship="Self.FK_HabitacionReservacion" FromRole="Reservacion" ToRole="Habitacion" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="id_Rol" />
+          </Key>
+          <Property Name="id_Rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo_Rol" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_Rol" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Administrador" Relationship="Self.FK_RolAdministrador" FromRole="Rol" ToRole="Administrador" />
+        </EntityType>
+        <EntityType Name="SubEntidad">
+          <Key>
+            <PropertyRef Name="id_SubEntidad" />
+          </Key>
+          <Property Name="id_SubEntidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion_SubEntidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Entidad_SubEntidad_Imagen" Relationship="Self.FK_SubEntidad" FromRole="SubEntidad" ToRole="Entidad_SubEntidad_Imagen" />
+        </EntityType>
+        <EntityType Name="Tipo_Habitacion">
+          <Key>
+            <PropertyRef Name="nombre_Tipo_Habitacion" />
+          </Key>
+          <Property Name="nombre_Tipo_Habitacion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_Tipo_Habitacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tarifa_Tipo_Habitacion" Type="Double" Nullable="false" />
+          <Property Name="hotel_Tipo_Habitacion" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Caracteristica_Tipo_Habitacion" Relationship="Self.FK_TipoHabitacion_Caract" FromRole="Tipo_Habitacion" ToRole="Caracteristica_Tipo_Habitacion" />
+          <NavigationProperty Name="Habitacion" Relationship="Self.FK_Tipo_Habitacion_Habitacion" FromRole="Tipo_Habitacion" ToRole="Habitacion" />
+          <NavigationProperty Name="Hotel" Relationship="Self.FK_Hotel_Tipo_Habitacion" FromRole="Tipo_Habitacion" ToRole="Hotel" />
+          <NavigationProperty Name="Promocion" Relationship="Self.FK_Tipo_Habitacion_Promocion" FromRole="Tipo_Habitacion" ToRole="Promocion" />
+        </EntityType>
+        <EntityType Name="ImagenesBar">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ImagenesCafeteria">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ImagenesDescripcion">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ImagenesFacilidades">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ImagenesHabitacion">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ImagenesHotel">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ImagenesInfantiles">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ImagenesJacuzzi">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ImagenesJunior">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ImagenesPiscina">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ImagenesRestaurante">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ImagenesSobreNosotros">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ImagenesStandard">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ImagenesSuite">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ImagenesTenis">
+          <Key>
+            <PropertyRef Name="descripcion_Entidad" />
+            <PropertyRef Name="descripcion_SubEntidad" />
+            <PropertyRef Name="descripcion_Imagen" />
+          </Key>
+          <Property Name="descripcion_Entidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_SubEntidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion_Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Administrador">
+          <End Role="Administrador" Type="Self.Administrador" Multiplicity="1" />
+          <End Role="HotelAdministrador" Type="Self.HotelAdministrador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Administrador">
+              <PropertyRef Name="id_Administrador" />
+            </Principal>
+            <Dependent Role="HotelAdministrador">
+              <PropertyRef Name="idAdministrador_HotelAdministradores" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolAdministrador">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+          <End Role="Administrador" Type="Self.Administrador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="id_Rol" />
+            </Principal>
+            <Dependent Role="Administrador">
+              <PropertyRef Name="rol_Administrador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Caracteristica">
+          <End Role="Caracteristica" Type="Self.Caracteristica" Multiplicity="1" />
+          <End Role="Caracteristica_Tipo_Habitacion" Type="Self.Caracteristica_Tipo_Habitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caracteristica">
+              <PropertyRef Name="id_Caracteristica" />
+            </Principal>
+            <Dependent Role="Caracteristica_Tipo_Habitacion">
+              <PropertyRef Name="idCaracteristica_Caracteristica_Tipo_Habitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoHabitacion_Caract">
+          <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="1" />
+          <End Role="Caracteristica_Tipo_Habitacion" Type="Self.Caracteristica_Tipo_Habitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Habitacion">
+              <PropertyRef Name="nombre_Tipo_Habitacion" />
+            </Principal>
+            <Dependent Role="Caracteristica_Tipo_Habitacion">
+              <PropertyRef Name="tipo_Habitacion_Caracteristica_Tipo_Habitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cliente">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Reservacion" Type="Self.Reservacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="cedula_Cliente" />
+            </Principal>
+            <Dependent Role="Reservacion">
+              <PropertyRef Name="idCliente_Reservacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntidadFK">
+          <End Role="Entidad" Type="Self.Entidad" Multiplicity="1" />
+          <End Role="Entidad_SubEntidad_Imagen" Type="Self.Entidad_SubEntidad_Imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entidad">
+              <PropertyRef Name="id_Entidad" />
+            </Principal>
+            <Dependent Role="Entidad_SubEntidad_Imagen">
+              <PropertyRef Name="idEntidad_Entidad_SubEntidad_Imagen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Imagen">
+          <End Role="Imagen" Type="Self.Imagen" Multiplicity="1" />
+          <End Role="Entidad_SubEntidad_Imagen" Type="Self.Entidad_SubEntidad_Imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Imagen">
+              <PropertyRef Name="id_Imagen" />
+            </Principal>
+            <Dependent Role="Entidad_SubEntidad_Imagen">
+              <PropertyRef Name="idImagen_Entidad_SubEntidad_Imagen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubEntidad">
+          <End Role="SubEntidad" Type="Self.SubEntidad" Multiplicity="1" />
+          <End Role="Entidad_SubEntidad_Imagen" Type="Self.Entidad_SubEntidad_Imagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubEntidad">
+              <PropertyRef Name="id_SubEntidad" />
+            </Principal>
+            <Dependent Role="Entidad_SubEntidad_Imagen">
+              <PropertyRef Name="idSubEntidad_Entidad_SubEntidad_Imagen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelFacilidad">
+          <End Role="Hotel" Type="Self.Hotel" Multiplicity="0..1" />
+          <End Role="Facilidad" Type="Self.Facilidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="nombre_Hotel" />
+            </Principal>
+            <Dependent Role="Facilidad">
+              <PropertyRef Name="hotel_Facilidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HabitacionReservacion">
+          <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="1" />
+          <End Role="Reservacion" Type="Self.Reservacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Habitacion">
+              <PropertyRef Name="numero_Habitacion" />
+            </Principal>
+            <Dependent Role="Reservacion">
+              <PropertyRef Name="idHabitacion_Reservacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tipo_Habitacion_Habitacion">
+          <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="1" />
+          <End Role="Habitacion" Type="Self.Habitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Habitacion">
+              <PropertyRef Name="nombre_Tipo_Habitacion" />
+            </Principal>
+            <Dependent Role="Habitacion">
+              <PropertyRef Name="tipo_Habitacion_Habitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hotel">
+          <End Role="Hotel" Type="Self.Hotel" Multiplicity="1" />
+          <End Role="HotelAdministrador" Type="Self.HotelAdministrador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="nombre_Hotel" />
+            </Principal>
+            <Dependent Role="HotelAdministrador">
+              <PropertyRef Name="Hotel_HotelAdministradores" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hotel_Tipo_Habitacion">
+          <End Role="Hotel" Type="Self.Hotel" Multiplicity="0..1" />
+          <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="nombre_Hotel" />
+            </Principal>
+            <Dependent Role="Tipo_Habitacion">
+              <PropertyRef Name="hotel_Tipo_Habitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HotelPublicidad">
+          <End Role="Hotel" Type="Self.Hotel" Multiplicity="1" />
+          <End Role="HotelPublicidad" Type="Self.HotelPublicidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="nombre_Hotel" />
+            </Principal>
+            <Dependent Role="HotelPublicidad">
+              <PropertyRef Name="Hotel_HotelPublicidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Publicidad">
+          <End Role="Publicidad" Type="Self.Publicidad" Multiplicity="1" />
+          <End Role="HotelPublicidad" Type="Self.HotelPublicidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publicidad">
+              <PropertyRef Name="id_Publicidad" />
+            </Principal>
+            <Dependent Role="HotelPublicidad">
+              <PropertyRef Name="idPublicidad_HotelPublicidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tipo_Habitacion_Promocion">
+          <End Role="Tipo_Habitacion" Type="Self.Tipo_Habitacion" Multiplicity="1" />
+          <End Role="Promocion" Type="Self.Promocion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Habitacion">
+              <PropertyRef Name="nombre_Tipo_Habitacion" />
+            </Principal>
+            <Dependent Role="Promocion">
+              <PropertyRef Name="tipo_Habitacion_Promocion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HotelDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Administrador" EntityType="Self.Administrador" />
+          <EntitySet Name="Caracteristica" EntityType="Self.Caracteristica" />
+          <EntitySet Name="Caracteristica_Tipo_Habitacion" EntityType="Self.Caracteristica_Tipo_Habitacion" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="Entidad" EntityType="Self.Entidad" />
+          <EntitySet Name="Entidad_SubEntidad_Imagen" EntityType="Self.Entidad_SubEntidad_Imagen" />
+          <EntitySet Name="Facilidad" EntityType="Self.Facilidad" />
+          <EntitySet Name="Habitacion" EntityType="Self.Habitacion" />
+          <EntitySet Name="Hotel" EntityType="Self.Hotel" />
+          <EntitySet Name="HotelAdministrador" EntityType="Self.HotelAdministrador" />
+          <EntitySet Name="HotelPublicidad" EntityType="Self.HotelPublicidad" />
+          <EntitySet Name="Imagen" EntityType="Self.Imagen" />
+          <EntitySet Name="Promocion" EntityType="Self.Promocion" />
+          <EntitySet Name="Publicidad" EntityType="Self.Publicidad" />
+          <EntitySet Name="Reservacion" EntityType="Self.Reservacion" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" />
+          <EntitySet Name="SubEntidad" EntityType="Self.SubEntidad" />
+          <EntitySet Name="Tipo_Habitacion" EntityType="Self.Tipo_Habitacion" />
+          <EntitySet Name="ImagenesBar" EntityType="Self.ImagenesBar" />
+          <EntitySet Name="ImagenesCafeteria" EntityType="Self.ImagenesCafeteria" />
+          <EntitySet Name="ImagenesDescripcion" EntityType="Self.ImagenesDescripcion" />
+          <EntitySet Name="ImagenesFacilidades" EntityType="Self.ImagenesFacilidades" />
+          <EntitySet Name="ImagenesHabitacion" EntityType="Self.ImagenesHabitacion" />
+          <EntitySet Name="ImagenesHotel" EntityType="Self.ImagenesHotel" />
+          <EntitySet Name="ImagenesInfantiles" EntityType="Self.ImagenesInfantiles" />
+          <EntitySet Name="ImagenesJacuzzi" EntityType="Self.ImagenesJacuzzi" />
+          <EntitySet Name="ImagenesJunior" EntityType="Self.ImagenesJunior" />
+          <EntitySet Name="ImagenesPiscina" EntityType="Self.ImagenesPiscina" />
+          <EntitySet Name="ImagenesRestaurante" EntityType="Self.ImagenesRestaurante" />
+          <EntitySet Name="ImagenesSobreNosotros" EntityType="Self.ImagenesSobreNosotros" />
+          <EntitySet Name="ImagenesStandard" EntityType="Self.ImagenesStandard" />
+          <EntitySet Name="ImagenesSuite" EntityType="Self.ImagenesSuite" />
+          <EntitySet Name="ImagenesTenis" EntityType="Self.ImagenesTenis" />
+          <AssociationSet Name="FK_Administrador" Association="Self.FK_Administrador">
+            <End Role="Administrador" EntitySet="Administrador" />
+            <End Role="HotelAdministrador" EntitySet="HotelAdministrador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolAdministrador" Association="Self.FK_RolAdministrador">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Administrador" EntitySet="Administrador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Caracteristica" Association="Self.FK_Caracteristica">
+            <End Role="Caracteristica" EntitySet="Caracteristica" />
+            <End Role="Caracteristica_Tipo_Habitacion" EntitySet="Caracteristica_Tipo_Habitacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoHabitacion_Caract" Association="Self.FK_TipoHabitacion_Caract">
+            <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
+            <End Role="Caracteristica_Tipo_Habitacion" EntitySet="Caracteristica_Tipo_Habitacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cliente" Association="Self.FK_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Reservacion" EntitySet="Reservacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntidadFK" Association="Self.FK_EntidadFK">
+            <End Role="Entidad" EntitySet="Entidad" />
+            <End Role="Entidad_SubEntidad_Imagen" EntitySet="Entidad_SubEntidad_Imagen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Imagen" Association="Self.FK_Imagen">
+            <End Role="Imagen" EntitySet="Imagen" />
+            <End Role="Entidad_SubEntidad_Imagen" EntitySet="Entidad_SubEntidad_Imagen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubEntidad" Association="Self.FK_SubEntidad">
+            <End Role="SubEntidad" EntitySet="SubEntidad" />
+            <End Role="Entidad_SubEntidad_Imagen" EntitySet="Entidad_SubEntidad_Imagen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelFacilidad" Association="Self.FK_HotelFacilidad">
+            <End Role="Hotel" EntitySet="Hotel" />
+            <End Role="Facilidad" EntitySet="Facilidad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HabitacionReservacion" Association="Self.FK_HabitacionReservacion">
+            <End Role="Habitacion" EntitySet="Habitacion" />
+            <End Role="Reservacion" EntitySet="Reservacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tipo_Habitacion_Habitacion" Association="Self.FK_Tipo_Habitacion_Habitacion">
+            <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
+            <End Role="Habitacion" EntitySet="Habitacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hotel" Association="Self.FK_Hotel">
+            <End Role="Hotel" EntitySet="Hotel" />
+            <End Role="HotelAdministrador" EntitySet="HotelAdministrador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hotel_Tipo_Habitacion" Association="Self.FK_Hotel_Tipo_Habitacion">
+            <End Role="Hotel" EntitySet="Hotel" />
+            <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HotelPublicidad" Association="Self.FK_HotelPublicidad">
+            <End Role="Hotel" EntitySet="Hotel" />
+            <End Role="HotelPublicidad" EntitySet="HotelPublicidad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Publicidad" Association="Self.FK_Publicidad">
+            <End Role="Publicidad" EntitySet="Publicidad" />
+            <End Role="HotelPublicidad" EntitySet="HotelPublicidad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tipo_Habitacion_Promocion" Association="Self.FK_Tipo_Habitacion_Promocion">
+            <End Role="Tipo_Habitacion" EntitySet="Tipo_Habitacion" />
+            <End Role="Promocion" EntitySet="Promocion" />
+          </AssociationSet>
+          <FunctionImport Name="actualiza_Estado_Habitacion" />
+          <FunctionImport Name="cancelar_Promocion">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="crear_Promocion">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="inicio" Mode="In" Type="DateTime" />
+            <Parameter Name="fin" Mode="In" Type="DateTime" />
+            <Parameter Name="descuento" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Estado_Promocion">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="insertar_Cliente">
+            <Parameter Name="cedula" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="apellido" Mode="In" Type="String" />
+            <Parameter Name="tarjeta_Cliente" Mode="In" Type="Int32" />
+            <Parameter Name="email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="insertar_Reservacion">
+            <Parameter Name="fechaLLegada" Mode="In" Type="DateTime" />
+            <Parameter Name="fechasalida" Mode="In" Type="DateTime" />
+            <Parameter Name="idHabitacion" Mode="In" Type="Int32" />
+            <Parameter Name="idCliente" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="apellido" Mode="In" Type="String" />
+            <Parameter Name="tarjeta_Cliente" Mode="In" Type="Int32" />
+            <Parameter Name="email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="insertar_Tipo_Habitacion">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="descrip" Mode="In" Type="String" />
+            <Parameter Name="tarifa" Mode="In" Type="Double" />
+            <Parameter Name="hotel" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="obtener_tarifa_Tipo_Habitacion">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="tarifa" Mode="InOut" Type="Double" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HotelDBStoreContainer" CdmEntityContainer="HotelDBEntities">
+          <EntitySetMapping Name="Administrador">
+            <EntityTypeMapping TypeName="HotelDB.Administrador">
+              <MappingFragment StoreEntitySet="Administrador">
+                <ScalarProperty Name="id_Administrador" ColumnName="id_Administrador" />
+                <ScalarProperty Name="usuario_Administrador" ColumnName="usuario_Administrador" />
+                <ScalarProperty Name="contrasenna_Administrador" ColumnName="contrasenna_Administrador" />
+                <ScalarProperty Name="rol_Administrador" ColumnName="rol_Administrador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Caracteristica">
+            <EntityTypeMapping TypeName="HotelDB.Caracteristica">
+              <MappingFragment StoreEntitySet="Caracteristica">
+                <ScalarProperty Name="id_Caracteristica" ColumnName="id_Caracteristica" />
+                <ScalarProperty Name="descripcion_Caracteristica" ColumnName="descripcion_Caracteristica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Caracteristica_Tipo_Habitacion">
+            <EntityTypeMapping TypeName="HotelDB.Caracteristica_Tipo_Habitacion">
+              <MappingFragment StoreEntitySet="Caracteristica_Tipo_Habitacion">
+                <ScalarProperty Name="id_Caracteristica_Tipo_Habitacion" ColumnName="id_Caracteristica_Tipo_Habitacion" />
+                <ScalarProperty Name="idCaracteristica_Caracteristica_Tipo_Habitacion" ColumnName="idCaracteristica_Caracteristica_Tipo_Habitacion" />
+                <ScalarProperty Name="tipo_Habitacion_Caracteristica_Tipo_Habitacion" ColumnName="tipo_Habitacion_Caracteristica_Tipo_Habitacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="HotelDB.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="cedula_Cliente" ColumnName="cedula_Cliente" />
+                <ScalarProperty Name="nombre_Cliente" ColumnName="nombre_Cliente" />
+                <ScalarProperty Name="apellidos_Cliente" ColumnName="apellidos_Cliente" />
+                <ScalarProperty Name="tarjeta_Cliente" ColumnName="tarjeta_Cliente" />
+                <ScalarProperty Name="email_Cliente" ColumnName="email_Cliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Entidad">
+            <EntityTypeMapping TypeName="HotelDB.Entidad">
+              <MappingFragment StoreEntitySet="Entidad">
+                <ScalarProperty Name="id_Entidad" ColumnName="id_Entidad" />
+                <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Entidad_SubEntidad_Imagen">
+            <EntityTypeMapping TypeName="HotelDB.Entidad_SubEntidad_Imagen">
+              <MappingFragment StoreEntitySet="Entidad_SubEntidad_Imagen">
+                <ScalarProperty Name="id_Entidad_SubEntidad_Imagen" ColumnName="id_Entidad_SubEntidad_Imagen" />
+                <ScalarProperty Name="idEntidad_Entidad_SubEntidad_Imagen" ColumnName="idEntidad_Entidad_SubEntidad_Imagen" />
+                <ScalarProperty Name="idSubEntidad_Entidad_SubEntidad_Imagen" ColumnName="idSubEntidad_Entidad_SubEntidad_Imagen" />
+                <ScalarProperty Name="idImagen_Entidad_SubEntidad_Imagen" ColumnName="idImagen_Entidad_SubEntidad_Imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Facilidad">
+            <EntityTypeMapping TypeName="HotelDB.Facilidad">
+              <MappingFragment StoreEntitySet="Facilidad">
+                <ScalarProperty Name="id_Facilidad" ColumnName="id_Facilidad" />
+                <ScalarProperty Name="descripcion_Facilidad" ColumnName="descripcion_Facilidad" />
+                <ScalarProperty Name="hotel_Facilidad" ColumnName="hotel_Facilidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Habitacion">
+            <EntityTypeMapping TypeName="HotelDB.Habitacion">
+              <MappingFragment StoreEntitySet="Habitacion">
+                <ScalarProperty Name="numero_Habitacion" ColumnName="numero_Habitacion" />
+                <ScalarProperty Name="estado_Habitacion" ColumnName="estado_Habitacion" />
+                <ScalarProperty Name="tipo_Habitacion_Habitacion" ColumnName="tipo_Habitacion_Habitacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hotel">
+            <EntityTypeMapping TypeName="HotelDB.Hotel">
+              <MappingFragment StoreEntitySet="Hotel">
+                <ScalarProperty Name="nombre_Hotel" ColumnName="nombre_Hotel" />
+                <ScalarProperty Name="descripcion_Hotel" ColumnName="descripcion_Hotel" />
+                <ScalarProperty Name="sobreNosotros_Hotel" ColumnName="sobreNosotros_Hotel" />
+                <ScalarProperty Name="latitud_Hotel" ColumnName="latitud_Hotel" />
+                <ScalarProperty Name="longitud_Hotel" ColumnName="longitud_Hotel" />
+                <ScalarProperty Name="comoLlegar_Hotel" ColumnName="comoLlegar_Hotel" />
+                <ScalarProperty Name="telefono_Hotel" ColumnName="telefono_Hotel" />
+                <ScalarProperty Name="aptoPostal_Hotel" ColumnName="aptoPostal_Hotel" />
+                <ScalarProperty Name="email_Hotel" ColumnName="email_Hotel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HotelAdministrador">
+            <EntityTypeMapping TypeName="HotelDB.HotelAdministrador">
+              <MappingFragment StoreEntitySet="HotelAdministrador">
+                <ScalarProperty Name="id_HotelAdministradores" ColumnName="id_HotelAdministradores" />
+                <ScalarProperty Name="idAdministrador_HotelAdministradores" ColumnName="idAdministrador_HotelAdministradores" />
+                <ScalarProperty Name="Hotel_HotelAdministradores" ColumnName="Hotel_HotelAdministradores" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HotelPublicidad">
+            <EntityTypeMapping TypeName="HotelDB.HotelPublicidad">
+              <MappingFragment StoreEntitySet="HotelPublicidad">
+                <ScalarProperty Name="id_HotelPublicidad" ColumnName="id_HotelPublicidad" />
+                <ScalarProperty Name="idPublicidad_HotelPublicidad" ColumnName="idPublicidad_HotelPublicidad" />
+                <ScalarProperty Name="Hotel_HotelPublicidad" ColumnName="Hotel_HotelPublicidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Imagen">
+            <EntityTypeMapping TypeName="HotelDB.Imagen">
+              <MappingFragment StoreEntitySet="Imagen">
+                <ScalarProperty Name="id_Imagen" ColumnName="id_Imagen" />
+                <ScalarProperty Name="fileID_Imagen" ColumnName="fileID_Imagen" />
+                <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+                <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Promocion">
+            <EntityTypeMapping TypeName="HotelDB.Promocion">
+              <MappingFragment StoreEntitySet="Promocion">
+                <ScalarProperty Name="id_Promocion" ColumnName="id_Promocion" />
+                <ScalarProperty Name="inicio_Promocion" ColumnName="inicio_Promocion" />
+                <ScalarProperty Name="fin_Promocion" ColumnName="fin_Promocion" />
+                <ScalarProperty Name="descuento_Promocion" ColumnName="descuento_Promocion" />
+                <ScalarProperty Name="estado_Promocion" ColumnName="estado_Promocion" />
+                <ScalarProperty Name="tipo_Habitacion_Promocion" ColumnName="tipo_Habitacion_Promocion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Publicidad">
+            <EntityTypeMapping TypeName="HotelDB.Publicidad">
+              <MappingFragment StoreEntitySet="Publicidad">
+                <ScalarProperty Name="id_Publicidad" ColumnName="id_Publicidad" />
+                <ScalarProperty Name="link_Publicidad" ColumnName="link_Publicidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservacion">
+            <EntityTypeMapping TypeName="HotelDB.Reservacion">
+              <MappingFragment StoreEntitySet="Reservacion">
+                <ScalarProperty Name="id_Reservacion" ColumnName="id_Reservacion" />
+                <ScalarProperty Name="fechaLLegada_Reservacion" ColumnName="fechaLLegada_Reservacion" />
+                <ScalarProperty Name="fechaSalida_Reservacion" ColumnName="fechaSalida_Reservacion" />
+                <ScalarProperty Name="idHabitacion_Reservacion" ColumnName="idHabitacion_Reservacion" />
+                <ScalarProperty Name="idCliente_Reservacion" ColumnName="idCliente_Reservacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol">
+            <EntityTypeMapping TypeName="HotelDB.Rol">
+              <MappingFragment StoreEntitySet="Rol">
+                <ScalarProperty Name="id_Rol" ColumnName="id_Rol" />
+                <ScalarProperty Name="tipo_Rol" ColumnName="tipo_Rol" />
+                <ScalarProperty Name="descripcion_Rol" ColumnName="descripcion_Rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubEntidad">
+            <EntityTypeMapping TypeName="HotelDB.SubEntidad">
+              <MappingFragment StoreEntitySet="SubEntidad">
+                <ScalarProperty Name="id_SubEntidad" ColumnName="id_SubEntidad" />
+                <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_Habitacion">
+            <EntityTypeMapping TypeName="HotelDB.Tipo_Habitacion">
+              <MappingFragment StoreEntitySet="Tipo_Habitacion">
+                <ScalarProperty Name="nombre_Tipo_Habitacion" ColumnName="nombre_Tipo_Habitacion" />
+                <ScalarProperty Name="descripcion_Tipo_Habitacion" ColumnName="descripcion_Tipo_Habitacion" />
+                <ScalarProperty Name="tarifa_Tipo_Habitacion" ColumnName="tarifa_Tipo_Habitacion" />
+                <ScalarProperty Name="hotel_Tipo_Habitacion" ColumnName="hotel_Tipo_Habitacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagenesBar">
+            <EntityTypeMapping TypeName="HotelDB.ImagenesBar">
+              <MappingFragment StoreEntitySet="ImagenesBar">
+                <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+                <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+                <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+                <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagenesCafeteria">
+            <EntityTypeMapping TypeName="HotelDB.ImagenesCafeteria">
+              <MappingFragment StoreEntitySet="ImagenesCafeteria">
+                <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+                <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+                <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+                <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagenesDescripcion">
+            <EntityTypeMapping TypeName="HotelDB.ImagenesDescripcion">
+              <MappingFragment StoreEntitySet="ImagenesDescripcion">
+                <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+                <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+                <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+                <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagenesFacilidades">
+            <EntityTypeMapping TypeName="HotelDB.ImagenesFacilidades">
+              <MappingFragment StoreEntitySet="ImagenesFacilidades">
+                <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+                <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+                <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+                <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagenesHabitacion">
+            <EntityTypeMapping TypeName="HotelDB.ImagenesHabitacion">
+              <MappingFragment StoreEntitySet="ImagenesHabitacion">
+                <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+                <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+                <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+                <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagenesHotel">
+            <EntityTypeMapping TypeName="HotelDB.ImagenesHotel">
+              <MappingFragment StoreEntitySet="ImagenesHotel">
+                <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+                <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+                <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+                <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagenesInfantiles">
+            <EntityTypeMapping TypeName="HotelDB.ImagenesInfantiles">
+              <MappingFragment StoreEntitySet="ImagenesInfantiles">
+                <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+                <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+                <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+                <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagenesJacuzzi">
+            <EntityTypeMapping TypeName="HotelDB.ImagenesJacuzzi">
+              <MappingFragment StoreEntitySet="ImagenesJacuzzi">
+                <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+                <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+                <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+                <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagenesJunior">
+            <EntityTypeMapping TypeName="HotelDB.ImagenesJunior">
+              <MappingFragment StoreEntitySet="ImagenesJunior">
+                <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+                <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+                <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+                <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagenesPiscina">
+            <EntityTypeMapping TypeName="HotelDB.ImagenesPiscina">
+              <MappingFragment StoreEntitySet="ImagenesPiscina">
+                <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+                <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+                <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+                <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagenesRestaurante">
+            <EntityTypeMapping TypeName="HotelDB.ImagenesRestaurante">
+              <MappingFragment StoreEntitySet="ImagenesRestaurante">
+                <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+                <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+                <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+                <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagenesSobreNosotros">
+            <EntityTypeMapping TypeName="HotelDB.ImagenesSobreNosotros">
+              <MappingFragment StoreEntitySet="ImagenesSobreNosotros">
+                <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+                <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+                <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+                <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagenesStandard">
+            <EntityTypeMapping TypeName="HotelDB.ImagenesStandard">
+              <MappingFragment StoreEntitySet="ImagenesStandard">
+                <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+                <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+                <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+                <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagenesSuite">
+            <EntityTypeMapping TypeName="HotelDB.ImagenesSuite">
+              <MappingFragment StoreEntitySet="ImagenesSuite">
+                <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+                <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+                <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+                <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagenesTenis">
+            <EntityTypeMapping TypeName="HotelDB.ImagenesTenis">
+              <MappingFragment StoreEntitySet="ImagenesTenis">
+                <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+                <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+                <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+                <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="actualiza_Estado_Habitacion" FunctionName="HotelDB.Store.actualiza_Estado_Habitacion" />
+          <FunctionImportMapping FunctionImportName="cancelar_Promocion" FunctionName="HotelDB.Store.cancelar_Promocion" />
+          <FunctionImportMapping FunctionImportName="crear_Promocion" FunctionName="HotelDB.Store.crear_Promocion" />
+          <FunctionImportMapping FunctionImportName="Estado_Promocion" FunctionName="HotelDB.Store.Estado_Promocion" />
+          <FunctionImportMapping FunctionImportName="insertar_Cliente" FunctionName="HotelDB.Store.insertar_Cliente" />
+          <FunctionImportMapping FunctionImportName="insertar_Reservacion" FunctionName="HotelDB.Store.insertar_Reservacion" />
+          <FunctionImportMapping FunctionImportName="insertar_Tipo_Habitacion" FunctionName="HotelDB.Store.insertar_Tipo_Habitacion" />
+          <FunctionImportMapping FunctionImportName="obtener_tarifa_Tipo_Habitacion" FunctionName="HotelDB.Store.obtener_tarifa_Tipo_Habitacion" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
