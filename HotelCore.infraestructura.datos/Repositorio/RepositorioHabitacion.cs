@@ -5,8 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using HotelCore.dominio.entidades.Objetos;
 using HotelCore.infraestructura.datos.Modelo;
-using System.Data.Entity;
-
 public class RepositorioHabitacion : IRepositorioHabitacion
 {
     private HotelDBEntities db = new HotelDBEntities();
@@ -55,9 +53,9 @@ public class RepositorioHabitacion : IRepositorioHabitacion
             habitaciones.Add(habitacion.h);
         }
 
-        foreach (var habitacion in habitacionesDisponibles)
+        foreach (var habitacionDisp in habitacionesDisponibles)
         {
-            habitaciones.Add(habitacion.h);
+            habitaciones.Add(habitacionDisp.h);
         }
 
         return habitaciones;
@@ -94,8 +92,6 @@ public class RepositorioHabitacion : IRepositorioHabitacion
         habitacion.hotel_Tipo_Habitacion = "Patito";
         habitacion.tarifa_Tipo_Habitacion = tarifa;
         habitacion.nombre_Tipo_Habitacion = tipo;
-        db.Entry(habitacion).State = EntityState.Modified;
-        db.SaveChanges();
         return db.Tipo_Habitacion.Find(tipo); ;
     }
 

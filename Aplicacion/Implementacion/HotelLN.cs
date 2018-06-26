@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HotelCore.dominio.entidades.Objetos;
+using System.Web;
 
 public class HotelLN : IHotelLN
 {
@@ -19,14 +20,6 @@ public class HotelLN : IHotelLN
         retorno = dominio.actualizar(hotel);
         return retorno;
     }
-
-    public bool actualizarsobreNosotros_Hotel(string nombre, string descripcion)
-    {
-        bool retorno;
-        retorno = dominio.actualizarsobreNosotros_Hotel(nombre, descripcion);
-        return retorno;
-
-    }//actualizar sobrenosotros
 
     public bool eliminar(string nombre)
     {
@@ -68,6 +61,20 @@ public class HotelLN : IHotelLN
         List<Hotel> retornoHoteles;
         retornoHoteles = dominio.obtenerHoteles();
         return retornoHoteles;
+    }
+
+    public HotelConImagenes actualizarImagenHome(Imagen nuevaImagen)
+    {
+        HotelConImagenes retornoHoteles;
+        retornoHoteles = dominio.actualizarImagenHome(nuevaImagen);
+        return retornoHoteles;
+    }
+
+    public HotelConImagenes actualizarDescripcionHome(Hotel hotel) {
+        HotelConImagenes retornoHoteles;
+        retornoHoteles = dominio.actualizarDescripcionHome(hotel);
+        return retornoHoteles;
+
     }
 }
 

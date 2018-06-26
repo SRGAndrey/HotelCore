@@ -9,6 +9,9 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using HotelCore.dominio.entidades.Objetos;
+using System.Web;
+using System.Web.Helpers;
+using Newtonsoft.Json;
 
 namespace HotelCore.Servicios.WebApi.Controllers
 {
@@ -65,20 +68,35 @@ namespace HotelCore.Servicios.WebApi.Controllers
             return Ok(tipo);
         }
 
-        [ResponseType(typeof(bool))]
-        [Route("Hotel/ActualizarSN")]
+        // GET: api/Hotel/5
+        [Route("Hotel/actualizarImagenHome")]
         [HttpGet]
-        public IHttpActionResult ActualizarSN(string nombre, string descripcion)
+        [HttpPost]
+        public IHttpActionResult actualizarHome(Imagen imagenNueva)
         {
 
+            //RepositorioHotel repositorioHotel = new RepositorioHotel();
             IHotelLN repo = FabricaIoC.Contenedor.Resolver<HotelLN>();
-            
-            bool resultado = true;
-            resultado = repo.actualizarsobreNosotros_Hotel(nombre, descripcion);
 
-            return Ok(resultado);
-        }//ActualizarSN
+            HotelConImagenes hotel = repo.actualizarImagenHome(imagenNueva);
 
+            return Ok(hotel);
+        }
+
+
+        [Route("Hotel/actualizarDescripcionHome")]
+        [HttpGet]
+        [HttpPost]
+        public IHttpActionResult actualizarDescripcionHome(Hotel hotel)
+        {
+
+            //RepositorioHotel repositorioHotel = new RepositorioHotel();
+            IHotelLN repo = FabricaIoC.Contenedor.Resolver<HotelLN>();
+
+            HotelConImagenes miHotel = repo.actualizarDescripcionHome(hotel);
+
+            return Ok(miHotel);
+        }
 
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HotelCore.dominio.entidades.Objetos;
+using System.Web;
 
 public interface IRepositorioHotel
 {
@@ -16,7 +17,9 @@ public interface IRepositorioHotel
 
     List<Hotel> obtenerHoteles();
     List<Tipo_Habitacion> obtenerHabitacion();
-    
-    bool actualizarsobreNosotros_Hotel(String nombre, String descripcion);
+
+    HotelConImagenes actualizarImagenHome(Imagen nuevaImagen);
+
+    HotelConImagenes actualizarDescripcionHome(Hotel hotel);
 }
 
