@@ -68,6 +68,13 @@ public class HabitacionLN : IHabitacionLN
         tipoHabitacion = dominio.actualizarTipo(tipo, descripcion, tarifa);
         return tipoHabitacion;
     }
+    public void actualizarImagenTH(Imagen nuevaImagen)
+    {
+        //TipoHabitacionConImagenes retornoHoteles;
+        //retornoHoteles = 
+        dominio.actualizarImagenTH(nuevaImagen);
+        //return retornoHoteles;
+    }
 
     public List<HabitacionesDisponibles> obtenerHabitaciones(System.DateTime fechaInicio, System.DateTime fechaFinal, string tipos)
     {

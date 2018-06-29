@@ -21,7 +21,6 @@ namespace HotelCore.dominio.entidades.Objetos
         }
     
         public int id_Imagen { get; set; }
-        public System.Guid fileID_Imagen { get; set; }
         public byte[] imagen_Imagen { get; set; }
         public string descripcion_Imagen { get; set; }
     

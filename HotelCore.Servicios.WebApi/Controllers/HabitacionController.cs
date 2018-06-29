@@ -45,11 +45,23 @@ namespace HotelCore.Servicios.WebApi.Controllers
         [HttpPost()]
         public IHttpActionResult obtenerTipoHabitacion(string tipo)
         {
-            Tipo_Habitacion habitacion = new Tipo_Habitacion();
-            //RepositorioHabitacion reposiorio = new RepositorioHabitacion();
+            IImagenLN repositorioImagenes = FabricaIoC.Contenedor.Resolver<ImagenLN>();
             IHabitacionLN repositorio = FabricaIoC.Contenedor.Resolver<HabitacionLN>();
+
+            Tipo_Habitacion habitacion = new Tipo_Habitacion();
             habitacion = repositorio.obtenerTipoHabitacion(tipo);
-            return Ok(habitacion);
+
+            var imagenJunior = repositorioImagenes.obtenerImagenesJunior();
+            var imagenStandard = repositorioImagenes.obtenerImagenesStandard();
+            var imagenSuite = repositorioImagenes.obtenerImagenesSuite();
+
+            TipoHabitacionConImagenes tipoHabitacion = new TipoHabitacionConImagenes();
+            tipoHabitacion.tipoHabitacionX = habitacion;
+            tipoHabitacion.imagenJunior = imagenJunior;
+            tipoHabitacion.imagenStandard = imagenStandard;
+            tipoHabitacion.imagenSuite = imagenSuite;
+
+            return Ok(tipoHabitacion);
         }
 
         [Route("Habitacion/actualizarTipo")]
@@ -62,6 +74,21 @@ namespace HotelCore.Servicios.WebApi.Controllers
             IHabitacionLN repositorio = FabricaIoC.Contenedor.Resolver<HabitacionLN>();
             habitacion = repositorio.actualizarTipo(tipo, descripcion, tarifa);
             return Ok(habitacion);
+        }
+
+        [Route("Habitacion/actualizarImagenTH")]
+        [HttpGet]
+        [HttpPost]
+        public void actualizarImagenTH(Imagen imagenNueva)
+        {
+
+            //RepositorioHotel repositorioHotel = new RepositorioHotel();
+            IHabitacionLN repo = FabricaIoC.Contenedor.Resolver<HabitacionLN>();
+
+            //TipoHabitacionConImagenes hotel = 
+            repo.actualizarImagenTH(imagenNueva);
+
+            //return Ok(hotel);
         }
 
         //[ResponseType(typeof(HabitacionDisponible))]

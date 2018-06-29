@@ -22,6 +22,7 @@ public interface IRepositorioHabitacion
     Tipo_Habitacion obtenerTipoHabitacion(string tipo);
 
     Tipo_Habitacion actualizarTipo(string tipo, string descripcion, double tarifa);
+    void actualizarImagenTH(Imagen nuevaImagen);
 
     List<HabitacionesDisponibles> obtenerHabitaciones(System.DateTime fechaInicio, System.DateTime fechaFinal, string tipos);
 }

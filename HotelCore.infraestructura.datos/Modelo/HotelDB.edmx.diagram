@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7be1db9c04b643a49e87f6ae899db18c" Name="Diagram1">
+      <Diagram DiagramId="8e7aec0aa36749329ccd096ea065aa81" Name="Diagram1">
         <EntityTypeShape EntityType="HotelDB.Administrador" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelDB.Caracteristica" Width="1.5" PointX="3" PointY="18.625" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelDB.Caracteristica_Tipo_Habitacion" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
@@ -16,12 +16,12 @@
         <EntityTypeShape EntityType="HotelDB.Hotel" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelDB.HotelAdministrador" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelDB.HotelPublicidad" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.Imagen" Width="1.5" PointX="3.75" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDB.Imagen" Width="1.5" PointX="3.75" PointY="22.625" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelDB.Promocion" Width="1.5" PointX="5.25" PointY="19.375" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelDB.Publicidad" Width="1.5" PointX="0.75" PointY="13" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelDB.Reservacion" Width="1.5" PointX="7.5" PointY="16.5" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelDB.Rol" Width="1.5" PointX="1.5" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDB.SubEntidad" Width="1.5" PointX="3.75" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDB.SubEntidad" Width="1.5" PointX="3.75" PointY="25.25" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelDB.Tipo_Habitacion" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelDB.ImagenesBar" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelDB.ImagenesCafeteria" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />

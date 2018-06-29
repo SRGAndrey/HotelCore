@@ -98,6 +98,24 @@ public class RepositorioHabitacion : IRepositorioHabitacion
         db.SaveChanges();
         return db.Tipo_Habitacion.Find(tipo); ;
     }
+    public void actualizarImagenTH(Imagen nuevaImagen)
+    {
+
+        var imagen = db.Imagen.Single((u => u.id_Imagen == nuevaImagen.id_Imagen));
+        imagen.imagen_Imagen = nuevaImagen.imagen_Imagen;
+        try
+        {
+            db.SaveChanges();
+        }
+        catch (Exception ex)
+        {
+            //return null;
+        }
+
+        //TipoHabitacionConImagenes hotelConImagenes = new TipoHabitacionConImagenes();
+
+        //return hotelConImagenes;
+    }
 
     public List<HabitacionesDisponibles> obtenerHabitaciones(DateTime fechaInicio, DateTime fechaFinal, string tipo)
     {

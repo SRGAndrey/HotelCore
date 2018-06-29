@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="HotelDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="HotelDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Administrador">
           <Key>
             <PropertyRef Name="id_Administrador" />
@@ -62,7 +62,6 @@
           <Property Name="id_Facilidad" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="descripcion_Facilidad" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="hotel_Facilidad" Type="varchar" MaxLength="25" />
-          <Property Name="nombre_Facilidad" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="Habitacion">
           <Key>
@@ -107,8 +106,7 @@
             <PropertyRef Name="id_Imagen" />
           </Key>
           <Property Name="id_Imagen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="fileID_Imagen" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+          <Property Name="imagen_Imagen" Type="image" />
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Promocion">
@@ -164,7 +162,7 @@
           <Property Name="hotel_Tipo_Habitacion" Type="varchar" MaxLength="25" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesBar' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesBar' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesBar">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -174,10 +172,10 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesBar' no tiene definida n
           <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+          <Property Name="imagen_Imagen" Type="image" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesCafeteria' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesCafeteria' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesCafeteria">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -187,23 +185,25 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesCafeteria' no tiene defi
           <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+          <Property Name="imagen_Imagen" Type="image" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesDescripcion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesDescripcion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesDescripcion">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
             <PropertyRef Name="descripcion_SubEntidad" />
             <PropertyRef Name="descripcion_Imagen" />
+            <PropertyRef Name="id_Imagen" />
           </Key>
           <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+          <Property Name="imagen_Imagen" Type="image" />
+          <Property Name="id_Imagen" Type="int" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesFacilidades' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesFacilidades' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesFacilidades">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -213,10 +213,10 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesFacilidades' no tiene de
           <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+          <Property Name="imagen_Imagen" Type="image" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesHabitacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesHabitacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesHabitacion">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -226,10 +226,10 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesHabitacion' no tiene def
           <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+          <Property Name="imagen_Imagen" Type="image" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesHotel' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesHotel' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesHotel">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -239,10 +239,10 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesHotel' no tiene definida
           <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+          <Property Name="imagen_Imagen" Type="image" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesInfantiles' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesInfantiles' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesInfantiles">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -252,10 +252,10 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesInfantiles' no tiene def
           <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+          <Property Name="imagen_Imagen" Type="image" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesJacuzzi' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesJacuzzi' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesJacuzzi">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -265,23 +265,25 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesJacuzzi' no tiene defini
           <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+          <Property Name="imagen_Imagen" Type="image" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesJunior' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesJunior' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesJunior">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
             <PropertyRef Name="descripcion_SubEntidad" />
             <PropertyRef Name="descripcion_Imagen" />
+            <PropertyRef Name="id_Imagen" />
           </Key>
           <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+          <Property Name="imagen_Imagen" Type="image" />
+          <Property Name="id_Imagen" Type="int" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesPiscina' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesPiscina' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesPiscina">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -291,10 +293,10 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesPiscina' no tiene defini
           <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+          <Property Name="imagen_Imagen" Type="image" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesRestaurante' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesRestaurante' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesRestaurante">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -304,10 +306,10 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesRestaurante' no tiene de
           <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+          <Property Name="imagen_Imagen" Type="image" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesSobreNosotros' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesSobreNosotros' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesSobreNosotros">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -317,36 +319,40 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesSobreNosotros' no tiene 
           <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+          <Property Name="imagen_Imagen" Type="image" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesStandard' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesStandard' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesStandard">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
             <PropertyRef Name="descripcion_SubEntidad" />
             <PropertyRef Name="descripcion_Imagen" />
+            <PropertyRef Name="id_Imagen" />
           </Key>
           <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+          <Property Name="imagen_Imagen" Type="image" />
+          <Property Name="id_Imagen" Type="int" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesSuite' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesSuite' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesSuite">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
             <PropertyRef Name="descripcion_SubEntidad" />
             <PropertyRef Name="descripcion_Imagen" />
+            <PropertyRef Name="id_Imagen" />
           </Key>
           <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+          <Property Name="imagen_Imagen" Type="image" />
+          <Property Name="id_Imagen" Type="int" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesTenis' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ImagenesTenis">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -356,7 +362,7 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida
           <Property Name="descripcion_Entidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_SubEntidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="imagen_Imagen" Type="varbinary(max)" />
+          <Property Name="imagen_Imagen" Type="image" />
         </EntityType>
         <Association Name="FK_Administrador">
           <End Role="Administrador" Type="Self.Administrador" Multiplicity="1" />
@@ -590,6 +596,7 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida
           <Parameter Name="nombre" Type="varchar" Mode="In" />
           <Parameter Name="tarifa" Type="float" Mode="InOut" />
         </Function>
+        <Function Name="reporte_del_dia_de_hoy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="HotelDBStoreContainer">
           <EntitySet Name="Administrador" EntityType="Self.Administrador" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Caracteristica" EntityType="Self.Caracteristica" Schema="dbo" store:Type="Tables" />
@@ -630,7 +637,8 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida
     [ImagenesDescripcion].[descripcion_Entidad] AS [descripcion_Entidad], 
     [ImagenesDescripcion].[descripcion_SubEntidad] AS [descripcion_SubEntidad], 
     [ImagenesDescripcion].[descripcion_Imagen] AS [descripcion_Imagen], 
-    [ImagenesDescripcion].[imagen_Imagen] AS [imagen_Imagen]
+    [ImagenesDescripcion].[imagen_Imagen] AS [imagen_Imagen], 
+    [ImagenesDescripcion].[id_Imagen] AS [id_Imagen]
     FROM [dbo].[ImagenesDescripcion] AS [ImagenesDescripcion]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ImagenesFacilidades" EntityType="Self.ImagenesFacilidades" store:Type="Views" store:Schema="dbo">
@@ -678,7 +686,8 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida
     [ImagenesJunior].[descripcion_Entidad] AS [descripcion_Entidad], 
     [ImagenesJunior].[descripcion_SubEntidad] AS [descripcion_SubEntidad], 
     [ImagenesJunior].[descripcion_Imagen] AS [descripcion_Imagen], 
-    [ImagenesJunior].[imagen_Imagen] AS [imagen_Imagen]
+    [ImagenesJunior].[imagen_Imagen] AS [imagen_Imagen], 
+    [ImagenesJunior].[id_Imagen] AS [id_Imagen]
     FROM [dbo].[ImagenesJunior] AS [ImagenesJunior]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ImagenesPiscina" EntityType="Self.ImagenesPiscina" store:Type="Views" store:Schema="dbo">
@@ -710,7 +719,8 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida
     [ImagenesStandard].[descripcion_Entidad] AS [descripcion_Entidad], 
     [ImagenesStandard].[descripcion_SubEntidad] AS [descripcion_SubEntidad], 
     [ImagenesStandard].[descripcion_Imagen] AS [descripcion_Imagen], 
-    [ImagenesStandard].[imagen_Imagen] AS [imagen_Imagen]
+    [ImagenesStandard].[imagen_Imagen] AS [imagen_Imagen], 
+    [ImagenesStandard].[id_Imagen] AS [id_Imagen]
     FROM [dbo].[ImagenesStandard] AS [ImagenesStandard]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ImagenesSuite" EntityType="Self.ImagenesSuite" store:Type="Views" store:Schema="dbo">
@@ -718,7 +728,8 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida
     [ImagenesSuite].[descripcion_Entidad] AS [descripcion_Entidad], 
     [ImagenesSuite].[descripcion_SubEntidad] AS [descripcion_SubEntidad], 
     [ImagenesSuite].[descripcion_Imagen] AS [descripcion_Imagen], 
-    [ImagenesSuite].[imagen_Imagen] AS [imagen_Imagen]
+    [ImagenesSuite].[imagen_Imagen] AS [imagen_Imagen], 
+    [ImagenesSuite].[id_Imagen] AS [id_Imagen]
     FROM [dbo].[ImagenesSuite] AS [ImagenesSuite]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ImagenesTenis" EntityType="Self.ImagenesTenis" store:Type="Views" store:Schema="dbo">
@@ -794,7 +805,8 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida
             <End Role="Caracteristica_Tipo_Habitacion" EntitySet="Caracteristica_Tipo_Habitacion" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HotelDB" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -866,7 +878,6 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida
           <Property Name="descripcion_Facilidad" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="hotel_Facilidad" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Hotel" Relationship="Self.FK_HotelFacilidad" FromRole="Facilidad" ToRole="Hotel" />
-          <Property Name="nombre_Facilidad" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Habitacion">
           <Key>
@@ -921,7 +932,6 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida
             <PropertyRef Name="id_Imagen" />
           </Key>
           <Property Name="id_Imagen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fileID_Imagen" Type="Guid" Nullable="false" />
           <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="descripcion_Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Entidad_SubEntidad_Imagen" Relationship="Self.FK_Imagen" FromRole="Imagen" ToRole="Entidad_SubEntidad_Imagen" />
@@ -1015,11 +1025,13 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida
             <PropertyRef Name="descripcion_Entidad" />
             <PropertyRef Name="descripcion_SubEntidad" />
             <PropertyRef Name="descripcion_Imagen" />
+            <PropertyRef Name="id_Imagen" />
           </Key>
           <Property Name="descripcion_Entidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="descripcion_SubEntidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="descripcion_Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="id_Imagen" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="ImagenesFacilidades">
           <Key>
@@ -1081,11 +1093,13 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida
             <PropertyRef Name="descripcion_Entidad" />
             <PropertyRef Name="descripcion_SubEntidad" />
             <PropertyRef Name="descripcion_Imagen" />
+            <PropertyRef Name="id_Imagen" />
           </Key>
           <Property Name="descripcion_Entidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="descripcion_SubEntidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="descripcion_Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="id_Imagen" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="ImagenesPiscina">
           <Key>
@@ -1125,22 +1139,26 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida
             <PropertyRef Name="descripcion_Entidad" />
             <PropertyRef Name="descripcion_SubEntidad" />
             <PropertyRef Name="descripcion_Imagen" />
+            <PropertyRef Name="id_Imagen" />
           </Key>
           <Property Name="descripcion_Entidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="descripcion_SubEntidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="descripcion_Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="id_Imagen" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="ImagenesSuite">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
             <PropertyRef Name="descripcion_SubEntidad" />
             <PropertyRef Name="descripcion_Imagen" />
+            <PropertyRef Name="id_Imagen" />
           </Key>
           <Property Name="descripcion_Entidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="descripcion_SubEntidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="descripcion_Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="imagen_Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="id_Imagen" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="ImagenesTenis">
           <Key>
@@ -1445,7 +1463,7 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida
           </AssociationSet>
           <FunctionImport Name="actualiza_Estado_Habitacion" />
           <FunctionImport Name="cancelar_Promocion">
-          <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="crear_Promocion">
             <Parameter Name="nombre" Mode="In" Type="String" />
@@ -1454,7 +1472,7 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida
             <Parameter Name="descuento" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Estado_Promocion">
-          <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="insertar_Cliente">
             <Parameter Name="cedula" Mode="In" Type="String" />
@@ -1483,7 +1501,18 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida
             <Parameter Name="nombre" Mode="In" Type="String" />
             <Parameter Name="tarifa" Mode="InOut" Type="Double" />
           </FunctionImport>
+          <FunctionImport Name="reporte_del_dia_de_hoy" ReturnType="Collection(HotelDB.reporte_del_dia_de_hoy_Result)" />
         </EntityContainer>
+        <ComplexType Name="reporte_del_dia_de_hoy_Result">
+          <Property Type="Int32" Name="id_Reservacion" Nullable="false" />
+          <Property Type="DateTime" Name="fechaLLegada_Reservacion" Nullable="false" Precision="16" />
+          <Property Type="DateTime" Name="fechaSalida_Reservacion" Nullable="false" Precision="16" />
+          <Property Type="Int32" Name="idHabitacion_Reservacion" Nullable="false" />
+          <Property Type="String" Name="idCliente_Reservacion" Nullable="false" MaxLength="12" />
+          <Property Type="Int32" Name="numero_Habitacion" Nullable="false" />
+          <Property Type="String" Name="estado_Habitacion" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="tipo_Habitacion_Habitacion" Nullable="false" MaxLength="20" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1549,7 +1578,6 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida
           <EntitySetMapping Name="Facilidad">
             <EntityTypeMapping TypeName="HotelDB.Facilidad">
               <MappingFragment StoreEntitySet="Facilidad">
-                <ScalarProperty Name="nombre_Facilidad" ColumnName="nombre_Facilidad" />
                 <ScalarProperty Name="id_Facilidad" ColumnName="id_Facilidad" />
                 <ScalarProperty Name="descripcion_Facilidad" ColumnName="descripcion_Facilidad" />
                 <ScalarProperty Name="hotel_Facilidad" ColumnName="hotel_Facilidad" />
@@ -1602,7 +1630,6 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida
             <EntityTypeMapping TypeName="HotelDB.Imagen">
               <MappingFragment StoreEntitySet="Imagen">
                 <ScalarProperty Name="id_Imagen" ColumnName="id_Imagen" />
-                <ScalarProperty Name="fileID_Imagen" ColumnName="fileID_Imagen" />
                 <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
                 <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
               </MappingFragment>
@@ -1693,6 +1720,7 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida
                 <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
                 <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
                 <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+                <ScalarProperty Name="id_Imagen" ColumnName="id_Imagen" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1753,6 +1781,7 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida
                 <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
                 <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
                 <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+                <ScalarProperty Name="id_Imagen" ColumnName="id_Imagen" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1793,6 +1822,7 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida
                 <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
                 <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
                 <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+                <ScalarProperty Name="id_Imagen" ColumnName="id_Imagen" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1803,6 +1833,7 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida
                 <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
                 <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
                 <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+                <ScalarProperty Name="id_Imagen" ColumnName="id_Imagen" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1824,6 +1855,20 @@ advertencia 6002: La tabla o vista 'HotelDB.dbo.ImagenesTenis' no tiene definida
           <FunctionImportMapping FunctionImportName="insertar_Reservacion" FunctionName="HotelDB.Store.insertar_Reservacion" />
           <FunctionImportMapping FunctionImportName="insertar_Tipo_Habitacion" FunctionName="HotelDB.Store.insertar_Tipo_Habitacion" />
           <FunctionImportMapping FunctionImportName="obtener_tarifa_Tipo_Habitacion" FunctionName="HotelDB.Store.obtener_tarifa_Tipo_Habitacion" />
+          <FunctionImportMapping FunctionImportName="reporte_del_dia_de_hoy" FunctionName="HotelDB.Store.reporte_del_dia_de_hoy">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HotelDB.reporte_del_dia_de_hoy_Result">
+                <ScalarProperty Name="id_Reservacion" ColumnName="id_Reservacion" />
+                <ScalarProperty Name="fechaLLegada_Reservacion" ColumnName="fechaLLegada_Reservacion" />
+                <ScalarProperty Name="fechaSalida_Reservacion" ColumnName="fechaSalida_Reservacion" />
+                <ScalarProperty Name="idHabitacion_Reservacion" ColumnName="idHabitacion_Reservacion" />
+                <ScalarProperty Name="idCliente_Reservacion" ColumnName="idCliente_Reservacion" />
+                <ScalarProperty Name="numero_Habitacion" ColumnName="numero_Habitacion" />
+                <ScalarProperty Name="estado_Habitacion" ColumnName="estado_Habitacion" />
+                <ScalarProperty Name="tipo_Habitacion_Habitacion" ColumnName="tipo_Habitacion_Habitacion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
