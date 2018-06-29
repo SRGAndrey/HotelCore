@@ -197,5 +197,10 @@ namespace HotelCore.infraestructura.datos.Modelo
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("obtener_tarifa_Tipo_Habitacion", nombreParameter, tarifa);
         }
+    
+        public virtual ObjectResult<reporte_del_dia_de_hoy_Result> reporte_del_dia_de_hoy()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<reporte_del_dia_de_hoy_Result>("reporte_del_dia_de_hoy");
+        }
     }
 }

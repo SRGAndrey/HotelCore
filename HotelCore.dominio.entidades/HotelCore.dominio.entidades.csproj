@@ -149,6 +149,9 @@
     <Compile Include="Objetos\Publicidad.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Objetos\reporte_del_dia_de_hoy_Result.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Objetos\Reservacion.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
@@ -159,6 +162,7 @@
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Objetos\Tarifa.cs" />
+    <Compile Include="Objetos\TipoHabitacionConImagenes.cs" />
     <Compile Include="Objetos\Tipo_Habitacion.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>

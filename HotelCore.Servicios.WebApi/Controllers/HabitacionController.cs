@@ -64,6 +64,21 @@ namespace HotelCore.Servicios.WebApi.Controllers
             return Ok(habitacion);
         }
 
+        [Route("Habitacion/actualizarImagenTH")]
+        [HttpGet]
+        [HttpPost]
+        public void actualizarImagenTH(Imagen imagenNueva)
+        {
+
+            //RepositorioHotel repositorioHotel = new RepositorioHotel();
+            IHabitacionLN repo = FabricaIoC.Contenedor.Resolver<HabitacionLN>();
+
+            //TipoHabitacionConImagenes hotel = 
+            repo.actualizarImagenTH(imagenNueva);
+
+            //return Ok(hotel);
+        }
+
         //[ResponseType(typeof(HabitacionDisponible))]
 
         [Route("Habitacion/ObtenerDisponibilidad")]

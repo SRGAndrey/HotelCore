@@ -10,14 +10,16 @@
 namespace HotelCore.dominio.entidades.Objetos
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class ImagenesDescripcion
+    public partial class reporte_del_dia_de_hoy_Result
     {
-        public string descripcion_Entidad { get; set; }
-        public string descripcion_SubEntidad { get; set; }
-        public string descripcion_Imagen { get; set; }
-        public byte[] imagen_Imagen { get; set; }
-        public int id_Imagen { get; set; }
+        public int id_Reservacion { get; set; }
+        public System.DateTime fechaLLegada_Reservacion { get; set; }
+        public System.DateTime fechaSalida_Reservacion { get; set; }
+        public int idHabitacion_Reservacion { get; set; }
+        public string idCliente_Reservacion { get; set; }
+        public int numero_Habitacion { get; set; }
+        public string estado_Habitacion { get; set; }
+        public string tipo_Habitacion_Habitacion { get; set; }
     }
 }
