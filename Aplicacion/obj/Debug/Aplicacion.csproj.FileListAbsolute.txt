@@ -1,0 +1,9 @@
+C:\Users\Sergio-PC\Desktop\Final\HotelCore\Aplicacion\bin\Debug\Aplicacion.dll
+C:\Users\Sergio-PC\Desktop\Final\HotelCore\Aplicacion\bin\Debug\Aplicacion.pdb
+C:\Users\Sergio-PC\Desktop\Final\HotelCore\Aplicacion\bin\Debug\HotelCore.dominio.dll
+C:\Users\Sergio-PC\Desktop\Final\HotelCore\Aplicacion\bin\Debug\HotelCore.dominio.entidades.dll
+C:\Users\Sergio-PC\Desktop\Final\HotelCore\Aplicacion\bin\Debug\HotelCore.dominio.entidades.pdb
+C:\Users\Sergio-PC\Desktop\Final\HotelCore\Aplicacion\bin\Debug\HotelCore.dominio.pdb
+C:\Users\Sergio-PC\Desktop\Final\HotelCore\Aplicacion\obj\Debug\Aplicacion.csprojResolveAssemblyReference.cache
+C:\Users\Sergio-PC\Desktop\Final\HotelCore\Aplicacion\obj\Debug\Aplicacion.dll
+C:\Users\Sergio-PC\Desktop\Final\HotelCore\Aplicacion\obj\Debug\Aplicacion.pdb

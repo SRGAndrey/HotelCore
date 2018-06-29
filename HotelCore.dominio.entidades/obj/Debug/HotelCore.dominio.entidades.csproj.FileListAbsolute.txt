@@ -1,0 +1,12 @@
+C:\Users\Sergio-PC\Desktop\Final\HotelCore\HotelCore.dominio.entidades\bin\Debug\HotelCore.dominio.entidades.dll.config
+C:\Users\Sergio-PC\Desktop\Final\HotelCore\HotelCore.dominio.entidades\bin\Debug\HotelCore.dominio.entidades.dll
+C:\Users\Sergio-PC\Desktop\Final\HotelCore\HotelCore.dominio.entidades\bin\Debug\HotelCore.dominio.entidades.pdb
+C:\Users\Sergio-PC\Desktop\Final\HotelCore\HotelCore.dominio.entidades\bin\Debug\EntityFramework.dll
+C:\Users\Sergio-PC\Desktop\Final\HotelCore\HotelCore.dominio.entidades\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Sergio-PC\Desktop\Final\HotelCore\HotelCore.dominio.entidades\bin\Debug\EntityFramework.xml
+C:\Users\Sergio-PC\Desktop\Final\HotelCore\HotelCore.dominio.entidades\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Sergio-PC\Desktop\Final\HotelCore\HotelCore.dominio.entidades\bin\Debug\es\EntityFramework.resources.dll
+C:\Users\Sergio-PC\Desktop\Final\HotelCore\HotelCore.dominio.entidades\bin\Debug\es\EntityFramework.SqlServer.resources.dll
+C:\Users\Sergio-PC\Desktop\Final\HotelCore\HotelCore.dominio.entidades\obj\Debug\HotelCore.dominio.entidades.dll
+C:\Users\Sergio-PC\Desktop\Final\HotelCore\HotelCore.dominio.entidades\obj\Debug\HotelCore.dominio.entidades.pdb
+C:\Users\Sergio-PC\Desktop\Final\HotelCore\HotelCore.dominio.entidades\obj\Debug\HotelCore.dominio.entidades.csprojResolveAssemblyReference.cache

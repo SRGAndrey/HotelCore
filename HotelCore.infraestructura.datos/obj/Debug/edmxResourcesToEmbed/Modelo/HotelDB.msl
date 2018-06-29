@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HotelDBStoreContainer" CdmEntityContainer="HotelDBEntities">
+    <EntitySetMapping Name="Administrador">
+      <EntityTypeMapping TypeName="HotelDB.Administrador">
+        <MappingFragment StoreEntitySet="Administrador">
+          <ScalarProperty Name="id_Administrador" ColumnName="id_Administrador" />
+          <ScalarProperty Name="usuario_Administrador" ColumnName="usuario_Administrador" />
+          <ScalarProperty Name="contrasenna_Administrador" ColumnName="contrasenna_Administrador" />
+          <ScalarProperty Name="rol_Administrador" ColumnName="rol_Administrador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Caracteristica">
+      <EntityTypeMapping TypeName="HotelDB.Caracteristica">
+        <MappingFragment StoreEntitySet="Caracteristica">
+          <ScalarProperty Name="id_Caracteristica" ColumnName="id_Caracteristica" />
+          <ScalarProperty Name="descripcion_Caracteristica" ColumnName="descripcion_Caracteristica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Caracteristica_Tipo_Habitacion">
+      <EntityTypeMapping TypeName="HotelDB.Caracteristica_Tipo_Habitacion">
+        <MappingFragment StoreEntitySet="Caracteristica_Tipo_Habitacion">
+          <ScalarProperty Name="id_Caracteristica_Tipo_Habitacion" ColumnName="id_Caracteristica_Tipo_Habitacion" />
+          <ScalarProperty Name="idCaracteristica_Caracteristica_Tipo_Habitacion" ColumnName="idCaracteristica_Caracteristica_Tipo_Habitacion" />
+          <ScalarProperty Name="tipo_Habitacion_Caracteristica_Tipo_Habitacion" ColumnName="tipo_Habitacion_Caracteristica_Tipo_Habitacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="HotelDB.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="cedula_Cliente" ColumnName="cedula_Cliente" />
+          <ScalarProperty Name="nombre_Cliente" ColumnName="nombre_Cliente" />
+          <ScalarProperty Name="apellidos_Cliente" ColumnName="apellidos_Cliente" />
+          <ScalarProperty Name="tarjeta_Cliente" ColumnName="tarjeta_Cliente" />
+          <ScalarProperty Name="email_Cliente" ColumnName="email_Cliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entidad">
+      <EntityTypeMapping TypeName="HotelDB.Entidad">
+        <MappingFragment StoreEntitySet="Entidad">
+          <ScalarProperty Name="id_Entidad" ColumnName="id_Entidad" />
+          <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entidad_SubEntidad_Imagen">
+      <EntityTypeMapping TypeName="HotelDB.Entidad_SubEntidad_Imagen">
+        <MappingFragment StoreEntitySet="Entidad_SubEntidad_Imagen">
+          <ScalarProperty Name="id_Entidad_SubEntidad_Imagen" ColumnName="id_Entidad_SubEntidad_Imagen" />
+          <ScalarProperty Name="idEntidad_Entidad_SubEntidad_Imagen" ColumnName="idEntidad_Entidad_SubEntidad_Imagen" />
+          <ScalarProperty Name="idSubEntidad_Entidad_SubEntidad_Imagen" ColumnName="idSubEntidad_Entidad_SubEntidad_Imagen" />
+          <ScalarProperty Name="idImagen_Entidad_SubEntidad_Imagen" ColumnName="idImagen_Entidad_SubEntidad_Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facilidad">
+      <EntityTypeMapping TypeName="HotelDB.Facilidad">
+        <MappingFragment StoreEntitySet="Facilidad">
+          <ScalarProperty Name="id_Facilidad" ColumnName="id_Facilidad" />
+          <ScalarProperty Name="descripcion_Facilidad" ColumnName="descripcion_Facilidad" />
+          <ScalarProperty Name="hotel_Facilidad" ColumnName="hotel_Facilidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Habitacion">
+      <EntityTypeMapping TypeName="HotelDB.Habitacion">
+        <MappingFragment StoreEntitySet="Habitacion">
+          <ScalarProperty Name="numero_Habitacion" ColumnName="numero_Habitacion" />
+          <ScalarProperty Name="estado_Habitacion" ColumnName="estado_Habitacion" />
+          <ScalarProperty Name="tipo_Habitacion_Habitacion" ColumnName="tipo_Habitacion_Habitacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hotel">
+      <EntityTypeMapping TypeName="HotelDB.Hotel">
+        <MappingFragment StoreEntitySet="Hotel">
+          <ScalarProperty Name="nombre_Hotel" ColumnName="nombre_Hotel" />
+          <ScalarProperty Name="descripcion_Hotel" ColumnName="descripcion_Hotel" />
+          <ScalarProperty Name="sobreNosotros_Hotel" ColumnName="sobreNosotros_Hotel" />
+          <ScalarProperty Name="latitud_Hotel" ColumnName="latitud_Hotel" />
+          <ScalarProperty Name="longitud_Hotel" ColumnName="longitud_Hotel" />
+          <ScalarProperty Name="comoLlegar_Hotel" ColumnName="comoLlegar_Hotel" />
+          <ScalarProperty Name="telefono_Hotel" ColumnName="telefono_Hotel" />
+          <ScalarProperty Name="aptoPostal_Hotel" ColumnName="aptoPostal_Hotel" />
+          <ScalarProperty Name="email_Hotel" ColumnName="email_Hotel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HotelAdministrador">
+      <EntityTypeMapping TypeName="HotelDB.HotelAdministrador">
+        <MappingFragment StoreEntitySet="HotelAdministrador">
+          <ScalarProperty Name="id_HotelAdministradores" ColumnName="id_HotelAdministradores" />
+          <ScalarProperty Name="idAdministrador_HotelAdministradores" ColumnName="idAdministrador_HotelAdministradores" />
+          <ScalarProperty Name="Hotel_HotelAdministradores" ColumnName="Hotel_HotelAdministradores" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HotelPublicidad">
+      <EntityTypeMapping TypeName="HotelDB.HotelPublicidad">
+        <MappingFragment StoreEntitySet="HotelPublicidad">
+          <ScalarProperty Name="id_HotelPublicidad" ColumnName="id_HotelPublicidad" />
+          <ScalarProperty Name="idPublicidad_HotelPublicidad" ColumnName="idPublicidad_HotelPublicidad" />
+          <ScalarProperty Name="Hotel_HotelPublicidad" ColumnName="Hotel_HotelPublicidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Imagen">
+      <EntityTypeMapping TypeName="HotelDB.Imagen">
+        <MappingFragment StoreEntitySet="Imagen">
+          <ScalarProperty Name="id_Imagen" ColumnName="id_Imagen" />
+          <ScalarProperty Name="fileID_Imagen" ColumnName="fileID_Imagen" />
+          <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+          <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Promocion">
+      <EntityTypeMapping TypeName="HotelDB.Promocion">
+        <MappingFragment StoreEntitySet="Promocion">
+          <ScalarProperty Name="id_Promocion" ColumnName="id_Promocion" />
+          <ScalarProperty Name="inicio_Promocion" ColumnName="inicio_Promocion" />
+          <ScalarProperty Name="fin_Promocion" ColumnName="fin_Promocion" />
+          <ScalarProperty Name="descuento_Promocion" ColumnName="descuento_Promocion" />
+          <ScalarProperty Name="estado_Promocion" ColumnName="estado_Promocion" />
+          <ScalarProperty Name="tipo_Habitacion_Promocion" ColumnName="tipo_Habitacion_Promocion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Publicidad">
+      <EntityTypeMapping TypeName="HotelDB.Publicidad">
+        <MappingFragment StoreEntitySet="Publicidad">
+          <ScalarProperty Name="id_Publicidad" ColumnName="id_Publicidad" />
+          <ScalarProperty Name="link_Publicidad" ColumnName="link_Publicidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reservacion">
+      <EntityTypeMapping TypeName="HotelDB.Reservacion">
+        <MappingFragment StoreEntitySet="Reservacion">
+          <ScalarProperty Name="id_Reservacion" ColumnName="id_Reservacion" />
+          <ScalarProperty Name="fechaLLegada_Reservacion" ColumnName="fechaLLegada_Reservacion" />
+          <ScalarProperty Name="fechaSalida_Reservacion" ColumnName="fechaSalida_Reservacion" />
+          <ScalarProperty Name="idHabitacion_Reservacion" ColumnName="idHabitacion_Reservacion" />
+          <ScalarProperty Name="idCliente_Reservacion" ColumnName="idCliente_Reservacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rol">
+      <EntityTypeMapping TypeName="HotelDB.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="id_Rol" ColumnName="id_Rol" />
+          <ScalarProperty Name="tipo_Rol" ColumnName="tipo_Rol" />
+          <ScalarProperty Name="descripcion_Rol" ColumnName="descripcion_Rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubEntidad">
+      <EntityTypeMapping TypeName="HotelDB.SubEntidad">
+        <MappingFragment StoreEntitySet="SubEntidad">
+          <ScalarProperty Name="id_SubEntidad" ColumnName="id_SubEntidad" />
+          <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Habitacion">
+      <EntityTypeMapping TypeName="HotelDB.Tipo_Habitacion">
+        <MappingFragment StoreEntitySet="Tipo_Habitacion">
+          <ScalarProperty Name="nombre_Tipo_Habitacion" ColumnName="nombre_Tipo_Habitacion" />
+          <ScalarProperty Name="descripcion_Tipo_Habitacion" ColumnName="descripcion_Tipo_Habitacion" />
+          <ScalarProperty Name="tarifa_Tipo_Habitacion" ColumnName="tarifa_Tipo_Habitacion" />
+          <ScalarProperty Name="hotel_Tipo_Habitacion" ColumnName="hotel_Tipo_Habitacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImagenesBar">
+      <EntityTypeMapping TypeName="HotelDB.ImagenesBar">
+        <MappingFragment StoreEntitySet="ImagenesBar">
+          <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+          <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+          <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+          <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImagenesCafeteria">
+      <EntityTypeMapping TypeName="HotelDB.ImagenesCafeteria">
+        <MappingFragment StoreEntitySet="ImagenesCafeteria">
+          <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+          <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+          <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+          <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImagenesDescripcion">
+      <EntityTypeMapping TypeName="HotelDB.ImagenesDescripcion">
+        <MappingFragment StoreEntitySet="ImagenesDescripcion">
+          <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+          <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+          <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+          <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImagenesFacilidades">
+      <EntityTypeMapping TypeName="HotelDB.ImagenesFacilidades">
+        <MappingFragment StoreEntitySet="ImagenesFacilidades">
+          <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+          <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+          <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+          <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImagenesHabitacion">
+      <EntityTypeMapping TypeName="HotelDB.ImagenesHabitacion">
+        <MappingFragment StoreEntitySet="ImagenesHabitacion">
+          <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+          <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+          <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+          <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImagenesHotel">
+      <EntityTypeMapping TypeName="HotelDB.ImagenesHotel">
+        <MappingFragment StoreEntitySet="ImagenesHotel">
+          <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+          <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+          <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+          <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImagenesInfantiles">
+      <EntityTypeMapping TypeName="HotelDB.ImagenesInfantiles">
+        <MappingFragment StoreEntitySet="ImagenesInfantiles">
+          <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+          <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+          <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+          <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImagenesJacuzzi">
+      <EntityTypeMapping TypeName="HotelDB.ImagenesJacuzzi">
+        <MappingFragment StoreEntitySet="ImagenesJacuzzi">
+          <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+          <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+          <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+          <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImagenesJunior">
+      <EntityTypeMapping TypeName="HotelDB.ImagenesJunior">
+        <MappingFragment StoreEntitySet="ImagenesJunior">
+          <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+          <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+          <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+          <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImagenesPiscina">
+      <EntityTypeMapping TypeName="HotelDB.ImagenesPiscina">
+        <MappingFragment StoreEntitySet="ImagenesPiscina">
+          <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+          <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+          <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+          <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImagenesRestaurante">
+      <EntityTypeMapping TypeName="HotelDB.ImagenesRestaurante">
+        <MappingFragment StoreEntitySet="ImagenesRestaurante">
+          <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+          <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+          <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+          <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImagenesSobreNosotros">
+      <EntityTypeMapping TypeName="HotelDB.ImagenesSobreNosotros">
+        <MappingFragment StoreEntitySet="ImagenesSobreNosotros">
+          <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+          <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+          <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+          <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImagenesStandard">
+      <EntityTypeMapping TypeName="HotelDB.ImagenesStandard">
+        <MappingFragment StoreEntitySet="ImagenesStandard">
+          <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+          <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+          <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+          <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImagenesSuite">
+      <EntityTypeMapping TypeName="HotelDB.ImagenesSuite">
+        <MappingFragment StoreEntitySet="ImagenesSuite">
+          <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+          <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+          <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+          <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImagenesTenis">
+      <EntityTypeMapping TypeName="HotelDB.ImagenesTenis">
+        <MappingFragment StoreEntitySet="ImagenesTenis">
+          <ScalarProperty Name="descripcion_Entidad" ColumnName="descripcion_Entidad" />
+          <ScalarProperty Name="descripcion_SubEntidad" ColumnName="descripcion_SubEntidad" />
+          <ScalarProperty Name="descripcion_Imagen" ColumnName="descripcion_Imagen" />
+          <ScalarProperty Name="imagen_Imagen" ColumnName="imagen_Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="actualiza_Estado_Habitacion" FunctionName="HotelDB.Store.actualiza_Estado_Habitacion" />
+    <FunctionImportMapping FunctionImportName="cancelar_Promocion" FunctionName="HotelDB.Store.cancelar_Promocion" />
+    <FunctionImportMapping FunctionImportName="crear_Promocion" FunctionName="HotelDB.Store.crear_Promocion" />
+    <FunctionImportMapping FunctionImportName="Estado_Promocion" FunctionName="HotelDB.Store.Estado_Promocion" />
+    <FunctionImportMapping FunctionImportName="insertar_Cliente" FunctionName="HotelDB.Store.insertar_Cliente" />
+    <FunctionImportMapping FunctionImportName="insertar_Reservacion" FunctionName="HotelDB.Store.insertar_Reservacion" />
+    <FunctionImportMapping FunctionImportName="insertar_Tipo_Habitacion" FunctionName="HotelDB.Store.insertar_Tipo_Habitacion" />
+    <FunctionImportMapping FunctionImportName="obtener_tarifa_Tipo_Habitacion" FunctionName="HotelDB.Store.obtener_tarifa_Tipo_Habitacion" />
+  </EntityContainerMapping>
+</Mapping>
