@@ -65,7 +65,34 @@ namespace HotelCore.Servicios.WebApi.Controllers
             return Ok(tipo);
         }
 
-       
+        [Route("Hotel/actualizarImagenHome")]
+        [HttpGet]
+        [HttpPost]
+        public IHttpActionResult actualizarHome(Imagen imagenNueva)
+        {
+
+            //RepositorioHotel repositorioHotel = new RepositorioHotel();
+            IHotelLN repo = FabricaIoC.Contenedor.Resolver<HotelLN>();
+
+            HotelConImagenes hotel = repo.actualizarImagenHome(imagenNueva);
+
+            return Ok(hotel);
+        }
+
+
+        [Route("Hotel/actualizarDescripcionHome")]
+        [HttpGet]
+        [HttpPost]
+        public IHttpActionResult actualizarDescripcionHome(Hotel hotel)
+        {
+
+            //RepositorioHotel repositorioHotel = new RepositorioHotel();
+            IHotelLN repo = FabricaIoC.Contenedor.Resolver<HotelLN>();
+
+            HotelConImagenes miHotel = repo.actualizarDescripcionHome(hotel);
+
+            return Ok(miHotel);
+        }
 
 
     }

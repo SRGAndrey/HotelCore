@@ -72,6 +72,79 @@ public class RepositorioHotel : IRepositorioHotel
         {
             return false;
         }
-    }//actualizarsobreNosotros_Hotel
+    }
+
+    public HotelConImagenes actualizarImagenHome(Imagen imagenNueva)
+    {
+
+        var imagen = db.Imagen.Single((u => u.id_Imagen == imagenNueva.id_Imagen));
+        imagen.imagen_Imagen = imagenNueva.imagen_Imagen;
+        try
+        {
+            db.SaveChanges();
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+
+        var hoteles = db.Hotel.ToList();
+        HotelConImagenes hotelConImagenes = new HotelConImagenes();
+        RepositorioImagen repo = new RepositorioImagen();
+
+        foreach (var hotel in hoteles)
+        {
+            var imagenesDescrip = repo.obtenerImagenesDescripcion();
+            var imagenesSobreNosotros = repo.obtenerImagenesSobreNosotros();
+
+            hotelConImagenes.hotel = hotel;
+            hotelConImagenes.imagenesDescripcion = imagenesDescrip;
+            hotelConImagenes.galeria = imagenesSobreNosotros;
+
+            break;
+
+        }
+        return hotelConImagenes;
+    }
+
+    public HotelConImagenes actualizarDescripcionHome(Hotel hotel)
+    {
+        /*
+        var informacionNueva = idYdescripcion.Split(',');
+        string id = informacionNueva[0];
+        string descripcion = informacionNueva[1];*/
+
+
+        var hotelActual = db.Hotel.Single(u => u.nombre_Hotel == hotel.nombre_Hotel);
+        hotelActual.descripcion_Hotel = hotel.descripcion_Hotel;
+        try
+        {
+            db.SaveChanges();
+        }
+
+
+        catch (Exception ex)
+        {
+            return null;
+        }
+
+        var hoteles = db.Hotel.ToList();
+        HotelConImagenes hotelConImagenes = new HotelConImagenes();
+        RepositorioImagen repo = new RepositorioImagen();
+
+        foreach (var miHotel in hoteles)
+        {
+            var imagenesDescrip = repo.obtenerImagenesDescripcion();
+            var imagenesSobreNosotros = repo.obtenerImagenesSobreNosotros();
+
+            hotelConImagenes.hotel = miHotel;
+            hotelConImagenes.imagenesDescripcion = imagenesDescrip;
+            hotelConImagenes.galeria = imagenesSobreNosotros;
+
+            break;
+
+        }
+        return hotelConImagenes;
+    }
 }
 

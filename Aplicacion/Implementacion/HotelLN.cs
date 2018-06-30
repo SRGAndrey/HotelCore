@@ -61,5 +61,22 @@ public class HotelLN : IHotelLN
         retornoHoteles = dominio.obtenerHoteles();
         return retornoHoteles;
     }
+
+
+    public HotelConImagenes actualizarImagenHome(Imagen nuevaImagen)
+    {
+        HotelConImagenes retornoHoteles;
+        retornoHoteles = dominio.actualizarImagenHome(nuevaImagen);
+        return retornoHoteles;
+    }
+
+    public HotelConImagenes actualizarDescripcionHome(Hotel hotel)
+    {
+        HotelConImagenes retornoHoteles;
+        retornoHoteles = dominio.actualizarDescripcionHome(hotel);
+        return retornoHoteles;
+
+    }
+
 }
 

@@ -18,5 +18,9 @@ public interface IRepositorioHotel
     List<Tipo_Habitacion> obtenerHabitacion();
 
     bool actualizarsobreNosotros_Hotel(String nombre, String descripcion);
+
+    HotelConImagenes actualizarImagenHome(Imagen nuevaImagen);
+
+    HotelConImagenes actualizarDescripcionHome(Hotel hotel);
 }
 

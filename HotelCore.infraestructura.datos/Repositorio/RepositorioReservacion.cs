@@ -125,6 +125,8 @@ public class RepositorioReservacion : IRespositorioReservacion
                 nuevaReservacion.idHabitacion_Reservacion, cliente.cedula_Cliente, cliente.nombre_Cliente, cliente.apellidos_Cliente,
                 cliente.tarjeta_Cliente, cliente.email_Cliente);
 
+            contexto.actualiza_Estado_Habitacion();
+
             contexto.SaveChanges();
 
             if (proced != 0)
