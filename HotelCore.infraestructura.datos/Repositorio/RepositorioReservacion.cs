@@ -22,96 +22,101 @@ public class RepositorioReservacion : IRespositorioReservacion
         ImagenesJunior imagenJunior = repoImagen.obtenerImagenesJunior();
         ImagenesStandard imagenStandard = repoImagen.obtenerImagenesStandard();
         ImagenesSuite imagenSuite = repoImagen.obtenerImagenesSuite();
-
-        contexto.actualiza_Estado_Habitacion();
-
-        int cambioFecha = 0;
-
-        while (habitDisponible == null)
+        try
         {
-            var habitaciones = from Habitacion h in contexto.Habitacion
-                               join Tipo_Habitacion th in contexto.Tipo_Habitacion
-                               on h.tipo_Habitacion_Habitacion equals th.nombre_Tipo_Habitacion
-                               where th.nombre_Tipo_Habitacion == tipo
-                               select new
-                               {
-                                   h.estado_Habitacion,
-                                   h.numero_Habitacion,
-                                   h.tipo_Habitacion_Habitacion,
-                                   th.descripcion_Tipo_Habitacion,
-                                   th.nombre_Tipo_Habitacion,
-                                   th.tarifa_Tipo_Habitacion,
+            contexto.actualiza_Estado_Habitacion();
 
-                               };
+            int cambioFecha = 0;
 
-            foreach (var miHabitacion in habitaciones)
+            while (habitDisponible == null)
             {
-                var reservada = from Reservacion r in contexto.Reservacion
-                                where r.idHabitacion_Reservacion == miHabitacion.numero_Habitacion
+                var habitaciones = from Habitacion h in contexto.Habitacion
+                                   join Tipo_Habitacion th in contexto.Tipo_Habitacion
+                                   on h.tipo_Habitacion_Habitacion equals th.nombre_Tipo_Habitacion
+                                   where th.nombre_Tipo_Habitacion == tipo
+                                   select new
+                                   {
+                                       h.estado_Habitacion,
+                                       h.numero_Habitacion,
+                                       h.tipo_Habitacion_Habitacion,
+                                       th.descripcion_Tipo_Habitacion,
+                                       th.nombre_Tipo_Habitacion,
+                                       th.tarifa_Tipo_Habitacion,
 
-                                select new
-                                {
-                                    r.id_Reservacion,
-                                    r.fechaLLegada_Reservacion,
-                                    r.fechaSalida_Reservacion,
-                                    r.idCliente_Reservacion,
-                                    r.idHabitacion_Reservacion,
-                                };
-                if (reservada.Count() > 0)
+                                   };
+
+                foreach (var miHabitacion in habitaciones)
                 {
-                    foreach (var reserv in reservada)
-                    {
-                        if (fechaInicio >= reserv.fechaLLegada_Reservacion && fechaInicio <= reserv.fechaSalida_Reservacion ||
-                            fechaFinal >= reserv.fechaLLegada_Reservacion && fechaFinal <= reserv.fechaSalida_Reservacion ||
-                            reserv.fechaLLegada_Reservacion >= fechaInicio && reserv.fechaLLegada_Reservacion <= fechaFinal ||
-                            reserv.fechaSalida_Reservacion >= fechaInicio && reserv.fechaSalida_Reservacion <= fechaFinal)
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            habitDisponible = getHabitDisponible(miHabitacion.estado_Habitacion, miHabitacion.numero_Habitacion,
-                            miHabitacion.tipo_Habitacion_Habitacion, miHabitacion.descripcion_Tipo_Habitacion, miHabitacion.tarifa_Tipo_Habitacion,
-                            fechaInicio, fechaFinal, imagenStandard, imagenSuite, imagenJunior);
+                    var reservada = from Reservacion r in contexto.Reservacion
+                                    where r.idHabitacion_Reservacion == miHabitacion.numero_Habitacion
 
-                            if (cambioFecha == 1)
+                                    select new
+                                    {
+                                        r.id_Reservacion,
+                                        r.fechaLLegada_Reservacion,
+                                        r.fechaSalida_Reservacion,
+                                        r.idCliente_Reservacion,
+                                        r.idHabitacion_Reservacion,
+                                    };
+                    if (reservada.Count() > 0)
+                    {
+                        foreach (var reserv in reservada)
+                        {
+                            if (fechaInicio >= reserv.fechaLLegada_Reservacion && fechaInicio <= reserv.fechaSalida_Reservacion ||
+                                fechaFinal >= reserv.fechaLLegada_Reservacion && fechaFinal <= reserv.fechaSalida_Reservacion ||
+                                reserv.fechaLLegada_Reservacion >= fechaInicio && reserv.fechaLLegada_Reservacion <= fechaFinal ||
+                                reserv.fechaSalida_Reservacion >= fechaInicio && reserv.fechaSalida_Reservacion <= fechaFinal)
                             {
-                                habitDisponible.mensaje = "No pudimos encontrar una habitacion en dentro de las fechas indicadas," +
-                                                           " sin embargo," + "le ofrecemos una habitacion similar para estas fechas";
+                                break;
                             }
                             else
                             {
-                                habitDisponible.mensaje = "Hemos encontrado esta habitacion para usted";
+                                habitDisponible = getHabitDisponible(miHabitacion.estado_Habitacion, miHabitacion.numero_Habitacion,
+                                miHabitacion.tipo_Habitacion_Habitacion, miHabitacion.descripcion_Tipo_Habitacion, miHabitacion.tarifa_Tipo_Habitacion,
+                                fechaInicio, fechaFinal, imagenStandard, imagenSuite, imagenJunior);
+
+                                if (cambioFecha == 1)
+                                {
+                                    habitDisponible.mensaje = "No pudimos encontrar una habitacion en dentro de las fechas indicadas," +
+                                                               " sin embargo," + "le ofrecemos una habitacion similar para estas fechas";
+                                }
+                                else
+                                {
+                                    habitDisponible.mensaje = "Hemos encontrado esta habitacion para usted";
+                                }
+
+                                return habitDisponible;
+
                             }
-
-                            return habitDisponible;
-
                         }
-                    }
-                }
-                else
-                {
-                    habitDisponible = getHabitDisponible(miHabitacion.estado_Habitacion, miHabitacion.numero_Habitacion, miHabitacion.tipo_Habitacion_Habitacion,
-                                        miHabitacion.descripcion_Tipo_Habitacion, miHabitacion.tarifa_Tipo_Habitacion, fechaInicio, fechaFinal, imagenStandard,
-                                        imagenSuite, imagenJunior);
-                    if (cambioFecha == 1)
-                    {
-                        habitDisponible.mensaje = "No pudimos encontrar una habitacion dentro de las fechas indicadas," +
-                                                   " sin embargo," + "le ofrecemos una habitacion similar para estas fechas";
                     }
                     else
                     {
-                        habitDisponible.mensaje = "Hemos encontrado esta habitacion para usted";
-                    }
+                        habitDisponible = getHabitDisponible(miHabitacion.estado_Habitacion, miHabitacion.numero_Habitacion, miHabitacion.tipo_Habitacion_Habitacion,
+                                            miHabitacion.descripcion_Tipo_Habitacion, miHabitacion.tarifa_Tipo_Habitacion, fechaInicio, fechaFinal, imagenStandard,
+                                            imagenSuite, imagenJunior);
+                        if (cambioFecha == 1)
+                        {
+                            habitDisponible.mensaje = "No pudimos encontrar una habitacion dentro de las fechas indicadas," +
+                                                       " sin embargo," + "le ofrecemos una habitacion similar para estas fechas";
+                        }
+                        else
+                        {
+                            habitDisponible.mensaje = "Hemos encontrado esta habitacion para usted";
+                        }
 
-                    return habitDisponible;
+                        return habitDisponible;
+                    }
                 }
+                cambioFecha = 1;
+                fechaInicio = fechaInicio.AddDays(1);
+                fechaFinal = fechaFinal.AddDays(1);
             }
-            cambioFecha = 1;
-            fechaInicio = fechaInicio.AddDays(1);
-            fechaFinal = fechaFinal.AddDays(1);
+            return habitDisponible;
         }
-        return habitDisponible;
+        catch (Exception ex) {
+            return habitDisponible;
+        }
 
     }
 
@@ -143,14 +148,12 @@ public class RepositorioReservacion : IRespositorioReservacion
             }
             else
             {
-                reserv = null;
                 return reserv;
             }
 
         }
         catch (Exception ex)
         {
-            reserv = null;
             return reserv;
         }
     }
@@ -159,27 +162,34 @@ public class RepositorioReservacion : IRespositorioReservacion
         System.DateTime fechaInic, System.DateTime fechaFin, ImagenesStandard imgStandard, ImagenesSuite imgSuite, ImagenesJunior imgJunior)
     {
         HabitacionDisponible habitDisponible = new HabitacionDisponible();
+        try
+        {
+            
 
-        Habitacion habitacion = new Habitacion();
-        Tipo_Habitacion tipoHabitacion = new Tipo_Habitacion();
+            Habitacion habitacion = new Habitacion();
+            Tipo_Habitacion tipoHabitacion = new Tipo_Habitacion();
 
-        habitacion.estado_Habitacion = estadoHab;
-        habitacion.numero_Habitacion = numeroHab;
-        habitacion.tipo_Habitacion_Habitacion = tipoHab;
+            habitacion.estado_Habitacion = estadoHab;
+            habitacion.numero_Habitacion = numeroHab;
+            habitacion.tipo_Habitacion_Habitacion = tipoHab;
 
-        tipoHabitacion.descripcion_Tipo_Habitacion = descripHab;
-        tipoHabitacion.nombre_Tipo_Habitacion = tipoHab;
-        tipoHabitacion.tarifa_Tipo_Habitacion = tarifaHab;
+            tipoHabitacion.descripcion_Tipo_Habitacion = descripHab;
+            tipoHabitacion.nombre_Tipo_Habitacion = tipoHab;
+            tipoHabitacion.tarifa_Tipo_Habitacion = tarifaHab;
 
-        habitDisponible.fechaFin = fechaFin;
-        habitDisponible.fechaInic = fechaInic;
-        habitDisponible.habitacion = habitacion;
-        habitDisponible.tipoHabitacion = tipoHabitacion;
-        habitDisponible.imagenJunior = imgJunior;
-        habitDisponible.imagenStandard = imgStandard;
-        habitDisponible.imagenSuite = imgSuite;
+            habitDisponible.fechaFin = fechaFin;
+            habitDisponible.fechaInic = fechaInic;
+            habitDisponible.habitacion = habitacion;
+            habitDisponible.tipoHabitacion = tipoHabitacion;
+            habitDisponible.imagenJunior = imgJunior;
+            habitDisponible.imagenStandard = imgStandard;
+            habitDisponible.imagenSuite = imgSuite;
 
-        return habitDisponible;
+            return habitDisponible;
+        }
+        catch (Exception ex) {
+            return habitDisponible;
+        }
     }
 }
 

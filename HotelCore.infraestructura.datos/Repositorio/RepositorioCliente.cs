@@ -26,10 +26,15 @@ namespace HotelCore.infraestructura.datos.Repositorio
             throw new NotImplementedException();
         }
 
-        public Cliente obtenerCliente(string cedula)
-        {
-            Cliente cliente = db.Cliente.Find(cedula);
-            return cliente;
+        public Cliente obtenerCliente(string cedula) { 
+        Cliente cliente = new Cliente();
+            try {
+                cliente = db.Cliente.Find(cedula);
+                return cliente;
+            }
+            catch (Exception ex) {
+                return cliente;
+            }          
         }//obtenerCliente
 
         public List<Cliente> obtenerClientes()

@@ -40,20 +40,32 @@ public class RepositorioFacilidad : IRepositorioFacilidad
     {
 
         Facilidad facilidad = new Facilidad();
+        try
+        {
+            facilidad.hotel_Facilidad = "Patito";
+            facilidad.descripcion_Facilidad = descripcion;
+            facilidad.nombre_Facilidad = nombre;
+            facilidad.id_Facilidad = id;
 
-        facilidad.hotel_Facilidad = "Patito";
-        facilidad.descripcion_Facilidad = descripcion;
-        facilidad.nombre_Facilidad = nombre;
-        facilidad.id_Facilidad = id;
-        
-        db.Entry(facilidad).State = EntityState.Modified;
-        db.SaveChanges();
-        return db.Facilidad.Find(id); ;
+            db.Entry(facilidad).State = EntityState.Modified;
+            db.SaveChanges();
+            return db.Facilidad.Find(id); ;
+        }
+        catch (Exception ex) {
+            return facilidad;
+        }
     }
     public Facilidad obtenerTipoFacilidad(string id)
     {
-        Facilidad facilidad = db.Facilidad.Find(id);
-        return facilidad;
+        Facilidad facilidad = new Facilidad();
+        try {
+            facilidad = db.Facilidad.Find(id);
+            return facilidad;
+        }
+        catch (Exception ex) {
+            return facilidad;
+        }
+        
     }
 }
 

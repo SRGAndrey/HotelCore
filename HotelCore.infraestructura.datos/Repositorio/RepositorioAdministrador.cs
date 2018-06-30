@@ -55,7 +55,7 @@ public class RepositorioAdministrador : IRepositorioAdministrador
         }
         catch(Exception ex)
         {
-            return null;
+            return administrador;
         }
 
     }

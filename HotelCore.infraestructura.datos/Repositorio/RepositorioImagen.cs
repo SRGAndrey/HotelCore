@@ -14,74 +14,184 @@ public class RepositorioImagen : IRepositorioImagen
 
     public ImagenesJunior obtenerImagenesJunior()
     {
-        
-        return db.ImagenesJunior.First();
+        ImagenesJunior imgJunior = new ImagenesJunior();
+        try
+        {
+            return db.ImagenesJunior.First();
+        }
+        catch (Exception ex) {
+            return imgJunior;
+        }
     }
 
 
     public List<ImagenesCafeteria> obtenerImagenesCafeteria()
     {
-        return db.ImagenesCafeteria.ToList();
+        List<ImagenesCafeteria> imgCafeteria = new List<ImagenesCafeteria>();
+        try
+        {
+            return db.ImagenesCafeteria.ToList();
+
+        }
+        catch (Exception ex) {
+            return imgCafeteria;
+        }
+        
     }
 
     public List<ImagenesDescripcion> obtenerImagenesDescripcion()
     {
-        var imgDescripcion = db.ImagenesDescripcion.ToList();
-        return imgDescripcion;
+        List<ImagenesDescripcion> imgDescripcion = new List<ImagenesDescripcion>();
+        try
+        {
+            imgDescripcion = db.ImagenesDescripcion.ToList();
+            return imgDescripcion;
+        }
+        catch (Exception ex) {
+            return imgDescripcion;
+        }
     }
 
     public List<ImagenesFacilidades> obtenerImagenesFacilidades()
     {
-        return db.ImagenesFacilidades.ToList();
+        List<ImagenesFacilidades> imgFacilidades = new List<ImagenesFacilidades>();
+        try
+        {
+            return db.ImagenesFacilidades.ToList();
+        }
+        catch (Exception ex)
+        {
+            return imgFacilidades;
+        }
     }
 
     public List<ImagenesHotel> obtenerImagenesHotel()
     {
-        return db.ImagenesHotel.ToList();
+        List<ImagenesHotel> imgHotel = new List<ImagenesHotel>();
+        try
+        {
+            return db.ImagenesHotel.ToList();
+        }
+        catch (Exception ex)
+        {
+            return imgHotel;
+        }
     }
 
     public List<ImagenesInfantiles> obtenerImagenesInfantiles()
     {
-        return db.ImagenesInfantiles.ToList();
+        List<ImagenesInfantiles> imgInfantiles = new List<ImagenesInfantiles>();
+        try
+        {
+            return db.ImagenesInfantiles.ToList();
+        }
+        catch (Exception ex)
+        {
+            return imgInfantiles;
+        }
     }
 
     public List<ImagenesJacuzzi> obtenerImagenesJacuzzi()
     {
-        return db.ImagenesJacuzzi.ToList();
+        List<ImagenesJacuzzi> imgJacuzzi = new List<ImagenesJacuzzi>();
+        try
+        {
+            return db.ImagenesJacuzzi.ToList();
+        }
+        catch (Exception ex)
+        {
+            return imgJacuzzi;
+        }
     }
 
     public List<ImagenesPiscina> obtenerImagenesPiscina()
     {
-        return db.ImagenesPiscina.ToList();
+        List<ImagenesPiscina> imgPiscina = new List<ImagenesPiscina>();
+        try
+        {
+            return db.ImagenesPiscina.ToList();
+        }
+        catch (Exception ex)
+        {
+            return imgPiscina;
+        }
     }
 
     public List<ImagenesRestaurante> obtenerImagenesRestaurante()
     {
-        return db.ImagenesRestaurante.ToList();
+        List<ImagenesRestaurante> imgRestaurante = new List<ImagenesRestaurante>();
+        try
+        {
+            return db.ImagenesRestaurante.ToList();
+        }
+        catch (Exception ex)
+        {
+            return imgRestaurante;
+        }
     }
 
     public List<ImagenesSobreNosotros> obtenerImagenesSobreNosotros()
     {
-        return db.ImagenesSobreNosotros.ToList();
+        List<ImagenesSobreNosotros> imgSobreNosotros = new List<ImagenesSobreNosotros>();
+        try
+        {
+            return db.ImagenesSobreNosotros.ToList();
+        }
+        catch (Exception ex)
+        {
+            return imgSobreNosotros;
+        }
     }
 
     public List<ImagenesTenis> obtenerImagenesTenis()
     {
-        return db.ImagenesTenis.ToList();
+        List<ImagenesTenis> imgTenis = new List<ImagenesTenis>();
+        try
+        {
+            return db.ImagenesTenis.ToList();
+        }
+        catch (Exception ex)
+        {
+            return imgTenis;
+        }
     }
 
     public List<ImagenesBar> obtenerImagenesBar()
     {
-        return db.ImagenesBar.ToList();
+        List<ImagenesBar> imgBar = new List<ImagenesBar>();
+        try
+        {
+            return db.ImagenesBar.ToList();
+        }
+        catch (Exception ex)
+        {
+            return imgBar;
+        }
     }
 
     public ImagenesStandard obtenerImagenesStandard()
     {
-        return db.ImagenesStandard.First();
+        ImagenesStandard imgStandard = new ImagenesStandard();
+        try
+        {
+            return db.ImagenesStandard.First();
+        }
+        catch (Exception ex)
+        {
+            return imgStandard;
+        }
     }
     public ImagenesSuite obtenerImagenesSuite()
     {
-        return db.ImagenesSuite.First();
+        ImagenesSuite imgSuite = new ImagenesSuite();
+        try
+        {
+            return db.ImagenesSuite.First();
+        }
+        catch (Exception ex)
+        {
+            return imgSuite;
+        }
     }
 }
 
