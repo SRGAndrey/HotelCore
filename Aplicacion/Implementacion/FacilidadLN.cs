@@ -20,6 +20,13 @@ public class FacilidadLN : IFacilidadLN
         return retorno;
     }
 
+    public Facilidad actualizarFacilidad(string id, string descripcion, string nombre)
+    {
+        Facilidad facilidad;
+        facilidad = dominio.actualizarFacilidad(id, descripcion, nombre);
+        return facilidad;
+    }
+
     public bool eliminar(int id)
     {
         bool retorno;
@@ -46,6 +53,12 @@ public class FacilidadLN : IFacilidadLN
         List<Facilidad> retornoFacilidades;
         retornoFacilidades = dominio.obtenerFacilidades();
         return retornoFacilidades;
+    }
+    public Facilidad obtenerTipoFacilidad(string id)
+    {
+        Facilidad facilidad;
+        facilidad = dominio.obtenerTipoFacilidad(id);
+        return facilidad;
     }
 }
 

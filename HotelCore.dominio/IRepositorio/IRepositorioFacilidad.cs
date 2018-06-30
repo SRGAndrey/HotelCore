@@ -13,5 +13,9 @@ public interface IRepositorioFacilidad
     bool actualizar(Facilidad facilidad);
     bool eliminar(int id);
     List<Facilidad> obtenerFacilidades();
+    Facilidad actualizarFacilidad(string id, string descripcion, string nombre);
+
+    Facilidad obtenerTipoFacilidad(string id);
+
 }
 

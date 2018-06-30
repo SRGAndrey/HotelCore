@@ -47,7 +47,30 @@ namespace HotelCore.Servicios.WebApi.Controllers
 
             return Ok(facilidadesConImagenes);
         }
+        [Route("Facilidad/actualizarFacilidad")]
+        [HttpGet()]
+        [HttpPost()]
+        public IHttpActionResult actualizarFacilidad(string id, string descripcion  ,string nombre)
+        {
+            Facilidad habitacion = new Facilidad();
+            //RepositorioHabitacion reposiorio = new RepositorioHabitacion();
+            IFacilidadLN repositorio = FabricaIoC.Contenedor.Resolver<FacilidadLN>();
+            habitacion = repositorio.actualizarFacilidad(id, descripcion , nombre);
+            return Ok(habitacion);
+        }
 
-        
+        [Route("Facilidad/obtenerTipoFacilidad")]
+        [HttpGet()]
+        [HttpPost()]
+        public IHttpActionResult obtenerTipoFacilidad(string id)
+        {
+            Facilidad facilidad = new Facilidad();
+            //RepositorioHabitacion reposiorio = new RepositorioHabitacion();
+            IFacilidadLN repositorio = FabricaIoC.Contenedor.Resolver<FacilidadLN>();
+            facilidad = repositorio.obtenerTipoFacilidad(id);
+            return Ok(facilidad);
+        }
+
+
     }
 }
