@@ -78,5 +78,18 @@ public class HotelLN : IHotelLN
 
     }
 
+    public bool actualizarsobreNosotros_Hotel(string nombre, string descripcion)
+    {
+        bool resultado;
+        resultado = dominio.actualizarsobreNosotros_Hotel(nombre, descripcion);
+        return resultado;
+    }//actualizarsobreNosotros_Hotel
+
+    public bool actualizarcomoLlegar(string nombre, string descripcion)
+    {
+        bool resultado;
+        resultado = dominio.actualizarcomoLlegar(nombre, descripcion);
+        return resultado;
+    }//actualizarcomoLlegar
 }
 

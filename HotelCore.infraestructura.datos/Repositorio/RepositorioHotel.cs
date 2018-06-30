@@ -184,5 +184,29 @@ public class RepositorioHotel : IRepositorioHotel
             return hotelConImagenes;
         }
     }
+
+    public bool actualizarcomoLlegar(string nombre, string descripcion)
+    {
+
+        var query = from hotel in db.Hotel
+                    where hotel.nombre_Hotel == nombre
+                    select hotel;
+
+        foreach (Hotel hotel in query)
+        {
+            hotel.sobreNosotros_Hotel = descripcion;
+        }//foreach
+
+        try
+        {
+            db.SaveChanges();
+            return true;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+
+    }//actualizar como Lllegar
 }
 

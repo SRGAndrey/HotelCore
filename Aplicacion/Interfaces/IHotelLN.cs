@@ -18,6 +18,10 @@ public interface IHotelLN
     List<Hotel> obtenerHoteles();
     List<Tipo_Habitacion> obtenerHabitacion();
 
+    bool actualizarsobreNosotros_Hotel(String nombre, String descripcion);
+
+    bool actualizarcomoLlegar(String nombre, String descripcion);
+
     HotelConImagenes actualizarImagenHome(Imagen nuevaImagen);
 
     HotelConImagenes actualizarDescripcionHome(Hotel hotel);

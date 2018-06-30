@@ -92,8 +92,33 @@ namespace HotelCore.Servicios.WebApi.Controllers
             HotelConImagenes miHotel = repo.actualizarDescripcionHome(hotel);
 
             return Ok(miHotel);
-        }
+        }//actualizarDescripcionHome
 
+        // GET: api/Hotel/5
+        [ResponseType(typeof(bool))]
+        [Route("Hotel/ActualizarSN")]
+        [HttpGet]
+        public IHttpActionResult ActualizarSN(string nombre, string descripcion)
+        {
 
-    }
-}
+            IHotelLN repo = FabricaIoC.Contenedor.Resolver<HotelLN>();
+            bool resultado = repo.actualizarsobreNosotros_Hotel(nombre, descripcion);
+            return Ok(resultado);
+        }//ActualizarSN
+
+        // GET: api/Hotel/5
+        [ResponseType(typeof(bool))]
+        [Route("Hotel/ActualizarCL")]
+        [HttpGet]
+        public IHttpActionResult ActualizarCL(string nombre, string descripcion)
+        {
+
+            IHotelLN repo = FabricaIoC.Contenedor.Resolver<HotelLN>();
+            bool resultado = repo.actualizarcomoLlegar(nombre, descripcion);
+            return Ok(resultado);
+
+        }//ActualizarSN
+
+    }//
+
+}//
