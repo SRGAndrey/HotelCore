@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HotelDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HotelDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Administrador">
           <Key>
             <PropertyRef Name="id_Administrador" />
@@ -62,6 +62,7 @@
           <Property Name="id_Facilidad" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="descripcion_Facilidad" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="hotel_Facilidad" Type="varchar" MaxLength="25" />
+          <Property Name="nombre_Facilidad" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="Habitacion">
           <Key>
@@ -161,8 +162,8 @@
           <Property Name="tarifa_Tipo_Habitacion" Type="float" Nullable="false" />
           <Property Name="hotel_Tipo_Habitacion" Type="varchar" MaxLength="25" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesBar' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HotelPatitoDB.dbo.ImagenesBar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ImagenesBar">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -174,8 +175,8 @@ advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesBar' no tiene defi
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="imagen_Imagen" Type="image" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesCafeteria' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HotelPatitoDB.dbo.ImagenesCafeteria' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ImagenesCafeteria">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -187,8 +188,8 @@ advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesCafeteria' no tien
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="imagen_Imagen" Type="image" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesDescripcion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HotelPatitoDB.dbo.ImagenesDescripcion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ImagenesDescripcion">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -202,8 +203,8 @@ advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesDescripcion' no ti
           <Property Name="imagen_Imagen" Type="image" />
           <Property Name="id_Imagen" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesFacilidades' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HotelPatitoDB.dbo.ImagenesFacilidades' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ImagenesFacilidades">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -215,8 +216,8 @@ advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesFacilidades' no ti
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="imagen_Imagen" Type="image" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesHabitacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HotelPatitoDB.dbo.ImagenesHabitacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ImagenesHabitacion">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -228,8 +229,8 @@ advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesHabitacion' no tie
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="imagen_Imagen" Type="image" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesHotel' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HotelPatitoDB.dbo.ImagenesHotel' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ImagenesHotel">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -241,8 +242,8 @@ advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesHotel' no tiene de
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="imagen_Imagen" Type="image" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesInfantiles' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HotelPatitoDB.dbo.ImagenesInfantiles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ImagenesInfantiles">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -254,8 +255,8 @@ advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesInfantiles' no tie
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="imagen_Imagen" Type="image" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesJacuzzi' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HotelPatitoDB.dbo.ImagenesJacuzzi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ImagenesJacuzzi">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -267,8 +268,8 @@ advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesJacuzzi' no tiene 
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="imagen_Imagen" Type="image" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesJunior' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HotelPatitoDB.dbo.ImagenesJunior' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ImagenesJunior">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -282,8 +283,8 @@ advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesJunior' no tiene d
           <Property Name="imagen_Imagen" Type="image" />
           <Property Name="id_Imagen" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesPiscina' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HotelPatitoDB.dbo.ImagenesPiscina' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ImagenesPiscina">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -295,8 +296,8 @@ advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesPiscina' no tiene 
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="imagen_Imagen" Type="image" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesRestaurante' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HotelPatitoDB.dbo.ImagenesRestaurante' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ImagenesRestaurante">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -308,8 +309,8 @@ advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesRestaurante' no ti
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="imagen_Imagen" Type="image" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesSobreNosotros' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HotelPatitoDB.dbo.ImagenesSobreNosotros' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ImagenesSobreNosotros">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -321,8 +322,8 @@ advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesSobreNosotros' no 
           <Property Name="descripcion_Imagen" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="imagen_Imagen" Type="image" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesStandard' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HotelPatitoDB.dbo.ImagenesStandard' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ImagenesStandard">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -336,8 +337,8 @@ advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesStandard' no tiene
           <Property Name="imagen_Imagen" Type="image" />
           <Property Name="id_Imagen" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesSuite' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HotelPatitoDB.dbo.ImagenesSuite' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ImagenesSuite">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -351,8 +352,8 @@ advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesSuite' no tiene de
           <Property Name="imagen_Imagen" Type="image" />
           <Property Name="id_Imagen" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesTenis' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HotelPatitoDB.dbo.ImagenesTenis' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ImagenesTenis">
           <Key>
             <PropertyRef Name="descripcion_Entidad" />
@@ -805,8 +806,7 @@ advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesTenis' no tiene de
             <End Role="Caracteristica_Tipo_Habitacion" EntitySet="Caracteristica_Tipo_Habitacion" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HotelDB" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -878,6 +878,7 @@ advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesTenis' no tiene de
           <Property Name="descripcion_Facilidad" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="hotel_Facilidad" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Hotel" Relationship="Self.FK_HotelFacilidad" FromRole="Facilidad" ToRole="Hotel" />
+          <Property Name="nombre_Facilidad" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Habitacion">
           <Key>
@@ -1463,7 +1464,7 @@ advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesTenis' no tiene de
           </AssociationSet>
           <FunctionImport Name="actualiza_Estado_Habitacion" />
           <FunctionImport Name="cancelar_Promocion">
-            <Parameter Name="nombre" Mode="In" Type="String" />
+          <Parameter Name="nombre" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="crear_Promocion">
             <Parameter Name="nombre" Mode="In" Type="String" />
@@ -1472,7 +1473,7 @@ advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesTenis' no tiene de
             <Parameter Name="descuento" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Estado_Promocion">
-            <Parameter Name="nombre" Mode="In" Type="String" />
+          <Parameter Name="nombre" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="insertar_Cliente">
             <Parameter Name="cedula" Mode="In" Type="String" />
@@ -1578,6 +1579,7 @@ advertencia 6002: La tabla o vista 'HotelPatitoDB.dbo.ImagenesTenis' no tiene de
           <EntitySetMapping Name="Facilidad">
             <EntityTypeMapping TypeName="HotelDB.Facilidad">
               <MappingFragment StoreEntitySet="Facilidad">
+                <ScalarProperty Name="nombre_Facilidad" ColumnName="nombre_Facilidad" />
                 <ScalarProperty Name="id_Facilidad" ColumnName="id_Facilidad" />
                 <ScalarProperty Name="descripcion_Facilidad" ColumnName="descripcion_Facilidad" />
                 <ScalarProperty Name="hotel_Facilidad" ColumnName="hotel_Facilidad" />
